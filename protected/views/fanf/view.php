@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Fanf #<?php echo $model->ficId; ?></h1>
+<h1><?php echo $model->title; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
