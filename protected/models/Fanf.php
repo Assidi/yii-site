@@ -19,6 +19,11 @@
  * @property integer $coauthor
  * @property string $category
  * @property string $text
+ *
+ * The followings are the available model relations:
+ * @property CharactersFanfics[] $charactersFanfics
+ * @property FandomsFanfics[] $fandomsFanfics
+ * @property GenreFanfic[] $genreFanfics
  */
 class Fanf extends CActiveRecord
 {
@@ -59,6 +64,9 @@ class Fanf extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'charactersFanfics' => array(self::HAS_MANY, 'CharactersFanfics', 'fanficId'),
+			'fandomsFanfics' => array(self::HAS_MANY, 'FandomsFanfics', 'fanficId'),
+			'genreFanfics' => array(self::HAS_MANY, 'GenreFanfic', 'fanficId'),
 		);
 	}
 

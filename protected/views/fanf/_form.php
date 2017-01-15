@@ -46,7 +46,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'raiting'); ?>
-		<?php echo $form->textField($model,'raiting',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->radioButtonList($model,'raiting',array('G','PG', 'PG-13', 'R', 'NC-17')); ?>
 		<?php echo $form->error($model,'raiting'); ?>
 	</div>
 
@@ -94,7 +94,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'category'); ?>
-		<?php echo $form->textField($model,'category',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->radioButtonList($model,'category',array('Джен', 'Гет', 'Слэш', 'Фемслэш')); ?>
 		<?php echo $form->error($model,'category'); ?>
 	</div>
     
