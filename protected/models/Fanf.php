@@ -22,7 +22,10 @@
  *
  * The followings are the available model relations:
  * @property CharactersFanfics[] $charactersFanfics
+ * @property Comments[] $comments
  * @property FandomsFanfics[] $fandomsFanfics
+ * @property Coauthor $coauthor0
+ * @property Beta $beta0
  * @property GenreFanfic[] $genreFanfics
  */
 class Fanf extends CActiveRecord
@@ -43,7 +46,7 @@ class Fanf extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, year, month, datePublish, raiting, pairing, summary, size, beta, coauthor, category, text', 'required'),
+			array('title, year, month, datePublish, raiting, pairing, summary, size, category, text', 'required'),
 			array('month, datePublish, size, beta, coauthor', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('year', 'length', 'max'=>4),
@@ -65,7 +68,10 @@ class Fanf extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'charactersFanfics' => array(self::HAS_MANY, 'CharactersFanfics', 'fanficId'),
+			'comments' => array(self::HAS_MANY, 'Comments', 'fanficId'),
 			'fandomsFanfics' => array(self::HAS_MANY, 'FandomsFanfics', 'fanficId'),
+			'coauthor0' => array(self::BELONGS_TO, 'Coauthor', 'coauthor'),
+			'beta0' => array(self::BELONGS_TO, 'Beta', 'beta'),
 			'genreFanfics' => array(self::HAS_MANY, 'GenreFanfic', 'fanficId'),
 		);
 	}
@@ -76,21 +82,21 @@ class Fanf extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ficId' => 'Fic',
-			'title' => 'Title',
-			'year' => 'Year',
-			'month' => 'Month',
-			'datePublish' => 'Date Publish',
-			'raiting' => 'Raiting',
-			'pairing' => 'Pairing',
-			'summary' => 'Summary',
-			'note' => 'Note',
-			'dedication' => 'Dedication',
-			'size' => 'Size',
-			'beta' => 'Beta',
-			'coauthor' => 'Coauthor',
-			'category' => 'Category',
-			'text' => 'Text',
+			'ficId' => 'Номер фика',
+			'title' => 'Заголовок',
+			'year' => 'Год',
+			'month' => 'Месяц',
+			'datePublish' => 'Дата публикации',
+			'raiting' => 'Рейтинг',
+			'pairing' => 'Пейринг',
+			'summary' => 'Краткое содержание',
+			'note' => 'Примечание',
+			'dedication' => 'Посвящение',
+			'size' => 'Размер',
+			'beta' => 'Бета',
+			'coauthor' => 'Соавтор',
+			'category' => 'Категория',
+			'text' => 'Текст',
 		);
 	}
 
@@ -143,4 +149,53 @@ class Fanf extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /** 
+    * @return array список моделей жанров текущего фанфика 
+    */ 
+    public function getGenres() 
+    { 
+        $arGenres = array(); 
+        if ($this->genreFanfics) { 
+            foreach($this->genreFanfics as $genreFanficModel) {
+                
+                $arGenres[] = $genreFanficModel->genre; 
+            } 
+        } 
+        return $arGenres; 
+    }
+    
+    /** 
+    * @return array список моделей фандомов текущего фанфика 
+    */ 
+    public function getFandoms() 
+    {         
+        $arFandoms = array(); 
+        if ($this->fandomsFanfics) { 
+            foreach($this->fandomsFanfics as $fandomsFanficModel) {                
+                $arFandoms[] = $fandomsFanficModel->fandom; 
+            } 
+        }
+        return $arFandoms; 
+    }
+    
+    /** 
+    * @return имя беты текущего фанфика 
+    */ 
+    public function getBeta() {
+        if ($this->beta0) {
+            $mybeta =   $this->beta0;
+        }
+        return $mybeta;
+    }
+    
+    /** 
+    * @return имя соавтора текущего фанфика 
+    */ 
+    public function getCoauthor() {
+        if ($this->coauthor0) {
+            $mycoauthor =   $this->coauthor0;
+        }
+        return $mycoauthor;
+    }
 }

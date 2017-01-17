@@ -6,6 +6,9 @@
  * The followings are the available columns in table 'beta':
  * @property integer $betaId
  * @property string $betaName
+ *
+ * The followings are the available model relations:
+ * @property Fanf[] $fanfs
  */
 class Beta extends CActiveRecord
 {
@@ -41,6 +44,7 @@ class Beta extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'fanfs' => array(self::HAS_MANY, 'Fanf', 'beta'),
 		);
 	}
 

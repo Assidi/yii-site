@@ -6,6 +6,9 @@
  * The followings are the available columns in table 'coauthor':
  * @property integer $coauthorId
  * @property string $coauthorName
+ *
+ * The followings are the available model relations:
+ * @property Fanf[] $fanfs
  */
 class Coauthor extends CActiveRecord
 {
@@ -41,6 +44,7 @@ class Coauthor extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'fanfs' => array(self::HAS_MANY, 'Fanf', 'coauthor'),
 		);
 	}
 

@@ -20,27 +20,40 @@ $this->menu=array(
 <?php
     //print_r($model);
     //echo "<p></p>";
-    $date = $model->month.'.'.$model->year;
+    $date = AssidiHelper::getMonth($model->month).' '.$model->year;
 ?>
 
 <div class="full-text-head">
-    <?php 
-        if ($model->beta>0) {
+    
+    <p><span class="bold">Фандом: </span>
+        <?php
+        
+        
+        foreach($model->getFandoms() as $fandom) {
             ?>
-                <p><span class="bold">Бета: </span><?= $model->beta?></p>
-            <?php  
-        } 
+              <?= '<a href="/fandom/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
+            <?php
+        }
     ?>
-    <?php 
-        if ($model->coauthor>0) {
-            ?>
-                <p><span class="bold">Соавтор: </span><?= $model->coauthor?></p>
-            <?php  
-        } 
-    ?>    
+    </p>
+    
+    
     <p><span class="bold">Персонажи: </span><?= $model->pairing?></p>
     <p><span class="bold">Рейтинг: </span><?= $model->raiting?></p>
     <p><span class="bold">Категория: </span><?= $model->category?></p>
+    <p><span class="bold">Жанр: </span>
+        <?php
+        //print_r($model->genreFanfics);
+        //echo "<br />";
+        
+        foreach($model->getGenres() as $genre) {
+            ?>
+              <?= '<a href="/genre/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
+            <?php
+        }
+    ?>
+    </p>
+    
     <?php 
         if ($model->note !="") {
             ?>  
@@ -55,6 +68,21 @@ $this->menu=array(
             <?php 
         }
     ?>
+    <?php 
+        if ($model->beta>0) {
+            ?>
+                <p><span class="bold">Бета: </span><?= $model->getBeta()->betaName?></p>
+            <?php  
+        } 
+    ?>
+    
+    <?php 
+        if ($model->coauthor>0) {
+            ?>
+                <p><span class="bold">Соавтор: </span><?= $model->getCoauthor()->coauthorName?></p>
+            <?php  
+        } 
+    ?>    
     <p><span class="bold">Написано: </span><?= $date?></p>    
     
 </div>
