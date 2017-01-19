@@ -91,4 +91,28 @@ class Jokes extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+     * @return случайную шутку из базы Jokes
+     */
+    public function randJoke() {
+        echo '<p>Привет! Я функция randJoke</p>';
+        $jokesAll = this::model()->findAll();
+    //print_r($jokesAll);
+    //echo "<br />";
+    $n = count($jokesAll);
+    //echo "<p>Количество приколов в базе: ".$n."</p>";
+    $i = mt_rand(0, $n-1);
+    //echo 'Номер '.$i.'<br />';
+    
+    $jokes = array();
+    
+    foreach ($jokesAll as $jokerow) {
+        $jokes[] = $jokerow->jokeText;
+    }
+    
+    $joke = $jokes[$i];
+    $joke = preg_replace('/[\r\n]+/', "<br />", $joke);
+    return $joke;
+    }
 }
