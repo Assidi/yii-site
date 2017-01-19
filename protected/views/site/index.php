@@ -20,27 +20,9 @@ Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>
 
 
-<?php
-    //$joke = Jokes::model()->randJoke()
-    $jokesAll = Jokes::model()->findAll();
-    
-    //print_r($jokesAll);
-    //echo "<br />";
-    $n = count($jokesAll);
-    //echo "<p>Количество приколов в базе: ".$n."</p>";
-    $i = mt_rand(0, $n-1);
-    //echo 'Номер '.$i.'<br />';
-    
-    $jokes = array();
-    
-    foreach ($jokesAll as $jokerow) {
-        $jokes[] = $jokerow->jokeText;
-    }
-    
-    $joke = $jokes[$i];
-    $joke = preg_replace('/[\r\n]+/', "<br />", $joke);
-    echo '<p>'.$joke.'</p>';
-    
-    
-    
+<?php    
+    $myJoke = new Jokes;
+    $joke = $myJoke->randJoke();    
 ?>
+
+<p><?=$joke;?></p>
