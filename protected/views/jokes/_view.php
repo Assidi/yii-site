@@ -10,7 +10,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('jokeText')); ?>:</b>
-	<?php echo CHtml::encode($data->jokeText); ?>
+	<?php echo AssidiHelper::insertBreakes($data->jokeText); ?>
 	<br />
 
 

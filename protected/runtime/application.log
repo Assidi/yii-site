@@ -1247,3 +1247,19 @@ REQUEST_URI=/
 in N:\home\Yii-site\www\protected\models\Jokes.php (100)
 in N:\home\Yii-site\www\protected\views\site\index.php (26)
 in N:\home\Yii-site\www\protected\controllers\SiteController.php (32)
+2017/01/19 22:10:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ощлуы/index".' in N:\home\Yii-site\framework\web\CWebApplication.php:286
+Stack trace:
+#0 N:\home\Yii-site\framework\web\CWebApplication.php(141): CWebApplication->runController('??????????/inde...')
+#1 N:\home\Yii-site\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 N:\home\Yii-site\www\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=%D0%BE%D1%89%D0%BB%D1%83%D1%8B/index
+---
+2017/01/19 22:10:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ощлуы/index".' in N:\home\Yii-site\framework\web\CWebApplication.php:286
+Stack trace:
+#0 N:\home\Yii-site\framework\web\CWebApplication.php(141): CWebApplication->runController('??????????/inde...')
+#1 N:\home\Yii-site\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 N:\home\Yii-site\www\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=%D0%BE%D1%89%D0%BB%D1%83%D1%8B/index
+---

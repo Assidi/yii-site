@@ -24,7 +24,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('datePublish')); ?>:</b>
-	<?php echo CHtml::encode($data->datePublish); ?>
+	<?php echo AssidiHelper::dateFormat($data->datePublish); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('raiting')); ?>:</b>

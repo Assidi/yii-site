@@ -50,8 +50,8 @@ class Jokes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'jokeId' => 'Joke',
-			'jokeText' => 'Joke Text',
+			'jokeId' => 'Номер',
+			'jokeText' => 'Текст',
 		);
 	}
 
@@ -109,7 +109,10 @@ class Jokes extends CActiveRecord
         }
         
         $joke = $jokes[$i];
-        $joke = preg_replace('/[\r\n]+/', "<br />", $joke);
+        //$joke = preg_replace('/[\r\n]+/', "<br />", $joke);
+        $joke = AssidiHelper::insertBreakes($joke);
         return $joke;
     }
+    
+    
 }
