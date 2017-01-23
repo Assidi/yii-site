@@ -13,15 +13,15 @@ $this->menu=array(
 ?>
 
 <h1>Fanfs</h1>
+<?php foreach($searchedModels as $searchedModel): ?>
+	<?= $searchedModel->title; ?><br>
+	Жанры: <br>
+		<?php foreach($searchedModel->getGenres() as $genreModel): ?>
+			<?= $genreModel->genreName; ?><br>
+		<?php endforeach; ?>
+		<hr>
+<?php endforeach; ?>
 <?php
-	foreach($searchedModels as $searchedModel) {
-		echo $searchedModel->title . '<br>';
-		echo 'Жанры: <br>';
-		foreach($searchedModel->getGenres() as $genreModel) {
-			echo $genreModel->genreName . '<br>';
-		}
-		echo '<hr>';
-	}
 	//print_r($searchedModels);
     //print_r($models);
     //echo '<br />';
