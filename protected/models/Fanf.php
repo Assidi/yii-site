@@ -30,6 +30,10 @@
  */
 class Fanf extends CActiveRecord
 {
+    public $characters;
+    public $fandoms;
+    public $genres;
+    
 	/**
 	 * @return string the associated database table name
 	 */
@@ -197,5 +201,18 @@ class Fanf extends CActiveRecord
             $mycoauthor =   $this->coauthor0;
         }
         return $mycoauthor;
+    }
+
+    // поиск с использованием трёх фильтров
+    /**
+     * @param array $genres массив id жанров
+     */
+    public static function speacialSearch($characters = array(), $fandoms = array(), $genres = array()) {
+        $criteria = new CDbCriteria();
+        $criteria->with = array('genreFanfics.genre');
+        if ($genres) {
+            $criteria->addInCondition('genre.genreId', $genres);
+        }
+        return Fanf::model()->findAll($criteria);
     }
 }

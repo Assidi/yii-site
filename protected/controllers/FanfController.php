@@ -123,10 +123,12 @@ class FanfController extends Controller
 	public function actionIndex()
 	{
         $models = Fanf::model()->findAll();
+        $searchedModels = Fanf::speacialSearch(array(), array(), array(1));
 		$dataProvider=new CActiveDataProvider('Fanf');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-            'models'=>$models
+            'models'=>$models,
+            'searchedModels' => $searchedModels,
 		));
 	}
 

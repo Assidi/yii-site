@@ -13,11 +13,13 @@ $this->menu=array(
 ?>
 
 <h1>Fanfs</h1>
-
+<pre>
 <?php
+	print_r($searchedModels);
     //print_r($models);
     //echo '<br />';
 ?>
+</pre>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
