@@ -60,12 +60,12 @@ class Comments extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'commentId' => 'Comment',
-			'fanficId' => 'Fanfic',
-			'name' => 'Name',
-			'email' => 'Email',
-			'date' => 'Date',
-			'text' => 'Text',
+			'commentId' => 'Комментарий',
+			'fanficId' => 'Номер текста',
+			'name' => 'Имя',
+			'email' => 'Электронный адрес',
+			'date' => 'Дата',
+			'text' => 'Текст комментария',
 		);
 	}
 
