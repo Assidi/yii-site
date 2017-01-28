@@ -13,18 +13,8 @@ $this->menu=array(
 ?>
 
 <h1>Fanfs</h1>
-<?php foreach($searchedModels as $searchedModel): ?>
-	<?= $searchedModel->title; ?><br>
-	Жанры: <br>
-		<?php foreach($searchedModel->getGenres() as $genreModel): ?>
-			<?= $genreModel->genreName; ?><br>
-		<?php endforeach; ?>
-		<hr>
-<?php endforeach; ?>
 <?php
-	//print_r($searchedModels);
     //print_r($models);
-    //echo '<br />';
 ?>
 
 <?php $this->widget('zii.widgets.CListView', array(
