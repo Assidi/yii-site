@@ -1,0 +1,17 @@
+.assidi-pagination ul.yiiPager li a {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #FA8258;
+    color: #FAFAFA;
+    text-decoration: none;
+}
+
+.assidi-pagination ul.yiiPager li a:hover {
+    background-color: #DF3A01;
+}
+
+.assidi-pagination ul.yiiPager li a.selected {
+    background-color: #FAFAFA;
+    color: #FA8258;
+}
