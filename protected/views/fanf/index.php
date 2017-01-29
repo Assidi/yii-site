@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Fanf', 'url'=>array('create')),
 	array('label'=>'Manage Fanf', 'url'=>array('admin')),
+	array('label'=>'Поиск', 'url'=>array('search')),
 );
 ?>
 

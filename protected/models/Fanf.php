@@ -209,10 +209,22 @@ class Fanf extends CActiveRecord
      */
     public static function speacialSearch($characters = array(), $fandoms = array(), $genres = array()) {
         $criteria = new CDbCriteria();
-        $criteria->with = array('genreFanfics.genre');
-        if ($genres) {
+		$withCriteria = array();
+		if ($characters) {
+			$withCriteria[] = 'charactersFanfics.character';
+            $criteria->addInCondition('character.characterId', $characters);
+        }
+		if ($fandoms) {
+			$withCriteria[] = 'fandomsFanfics.fandom';
+            $criteria->addInCondition('fandom.fandomId', $fandoms);
+        }
+		if ($genres) {
+			$withCriteria[] = 'genreFanfics.genre';
             $criteria->addInCondition('genre.genreId', $genres);
         }
+		if ($withCriteria) {
+			$criteria->with = $withCriteria;
+		}
         return Fanf::model()->findAll($criteria);
     }
 }

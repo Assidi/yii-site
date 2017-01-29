@@ -95,4 +95,21 @@ class Genre extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	/**
+	 * Получение жанров для показа в выпадающем списке
+	 * @return type
+	 */
+	public static function getList()
+	{
+		$models = self::model()->findAll();
+		if (!$models) {
+			return array();
+		}
+		$arList = array('');
+		foreach ($models as $model) {
+			$arList[$model->genreId] = $model->genreName;
+		}
+		return $arList;
+	}
 }

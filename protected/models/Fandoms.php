@@ -97,4 +97,21 @@ class Fandoms extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	/**
+	 * Получение фандомов для показа в выпадающем списке
+	 * @return type
+	 */
+	public static function getList()
+	{
+		$models = self::model()->findAll();
+		if (!$models) {
+			return array();
+		}
+		$arList = array('');
+		foreach ($models as $model) {
+			$arList[$model->fandomId] = $model->fandomName;
+		}
+		return $arList;
+	}
 }
