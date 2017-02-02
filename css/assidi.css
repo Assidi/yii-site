@@ -5,6 +5,7 @@
     background-color: #FA8258;
     color: #FAFAFA;
     text-decoration: none;
+    border: none;
 }
 
 .assidi-pagination ul.yiiPager li a:hover {

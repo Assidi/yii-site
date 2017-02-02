@@ -24,13 +24,26 @@ class AssidiHelper {
         
 	/**
 	 * форматирует дату из системной 
-	 * @param системная дата
+	 * @param $date системная дата
 	 * @return нормальная дата и время для вывода на экран
 	 */
     static function dateFormat($date) {
         $datetime = date("d.m.Y H:i", $date);
         return $datetime;
     }
+    
+    /**
+	 * Определяет размер фика в килобайтах по размеру в байтах, для вывода
+	 * @param $date системная дата
+	 * @return нормальная дата и время для вывода на экран
+	 */
+     
+     static function getSize($size) {        
+        $size1 = $size/1000;
+        $size1 = floor($size1);
+        if ($size1==0) $size1=1;
+        return $size1."К";
+     }
 	
 	/**
 	 * Проверяет, содержит ли параметр непустой массив

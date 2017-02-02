@@ -54,8 +54,8 @@ class Genre extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'genreId' => 'Genre',
-			'genreName' => 'Genre Name',
+			'genreId' => 'Номер жанра',
+			'genreName' => 'Название жанра',
 		);
 	}
 

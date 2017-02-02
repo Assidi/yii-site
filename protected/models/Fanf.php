@@ -172,8 +172,9 @@ class Fanf extends CActiveRecord
     /** 
     * @return array список моделей фандомов текущего фанфика 
     */ 
-    public function getFandoms() 
-    {         
+    public function getFandoms()    
+    {        
+
         $arFandoms = array(); 
         if ($this->fandomsFanfics) { 
             foreach($this->fandomsFanfics as $fandomsFanficModel) {                

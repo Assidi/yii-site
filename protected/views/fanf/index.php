@@ -3,17 +3,17 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Fanfs',
+	'Фанфики',
 );
 
 $this->menu=array(
-	array('label'=>'Create Fanf', 'url'=>array('create')),
-	array('label'=>'Manage Fanf', 'url'=>array('admin')),
+	array('label'=>'Создание', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 	array('label'=>'Поиск', 'url'=>array('search')),
 );
 ?>
 
-<h1>Fanfs</h1>
+<h1>Фанфики</h1>
 <?php
     //print_r($models);
 ?>

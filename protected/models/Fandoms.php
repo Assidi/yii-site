@@ -56,8 +56,8 @@ class Fandoms extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'fandomId' => 'Fandom',
-			'fandomName' => 'Fandom Name',
+			'fandomId' => 'Номер фандома',
+			'fandomName' => 'Название фандома',
 		);
 	}
 

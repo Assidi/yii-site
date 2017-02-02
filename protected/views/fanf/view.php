@@ -3,7 +3,7 @@
 /* @var $model Fanf */
 
 $this->breadcrumbs=array(
-	'Fanfs'=>array('index'),
+	'Фанфики'=>array('index'),
 	$model->title,
 );
 
@@ -42,10 +42,7 @@ $this->menu=array(
     <p><span class="bold">Рейтинг: </span><?= $model->raiting?></p>
     <p><span class="bold">Категория: </span><?= $model->category?></p>
     <p><span class="bold">Жанр: </span>
-        <?php
-        //print_r($model->genreFanfics);
-        //echo "<br />";
-        
+        <?php        
         foreach($model->getGenres() as $genre) {
             ?>
               <?= '<a href="/genre/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
