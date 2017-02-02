@@ -28,7 +28,7 @@
         <?php
         foreach($data->getFandoms() as $fandom) {
             ?>
-              <?= '<a href="/fandom/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
+              <?= '<a href="/fandoms/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
             <?php
         }
     ?>
