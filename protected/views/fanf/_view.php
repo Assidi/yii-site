@@ -42,7 +42,8 @@
             <?php
         }
     ?>
-    <br />
+    <br />  
+    
     
     <b><?php echo CHtml::encode($data->getAttributeLabel('size')); ?>:</b>
 	<?php echo CHtml::encode(AssidiHelper::getSize($data->size)); ?>

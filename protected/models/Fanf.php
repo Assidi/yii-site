@@ -170,17 +170,39 @@ class Fanf extends CActiveRecord
     }
     
     /** 
+    * @return array список персонажей текущего фанфика 
+    */ 
+    
+    public function getCharacters() {
+        echo "Привет, я функция getCharacters!<br />";
+        $arCharact = array();
+        if ($this->charactersFanfics) {
+            foreach($this->charactersFanfics as $charFanficModel) { 
+                print_r($charFanficModel);
+                echo "<p>Одна итерация цикла есть</p>";
+                $arCharact[] = $charFanficModel->character; 
+            } 
+        } 
+        echo "Пока, я завершила работу!<br />";
+        return $arCharact;
+        
+    }
+    
+    /** 
     * @return array список моделей фандомов текущего фанфика 
     */ 
     public function getFandoms()    
-    {        
-
+    {   
+        echo "Привет, я функция getFandoms!<br />";
         $arFandoms = array(); 
         if ($this->fandomsFanfics) { 
             foreach($this->fandomsFanfics as $fandomsFanficModel) {                
-                $arFandoms[] = $fandomsFanficModel->fandom; 
+                $arFandoms[] = $fandomsFanficModel->fandom;
+                print_r($fandomsFanficModel);
+                echo "<p>Одна итерация цикла есть</p>"; 
             } 
         }
+        echo "Пока, я завершила работу!<br />";
         return $arFandoms; 
     }
     

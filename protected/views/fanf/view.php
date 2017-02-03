@@ -37,6 +37,15 @@ $this->menu=array(
     ?>
     </p>
     
+    <?php
+        if($model->getCharacters()) {
+            foreach ($model->getCharacters() as $character) {
+                ?>                 
+                <? $character->characterName." "?>
+                <?php
+            }
+        }
+    ?>
     
     <p><span class="bold">Персонажи: </span><?= $model->pairing?></p>
     <p><span class="bold">Рейтинг: </span><?= $model->raiting?></p>

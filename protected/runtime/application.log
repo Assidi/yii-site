@@ -1995,3 +1995,21 @@ Stack trace:
 REQUEST_URI=/fandom/2
 HTTP_REFERER=http://yii-site/fanf/index
 ---
+2017/02/03 08:15:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in N:\home\Yii-site\framework\web\CWebApplication.php:286
+Stack trace:
+#0 N:\home\Yii-site\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 N:\home\Yii-site\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 N:\home\Yii-site\www\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://yii-site/fanf/search?fandoms%5B%5D=12&characters%5B%5D=0&genres%5B%5D=0&yt0=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA
+---
+2017/02/03 18:43:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in N:\home\Yii-site\framework\web\CWebApplication.php:286
+Stack trace:
+#0 N:\home\Yii-site\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 N:\home\Yii-site\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 N:\home\Yii-site\www\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://yii-site/genre/10
+---
