@@ -39,9 +39,10 @@ $this->menu=array(
     
     <?php
         if($model->getCharacters()) {
+			?><h2>Персонажи</h2><?php
             foreach ($model->getCharacters() as $character) {
                 ?>                 
-                <? $character->characterName." "?>
+                <?= $character->characterName."<br>"; ?>
                 <?php
             }
         }
