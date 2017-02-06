@@ -7,7 +7,7 @@
 <div class="view">    
     
     <div class="fanf-title">
-    <?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->ficId)); ?>
+    <?php echo CHtml::link(CHtml::encode($data->title), array('fanf/view', 'id'=>$data->ficId)); ?>
     </div>	
     
 	
