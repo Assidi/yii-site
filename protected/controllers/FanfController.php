@@ -122,7 +122,8 @@ class FanfController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$models = Fanf::model()->findAll();
+        $criteria=new CDbCriteria(array('order'=>'year DESC'));	   
+		$models = Fanf::model()->findAll($criteria);
 		$dataProvider=new CActiveDataProvider('Fanf');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
