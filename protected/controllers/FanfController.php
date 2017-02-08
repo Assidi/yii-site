@@ -124,7 +124,7 @@ class FanfController extends Controller
 	{
         $criteria=new CDbCriteria(array('order'=>'year DESC'));	   
 		$models = Fanf::model()->findAll($criteria);
-		$dataProvider=new CActiveDataProvider('Fanf');
+		$dataProvider=new CActiveDataProvider('Fanf', array('criteria'=>array('order'=>'year DESC')));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'models'=>$models,
@@ -151,7 +151,7 @@ class FanfController extends Controller
 		$characters = AssidiHelper::getArrayFromRequest('characters');
 		$fandoms = AssidiHelper::getArrayFromRequest('fandoms');
 		$genres = AssidiHelper::getArrayFromRequest('genres');
-		$models = Fanf::speacialSearch($fandoms, $characters, $genres);
+		$models = Fanf::speacialSearch($characters, $fandoms, $genres);
 
 		$this->render('special',array(
 			'models' => $models,
