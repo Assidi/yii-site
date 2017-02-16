@@ -1,15 +1,15 @@
 <?php
-/* @var $this FanfController */
-/* @var $model Fanf */
+/* @var $this CharactersController */
+/* @var $model Characters */
 
 $this->breadcrumbs=array(
-	'Fanfs'=>array('index'),
+	'Characters'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Fanf', 'url'=>array('index')),
-	array('label'=>'Create Fanf', 'url'=>array('create')),
+	array('label'=>'List Characters', 'url'=>array('index')),
+	array('label'=>'Create Characters', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#fanf-grid').yiiGridView('update', {
+	$('#characters-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Fanfs</h1>
+<h1>Manage Characters</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,26 +41,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'fanf-grid',
+	'id'=>'characters-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'ficId',
-		'title',
-		'dateWrite',
-		'datePublish',
-		'raiting',
-		'pairing',
-		/*
-		'summary',
-		'note',
-		'dedication',
-		'size',
-		'beta',
-		'coauthor',
-		'category',
-		'text',
-		*/
+		'characterId',
+		'characterName',
+		'fandomId',
 		array(
 			'class'=>'CButtonColumn',
 		),

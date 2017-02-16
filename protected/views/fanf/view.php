@@ -17,11 +17,7 @@ $this->menu=array(
 ?>
 
 <h1><?php echo $model->title; ?></h1>
-<?php
-    //print_r($model);
-    //echo "<p></p>";
-    $date = AssidiHelper::getMonth($model->month).' '.$model->year;
-?>
+
 
 <div class="full-text-head">
     
@@ -90,33 +86,11 @@ $this->menu=array(
             <?php  
         } 
     ?>    
-    <p><span class="bold">Написано: </span><?= $date?></p>    
+    <p><span class="bold">Написано: </span><?= $model->dateWrite?></p>    
     
 </div>
 
 <?= $model->text; ?>
 
-<?php 
-/**
- * $this->widget('zii.widgets.CDetailView', array(
- * 	'data'=>$model,
- * 	'attributes'=>array(
- * 		'ficId',		
- * 		'title',
- * 		'year',
- * 		'month',
- * 		'datePublish',
- * 		'raiting',
- * 		'pairing',
- * 		'summary',
- * 		'note',
- * 		'dedication',
- * 		'size',
- * 		'beta',
- * 		'coauthor',
- * 		'category',
- *         'text'
- * 	),
- * )); 
- */
-?>
+
+

@@ -19,7 +19,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
@@ -27,15 +26,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'year'); ?>
-		<?php echo $form->textField($model,'year',array('size'=>4,'maxlength'=>4)); ?>
-		<?php echo $form->error($model,'year'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'month'); ?>
-		<?php echo $form->textField($model,'month'); ?>
-		<?php echo $form->error($model,'month'); ?>
+		<?php echo $form->labelEx($model,'dateWrite')." гггг-мм-дд"; ?>        
+		<?php echo $form->textField($model,'dateWrite'); ?>
+		<?php echo $form->error($model,'dateWrite'); ?>
 	</div>
 
 	<div class="row">
@@ -46,7 +39,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'raiting'); ?>
-		<?php echo $form->radioButtonList($model,'raiting',array('G','PG', 'PG-13', 'R', 'NC-17')); ?>
+		<?php echo $form->textField($model,'raiting',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'raiting'); ?>
 	</div>
 
@@ -94,11 +87,11 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'category'); ?>
-		<?php echo $form->radioButtonList($model,'category',array('Джен', 'Гет', 'Слэш', 'Фемслэш')); ?>
+		<?php echo $form->textField($model,'category',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'category'); ?>
 	</div>
-    
-    <div class="row">
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'text'); ?>
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>

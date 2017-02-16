@@ -16,20 +16,14 @@
 		<?php echo $form->textField($model,'ficId'); ?>
 	</div>
 
-
 	<div class="row">
 		<?php echo $form->label($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'year'); ?>
-		<?php echo $form->textField($model,'year',array('size'=>4,'maxlength'=>4)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'month'); ?>
-		<?php echo $form->textField($model,'month'); ?>
+		<?php echo $form->label($model,'dateWrite'); ?>
+		<?php echo $form->textField($model,'dateWrite'); ?>
 	</div>
 
 	<div class="row">
@@ -80,6 +74,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'category'); ?>
 		<?php echo $form->textField($model,'category',array('size'=>10,'maxlength'=>10)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'text'); ?>
+		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
 	<div class="row buttons">

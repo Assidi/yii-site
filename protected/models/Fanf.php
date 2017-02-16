@@ -1,13 +1,12 @@
 <?php
 
 /**
- * This is the model class for table "fanf".
+ * This is the model class for table "Fanf".
  *
- * The followings are the available columns in table 'fanf':
+ * The followings are the available columns in table 'Fanf':
  * @property integer $ficId
  * @property string $title
- * @property string $year
- * @property integer $month
+ * @property string $dateWrite
  * @property integer $datePublish
  * @property string $raiting
  * @property string $pairing
@@ -24,22 +23,18 @@
  * @property CharactersFanfics[] $charactersFanfics
  * @property Comments[] $comments
  * @property FandomsFanfics[] $fandomsFanfics
- * @property Coauthor $coauthor0
  * @property Beta $beta0
+ * @property Coauthor $coauthor0
  * @property GenreFanfic[] $genreFanfics
  */
 class Fanf extends CActiveRecord
 {
-    public $characters;
-    public $fandoms;
-    public $genres;
-    
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'fanf';
+		return 'Fanf';
 	}
 
 	/**
@@ -50,16 +45,15 @@ class Fanf extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, year, month, datePublish, raiting, pairing, summary, size, category, text', 'required'),
-			array('month, datePublish, size, beta, coauthor', 'numerical', 'integerOnly'=>true),
+			array('title, dateWrite, datePublish, raiting, pairing, summary, size, category, text', 'required'),
+			array('datePublish, size, beta, coauthor', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
-			array('year', 'length', 'max'=>4),
 			array('raiting, category', 'length', 'max'=>10),
 			array('pairing', 'length', 'max'=>200),
 			array('summary, note, dedication', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ficId, title, year, month, datePublish, raiting, pairing, summary, note, dedication, size, beta, coauthor, category, text', 'safe', 'on'=>'search'),
+			array('ficId, title, dateWrite, datePublish, raiting, pairing, summary, note, dedication, size, beta, coauthor, category, text', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,8 +68,8 @@ class Fanf extends CActiveRecord
 			'charactersFanfics' => array(self::HAS_MANY, 'CharactersFanfics', 'fanficId'),
 			'comments' => array(self::HAS_MANY, 'Comments', 'fanficId'),
 			'fandomsFanfics' => array(self::HAS_MANY, 'FandomsFanfics', 'fanficId'),
-			'coauthor0' => array(self::BELONGS_TO, 'Coauthor', 'coauthor'),
 			'beta0' => array(self::BELONGS_TO, 'Beta', 'beta'),
+			'coauthor0' => array(self::BELONGS_TO, 'Coauthor', 'coauthor'),
 			'genreFanfics' => array(self::HAS_MANY, 'GenreFanfic', 'fanficId'),
 		);
 	}
@@ -88,8 +82,7 @@ class Fanf extends CActiveRecord
 		return array(
 			'ficId' => 'Номер фика',
 			'title' => 'Заголовок',
-			'year' => 'Год',
-			'month' => 'Месяц',
+			'dateWrite' => 'Дата написания',
 			'datePublish' => 'Дата публикации',
 			'raiting' => 'Рейтинг',
 			'pairing' => 'Пейринг',
@@ -124,8 +117,7 @@ class Fanf extends CActiveRecord
 
 		$criteria->compare('ficId',$this->ficId);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('year',$this->year,true);
-		$criteria->compare('month',$this->month);
+		$criteria->compare('dateWrite',$this->dateWrite,true);
 		$criteria->compare('datePublish',$this->datePublish);
 		$criteria->compare('raiting',$this->raiting,true);
 		$criteria->compare('pairing',$this->pairing,true);

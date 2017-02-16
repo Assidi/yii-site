@@ -28,7 +28,7 @@ class FanfController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','search'),
+				'actions'=>array('index','view', 'search'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -122,9 +122,9 @@ class FanfController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $criteria=new CDbCriteria(array('order'=>'year DESC'));	   
+        $criteria=new CDbCriteria(array('order'=>'dateWrite DESC'));	   
 		$models = Fanf::model()->findAll($criteria);
-		$dataProvider=new CActiveDataProvider('Fanf', array('criteria'=>array('order'=>'year DESC')));
+		$dataProvider=new CActiveDataProvider('Fanf', array('criteria'=>array('order'=>'dateWrite DESC')));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'models'=>$models,
@@ -145,8 +145,8 @@ class FanfController extends Controller
 			'model'=>$model,
 		));
 	}
-	
-	public function actionSearch()
+    
+    public function actionSearch()
 	{
 		$characters = AssidiHelper::getArrayFromRequest('characters');
 		$fandoms = AssidiHelper::getArrayFromRequest('fandoms');

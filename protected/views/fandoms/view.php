@@ -1,13 +1,15 @@
-<h1>fandom</h1>
-<pre>
-    <? print_r($fandom->attributes); ?>
-</pre>
+<? if($fandom): ?>
+    <h1>Фандом: <?= $fandom->fandomName; ?></h1>
+<? else: ?>
+    <p>Фандом не найден.</p>
+<? endif; ?>
 
-<hr>
-<h2>fanfs</h2>
-<pre>
+<? if($fanfs): ?>
     <? foreach($fanfs as $fanf): ?>
-        <? print_r($fanf->attributes); ?>
-        <hr>
+        <? $this->renderPartial('/fanf/_view', array(
+            'data' => $fanf
+        )); ?>
     <? endforeach; ?>
-</pre>
+<? else: ?>
+    <p>Фанфики по этому фандому отсутствуют.</p>
+<? endif; ?>

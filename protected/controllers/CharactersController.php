@@ -1,6 +1,6 @@
 <?php
 
-class FandomsController extends Controller
+class CharactersController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -50,12 +50,11 @@ class FandomsController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
-    {
-        $this->render('view',array(
-            'fandom'=>Fandoms::model()->findByPk($id),
-            'fanfs'=>Fanf::speacialSearch(array(), array($id), array()),
-        ));
-    }
+	{
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
 
 	/**
 	 * Creates a new model.
@@ -63,16 +62,16 @@ class FandomsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Fandoms;
+		$model=new Characters;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Fandoms']))
+		if(isset($_POST['Characters']))
 		{
-			$model->attributes=$_POST['Fandoms'];
+			$model->attributes=$_POST['Characters'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->fandomId));
+				$this->redirect(array('view','id'=>$model->characterId));
 		}
 
 		$this->render('create',array(
@@ -92,11 +91,11 @@ class FandomsController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Fandoms']))
+		if(isset($_POST['Characters']))
 		{
-			$model->attributes=$_POST['Fandoms'];
+			$model->attributes=$_POST['Characters'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->fandomId));
+				$this->redirect(array('view','id'=>$model->characterId));
 		}
 
 		$this->render('update',array(
@@ -123,7 +122,7 @@ class FandomsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Fandoms');
+		$dataProvider=new CActiveDataProvider('Characters');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -134,10 +133,10 @@ class FandomsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Fandoms('search');
+		$model=new Characters('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Fandoms']))
-			$model->attributes=$_GET['Fandoms'];
+		if(isset($_GET['Characters']))
+			$model->attributes=$_GET['Characters'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -148,12 +147,12 @@ class FandomsController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Fandoms the loaded model
+	 * @return Characters the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Fandoms::model()->findByPk($id);
+		$model=Characters::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -161,11 +160,11 @@ class FandomsController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Fandoms $model the model to be validated
+	 * @param Characters $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='fandoms-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='characters-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
