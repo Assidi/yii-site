@@ -3,18 +3,19 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Characters',
+	'Персонажи',
 );
 
 $this->menu=array(
-	array('label'=>'Create Characters', 'url'=>array('create')),
-	array('label'=>'Manage Characters', 'url'=>array('admin')),
+	array('label'=>'Создание', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Characters</h1>
+<h1>Персонажи</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
+    
 )); ?>

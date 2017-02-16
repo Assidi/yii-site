@@ -27,7 +27,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'fandomId'); ?>
-		<?php echo $form->textField($model,'fandomId'); ?>
+		<!--
+<?php echo $form->textField($model,'fandomId'); ?>
+-->
+        <?= CHtml::dropDownList('fandoms[]', '', Fandoms::getList()); ?>
 		<?php echo $form->error($model,'fandomId'); ?>
 	</div>
 

@@ -58,9 +58,9 @@ class Characters extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'characterId' => 'Character',
-			'characterName' => 'Character Name',
-			'fandomId' => 'Fandom',
+			'characterId' => 'Идентификатор персонажа',
+			'characterName' => 'Имя персонажа',
+			'fandomId' => 'Фандом',
 		);
 	}
 

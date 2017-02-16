@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Characters', 'url'=>array('index')),
-	array('label'=>'Manage Characters', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Characters</h1>
+<h1>Новый персонаж</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

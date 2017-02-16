@@ -122,10 +122,12 @@ class CharactersController extends Controller
 	 */
 	public function actionIndex()
 	{
+	    $criteria=new CDbCriteria(array('order'=>'fandomId'));   
 		$dataProvider=new CActiveDataProvider('Characters');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
+            array('criteria'=>array('order'=>'fandomId')
+		)));
 	}
 
 	/**
