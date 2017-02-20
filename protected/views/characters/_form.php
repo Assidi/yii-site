@@ -30,7 +30,7 @@
 		<!--
 <?php echo $form->textField($model,'fandomId'); ?>
 -->
-        <?= CHtml::dropDownList('fandoms[]', '', Fandoms::getList()); ?>
+        <?= CHtml::dropDownList('fandoms[]', $model->fandomId, Fandoms::getList()); ?>
 		<?php echo $form->error($model,'fandomId'); ?>
 	</div>
 

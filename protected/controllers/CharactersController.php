@@ -69,6 +69,9 @@ class CharactersController extends Controller
 
 		if(isset($_POST['Characters']))
 		{
+			if (isset($_POST['fandoms'][0])) {
+				$_POST['Characters']['fandomId'] = $_POST['fandoms'][0];
+			}
 			$model->attributes=$_POST['Characters'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->characterId));
