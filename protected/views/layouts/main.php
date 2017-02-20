@@ -40,6 +40,15 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
+    <? if(!Yii::app()->user->isGuest): ?>
+<div id="adminmenu">
+		<?php $this->widget('zii.widgets.CMenu',array(
+			'items'=>array(              
+                array('label'=>'Персонажи', 'url'=>array('/characters/index')),
+			),
+		)); ?>
+</div>
+<? endif; ?>
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
