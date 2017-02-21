@@ -3,7 +3,7 @@
 /* @var $model Characters */
 
 $this->breadcrumbs=array(
-	'Characters'=>array('index'),
+	'Персонажи'=>array('index'),
 	$model->characterId,
 );
 

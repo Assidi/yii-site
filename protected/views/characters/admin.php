@@ -3,8 +3,8 @@
 /* @var $model Characters */
 
 $this->breadcrumbs=array(
-	'Characters'=>array('index'),
-	'Manage',
+	'Персонажи'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(

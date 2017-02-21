@@ -105,7 +105,7 @@ class Characters extends CActiveRecord
 	/**
 	 * Получение героев для показа в выпадающем списке
      * персонажи сортируются по фандомам
-	 * @return type
+	 * @return list array() 
 	 */
 	public static function getList()
 	{
@@ -120,4 +120,7 @@ class Characters extends CActiveRecord
 		}
 		return $arList;
 	}
+    
+    
+     
 }

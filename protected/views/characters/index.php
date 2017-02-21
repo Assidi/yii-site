@@ -14,8 +14,24 @@ $this->menu=array(
 
 <h1>Персонажи</h1>
 
+
+    <table class="table-characters">
+    <tr>
+        <th>Персонаж</th>
+        <th>Фандом</th>        
+    </tr>    
+    <? foreach ($models as $modelCharacter): ?>
+        <tr>
+        <td><?= $modelCharacter->characterName; ?></td>
+        <td><?= $modelCharacter->fandom->fandomName; ?></td>
+        </tr>                
+    <? endforeach; ?>
+    </table>
+
+<!--
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
     'pager' => array('pageSize'=>100),
 )); ?>
+-->

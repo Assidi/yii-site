@@ -27,7 +27,7 @@
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
-
+<!-- Общее меню для сайта -->
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -39,15 +39,21 @@
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
-	</div><!-- mainmenu -->
+	</div><!-- mainmenu -->    
     <? if(!Yii::app()->user->isGuest): ?>
-<div id="adminmenu">
+    <!-- Меню для администратора -->
+    <div id="adminmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(              
                 array('label'=>'Персонажи', 'url'=>array('/characters/index')),
+                array('label'=>'Жанры', 'url'=>array('/genre/index')),
+                array('label'=>'Фандомы', 'url'=>array('/fandoms/index')),
+                array('label'=>'Соавторы', 'url'=>array('/coauthor/index')),
+                array('label'=>'Беты', 'url'=>array('/beta/index')),
+                array('label'=>'Приколы', 'url'=>array('/jokes/index')),
 			),
 		)); ?>
-</div>
+    </div>
 <? endif; ?>
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
