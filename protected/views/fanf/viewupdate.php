@@ -11,7 +11,6 @@ $this->menu=array(
 	array('label'=>'Все фанфики', 'url'=>array('index')),
 	array('label'=>'Создать фанфик', 'url'=>array('create')),
 	array('label'=>'Обновить фанфик', 'url'=>array('update', 'id'=>$model->ficId)),
-    array('label'=>'Добавить персонажей', 'url'=>array('viewupdate', 'id'=>$model->ficId)),
 	array('label'=>'Удалить фанфик', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ficId),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Управление фанфиками', 'url'=>array('admin')),
 );
@@ -44,6 +43,13 @@ $this->menu=array(
             }
         }
     ?>
+    
+    <? if($model->getCharacters()): ?>
+    <h3>Удаление персонажей</h3>
+    <? foreach ($model->getCharacters() as $charfanfId => $character): ?>
+        <a href="/fanf/deletecharacter/<?= $charfanfId; ?>"><?= $character->characterName; ?></a><br>
+    <? endforeach; ?>
+<? endif; ?>
     
     <p><span class="bold">Персонажи: </span><?= $model->pairing?></p>
     <p><span class="bold">Рейтинг: </span><?= $model->raiting?></p>
@@ -91,7 +97,10 @@ $this->menu=array(
     
 </div>
 
-<?= $model->text; ?>
+<form action="" method="post">
+    <?= CHtml::dropDownList('characterId', '', Characters::getList()); ?>
+    <input type="submit" value="Добавить"/>
+</form>
 
 
 

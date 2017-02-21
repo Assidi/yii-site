@@ -36,7 +36,7 @@ class FanfController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','viewupdate', 'deletecharacter'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -54,6 +54,23 @@ class FanfController extends Controller
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+	}
+    
+    public function actionViewupdate($id)
+	{
+	       if(isset($_POST['characterId'])) {
+	           $charactersFanficsModel = new CharactersFanfics;
+               $charactersFanficsModel->fanficId = $id;
+               $charactersFanficsModel->characterId = $_POST['characterId'];
+               $charactersFanficsModel->save();
+	       }
+           
+           
+		$this->render('viewupdate',array(
+			'model'=>$this->loadModel($id),
+		));
+        
+        
 	}
 
 	/**
@@ -111,6 +128,16 @@ class FanfController extends Controller
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+
+public function actionDeletecharacter($id)
+	{
+        $characterFanfModel = CharactersFanfics::model()->findByPk($id);
+		$characterFanfModel->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))

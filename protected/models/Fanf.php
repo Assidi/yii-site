@@ -166,20 +166,13 @@ class Fanf extends CActiveRecord
     */ 
     
     public function getCharacters() {
-//        echo "Привет, я функция getCharacters!<br />";
         $arCharact = array();
         if ($this->charactersFanfics) {
             foreach($this->charactersFanfics as $charFanficModel) { 
-//				echo '<pre>';
-//                print_r($charFanficModel->character);
-//				echo '</pre>';
-//                echo "<p>Одна итерация цикла есть</p>";
-                $arCharact[] = $charFanficModel->character; 
+                $arCharact[$charFanficModel->charfanId] = $charFanficModel->character; 
             } 
         } 
-//        echo "Пока, я завершила работу!<br />";
-        return $arCharact;
-        
+        return $arCharact;        
     }
     
     /** 
