@@ -22,7 +22,7 @@ $this->menu=array(
     </tr>    
     <? foreach ($models as $modelCharacter): ?>
         <tr>
-        <td><?= $modelCharacter->characterName; ?></td>
+        <td><a href="<?= $modelCharacter->characterId; ?>" class="a-inline"><?= $modelCharacter->characterName; ?></a></td>
         <td><?= $modelCharacter->fandom->fandomName; ?></td>
         </tr>                
     <? endforeach; ?>

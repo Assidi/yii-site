@@ -217,6 +217,14 @@ p {
 	text-decoration:none;
 }
 
+.a-inline {
+    color: #610B0B; 
+}
+
+.a-inline:hover {
+    color: #aa4b3f; 
+}
+
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;
