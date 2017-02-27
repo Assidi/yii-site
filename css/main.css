@@ -383,17 +383,37 @@ div.search-form
 }
 
 .odd {
-    background-color: #fce38a;
+    background-color: #FFD6B6;
+}
+
+.even {
+    background-color: #FAF9E6;
 }
 
 .table-characters {
     margin: 30px 0;
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 1px solid #FA8258;
 }
 
 .table-characters td, th {
     padding: 5px 20px;
-    border: 1px solid black;
+    border: 1px solid #FA8258;
     
+}
+
+table.detail-view th
+{
+	font-size: 0.9em;
+	border: 1px #FA8258 solid;
+	padding: 0.3em 0.6em;
+	vertical-align: top;
+}
+
+table.detail-view td
+{
+	font-size: 0.9em;
+	border: 1px #FA8258 solid;
+	padding: 0.3em 0.6em;
+	vertical-align: top;
 }
