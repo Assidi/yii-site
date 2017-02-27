@@ -3,13 +3,13 @@
 /* @var $model Coauthor */
 
 $this->breadcrumbs=array(
-	'Coauthors'=>array('index'),
-	'Manage',
+	'Соавторы'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(
-	array('label'=>'List Coauthor', 'url'=>array('index')),
-	array('label'=>'Create Coauthor', 'url'=>array('create')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Создать', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Coauthors</h1>
+<h1>Управление соавторами</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

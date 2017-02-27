@@ -54,8 +54,8 @@ class Coauthor extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'coauthorId' => 'Coauthor',
-			'coauthorName' => 'Coauthor Name',
+			'coauthorId' => 'Номер соавтора',
+			'coauthorName' => 'Имя соавтора',
 		);
 	}
 

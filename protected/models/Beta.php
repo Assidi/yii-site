@@ -54,8 +54,8 @@ class Beta extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'betaId' => 'Beta',
-			'betaName' => 'Beta Name',
+			'betaId' => 'Номер беты',
+			'betaName' => 'Имя беты',
 		);
 	}
 

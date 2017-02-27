@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Betas',
+	'Беты',
 );
 
 $this->menu=array(
-	array('label'=>'Create Beta', 'url'=>array('create')),
-	array('label'=>'Manage Beta', 'url'=>array('admin')),
+	array('label'=>'Создание', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Betas</h1>
+<h1>Беты</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

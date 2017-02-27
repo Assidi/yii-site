@@ -3,20 +3,20 @@
 /* @var $model Beta */
 
 $this->breadcrumbs=array(
-	'Betas'=>array('index'),
+	'Беты'=>array('index'),
 	$model->betaId,
 );
 
 $this->menu=array(
-	array('label'=>'List Beta', 'url'=>array('index')),
-	array('label'=>'Create Beta', 'url'=>array('create')),
-	array('label'=>'Update Beta', 'url'=>array('update', 'id'=>$model->betaId)),
-	array('label'=>'Delete Beta', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->betaId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Beta', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Обновить', 'url'=>array('update', 'id'=>$model->betaId)),
+	array('label'=>'Удалить', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->betaId),'confirm'=>'Вы действительно хотите удалить этот элемент?')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Beta #<?php echo $model->betaId; ?></h1>
+<h1>Бета №<?php echo $model->betaId; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

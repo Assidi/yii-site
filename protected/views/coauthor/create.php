@@ -3,16 +3,16 @@
 /* @var $model Coauthor */
 
 $this->breadcrumbs=array(
-	'Coauthors'=>array('index'),
-	'Create',
+	'Соавторы'=>array('index'),
+	'Создание',
 );
 
 $this->menu=array(
-	array('label'=>'List Coauthor', 'url'=>array('index')),
-	array('label'=>'Manage Coauthor', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Coauthor</h1>
+<h1>Добавить соавтора</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

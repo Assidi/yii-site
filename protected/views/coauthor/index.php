@@ -3,16 +3,20 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Coauthors',
+	'Соавторы',
 );
 
 $this->menu=array(
-	array('label'=>'Create Coauthor', 'url'=>array('create')),
-	array('label'=>'Manage Coauthor', 'url'=>array('admin')),
+	array('label'=>'Создание', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Coauthors</h1>
+<h1>Соавторы</h1>
+
+<?php
+    print_r($models);
+?>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
