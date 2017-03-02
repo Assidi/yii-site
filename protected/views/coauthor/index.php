@@ -1,3 +1,5 @@
+
+
 <?php
 /* @var $this CoauthorController */
 /* @var $dataProvider CActiveDataProvider */
@@ -14,11 +16,11 @@ $this->menu=array(
 
 <h1>Соавторы</h1>
 
-<?php
-    print_r($models);
-?>
+<!-- Выводим просто список, их немного, поэтому нам виджет не нужен -->
+<p>У нас имеются следующие соавторы:</p>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<? foreach ($models as $modelCoauthor): ?>
+    <p>
+        <a href="<?= $modelCoauthor->coauthorId; ?>" class="a-inline"><?= $modelCoauthor->coauthorName; ?></a>
+    </p>                            
+<? endforeach; ?>

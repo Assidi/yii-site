@@ -3,16 +3,16 @@
 /* @var $model Genre */
 
 $this->breadcrumbs=array(
-	'Genres'=>array('index'),
-	'Create',
+	'Жанры'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	array('label'=>'List Genre', 'url'=>array('index')),
-	array('label'=>'Manage Genre', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Genre</h1>
+<h1>Новый жанр</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

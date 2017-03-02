@@ -24,4 +24,5 @@ $this->menu=array(
 		'betaId',
 		'betaName',
 	),
+    'cssFile'=>'main.css',
 )); ?>

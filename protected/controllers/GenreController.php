@@ -28,11 +28,11 @@ class GenreController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('sort'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('index','view','create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -52,6 +52,13 @@ class GenreController extends Controller
 	public function actionView($id)
     {
         $this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+    }
+    
+    public function actionSort($id)
+    {
+        $this->render('sort',array(
             'genre'=>Genre::model()->findByPk($id),
             'fanfs'=>Fanf::speacialSearch(array(), array(), array($id)),
         ));
@@ -123,9 +130,13 @@ class GenreController extends Controller
 	 */
 	public function actionIndex()
 	{
+	    $criteria=new CDbCriteria();
+        $models = Genre::model()->findAll($criteria);
+        
 		$dataProvider=new CActiveDataProvider('Genre');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+            'models'=>$models,
 		));
 	}
 

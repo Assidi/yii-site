@@ -28,7 +28,7 @@ $this->menu=array(
         
         foreach($model->getFandoms() as $fandom) {
             ?>
-              <?= '<a href="/fandom/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
+              <?= '<a href="/fandom/sort/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
             <?php
         }
     ?>
@@ -52,7 +52,7 @@ $this->menu=array(
         <?php        
         foreach($model->getGenres() as $genre) {
             ?>
-              <?= '<a href="/genre/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
+              <?= '<a href="/genre/sort/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
             <?php
         }
     ?>

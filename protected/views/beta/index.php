@@ -13,8 +13,13 @@ $this->menu=array(
 ?>
 
 <h1>Беты</h1>
+<!-- Выводим просто список, их немного, поэтому нам виджет не нужен -->
+<p>У нас имеются следующие беты:</p>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<? foreach ($models as $modelBeta): ?>
+    <p>
+        <a href="<?= $modelBeta->betaId; ?>" class="a-inline"><?= $modelBeta->betaName; ?></a>
+    </p>                            
+<? endforeach; ?>
+
+

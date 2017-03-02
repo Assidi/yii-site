@@ -3,19 +3,19 @@
 /* @var $model Genre */
 
 $this->breadcrumbs=array(
-	'Genres'=>array('index'),
+	'Жанры'=>array('index'),
 	$model->genreId=>array('view','id'=>$model->genreId),
-	'Update',
+	'Обновить',
 );
 
 $this->menu=array(
-	array('label'=>'List Genre', 'url'=>array('index')),
-	array('label'=>'Create Genre', 'url'=>array('create')),
-	array('label'=>'View Genre', 'url'=>array('view', 'id'=>$model->genreId)),
-	array('label'=>'Manage Genre', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Просмотр', 'url'=>array('view', 'id'=>$model->genreId)),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Genre <?php echo $model->genreId; ?></h1>
+<h1>Обновить жанр № <?php echo $model->genreId; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

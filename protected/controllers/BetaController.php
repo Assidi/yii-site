@@ -121,10 +121,14 @@ class BetaController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{
+	{  
+	    $criteria=new CDbCriteria();
+        $models = Beta::model()->findAll($criteria);
+           
 		$dataProvider=new CActiveDataProvider('Beta');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+            'models'=>$models,
 		));
 	}
 

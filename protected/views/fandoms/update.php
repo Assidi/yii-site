@@ -3,19 +3,19 @@
 /* @var $model Fandoms */
 
 $this->breadcrumbs=array(
-	'Fandoms'=>array('index'),
+	'Фандомы'=>array('index'),
 	$model->fandomId=>array('view','id'=>$model->fandomId),
-	'Update',
+	'Обновить',
 );
 
 $this->menu=array(
-	array('label'=>'List Fandoms', 'url'=>array('index')),
-	array('label'=>'Create Fandoms', 'url'=>array('create')),
-	array('label'=>'View Fandoms', 'url'=>array('view', 'id'=>$model->fandomId)),
-	array('label'=>'Manage Fandoms', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Просмотр', 'url'=>array('view', 'id'=>$model->fandomId)),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Fandoms <?php echo $model->fandomId; ?></h1>
+<h1>Обновить фандом № <?php echo $model->fandomId; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

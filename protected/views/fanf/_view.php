@@ -27,7 +27,7 @@
         <?php
         foreach($data->getFandoms() as $fandom) {
             ?>
-              <?= '<a href="/fandoms/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
+              <?= '<a href="/fandoms/sort/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
             <?php
         }
     ?>
@@ -37,7 +37,7 @@
         <?php        
         foreach($data->getGenres() as $genre) {
             ?>
-              <?= '<a href="/genre/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
+              <?= '<a href="/genre/sort/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
             <?php
         }
     ?>

@@ -3,16 +3,16 @@
 /* @var $model Fandoms */
 
 $this->breadcrumbs=array(
-	'Fandoms'=>array('index'),
-	'Create',
+	'Фандомы'=>array('index'),
+	'Создание',
 );
 
 $this->menu=array(
-	array('label'=>'List Fandoms', 'url'=>array('index')),
-	array('label'=>'Manage Fandoms', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Fandoms</h1>
+<h1>Новый фандом</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -3,13 +3,13 @@
 /* @var $model Fandoms */
 
 $this->breadcrumbs=array(
-	'Fandoms'=>array('index'),
-	'Manage',
+	'Фандомы'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(
-	array('label'=>'List Fandoms', 'url'=>array('index')),
-	array('label'=>'Create Fandoms', 'url'=>array('create')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Создать', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Fandoms</h1>
+<h1>Управление фандомами</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

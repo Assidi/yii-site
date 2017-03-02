@@ -122,6 +122,9 @@ class CoauthorController extends Controller
 	 */
 	public function actionIndex()
 	{
+	    $criteria=new CDbCriteria();
+        $models = Coauthor::model()->findAll($criteria);
+          
 		$dataProvider=new CActiveDataProvider('Coauthor');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

@@ -3,18 +3,24 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Fandoms',
+	'Фандомы',
 );
 
 $this->menu=array(
-	array('label'=>'Create Fandoms', 'url'=>array('create')),
-	array('label'=>'Manage Fandoms', 'url'=>array('admin')),
+	array('label'=>'Создание', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Fandoms</h1>
+<h1>Фандомы</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<!-- Выводим просто список, их немного, поэтому нам виджет не нужен -->
+<p>У нас имеются следующие фандомы:</p>
+
+<? foreach ($models as $modelFandom): ?>
+    <p>
+        <a href="<?= $modelFandom->fandomId; ?>" class="a-inline"><?= $modelFandom->fandomName; ?></a>
+    </p>                            
+<? endforeach; ?>
+
+
