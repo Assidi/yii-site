@@ -3,16 +3,16 @@
 /* @var $model Fanf */
 
 $this->breadcrumbs=array(
-	'Fanfs'=>array('index'),
-	'Create',
+	'Фанфики'=>array('index'),
+	'Создание',
 );
 
 $this->menu=array(
-	array('label'=>'List Fanf', 'url'=>array('index')),
-	array('label'=>'Manage Fanf', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Fanf</h1>
+<h1>Новый фанфик</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

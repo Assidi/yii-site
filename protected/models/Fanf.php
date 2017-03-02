@@ -45,7 +45,7 @@ class Fanf extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, dateWrite, datePublish, raiting, pairing, summary, size, category, text', 'required'),
+			array('title, dateWrite, raiting, pairing, summary, category, text', 'required'),
 			array('datePublish, size, beta, coauthor', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('raiting, category', 'length', 'max'=>10),
@@ -153,9 +153,8 @@ class Fanf extends CActiveRecord
     { 
         $arGenres = array(); 
         if ($this->genreFanfics) { 
-            foreach($this->genreFanfics as $genreFanficModel) {
-                
-                $arGenres[] = $genreFanficModel->genre; 
+            foreach($this->genreFanfics as $genreFanficModel) {                
+                $arGenres[$genreFanficModel->genreFanficId] = $genreFanficModel->genre; 
             } 
         } 
         return $arGenres; 
@@ -184,7 +183,7 @@ class Fanf extends CActiveRecord
         $arFandoms = array(); 
         if ($this->fandomsFanfics) { 
             foreach($this->fandomsFanfics as $fandomsFanficModel) {                
-                $arFandoms[] = $fandomsFanficModel->fandom;
+                $arFandoms[$fandomsFanficModel->fanfanId] = $fandomsFanficModel->fandom;
                 //print_r($fandomsFanficModel);
                 //echo "<p>Одна итерация цикла есть</p>"; 
             } 
@@ -237,4 +236,16 @@ class Fanf extends CActiveRecord
 		}
         return Fanf::model()->findAll($criteria);
     }
+    
+    /**
+     * Перед сохранением фанфика добавляем в него дату создания и размер     * 
+     * 
+     */
+    //protected function beforeSave() {
+//         if($this->isNewRecord) {
+//            $this->$datePublish = time();            
+//            $this->size = iconv_strlen(strip_tags($this->text), 'UTF-8');
+//         }
+//         
+//    }
 }

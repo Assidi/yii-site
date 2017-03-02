@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>'Создать фанфик', 'url'=>array('create')),
 	array('label'=>'Обновить фанфик', 'url'=>array('update', 'id'=>$model->ficId)),
     array('label'=>'Добавить персонажей', 'url'=>array('viewupdate', 'id'=>$model->ficId)),
-	array('label'=>'Удалить фанфик', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ficId),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Удалить фанфик', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ficId),'confirm'=>'Вы действительно хотите удалить этот элемент?')),
 	array('label'=>'Управление фанфиками', 'url'=>array('admin')),
 );
 ?>
@@ -28,22 +28,11 @@ $this->menu=array(
         
         foreach($model->getFandoms() as $fandom) {
             ?>
-              <?= '<a href="/fandom/sort/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
+              <?= '<a href="/fandoms/sort/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
             <?php
         }
     ?>
     </p>
-    
-    <?php
-        if($model->getCharacters()) {
-			?><span class="bold">Персонажи:</span><?php
-            foreach ($model->getCharacters() as $character) {
-                ?>                 
-                <?= $character->characterName.", "; ?>
-                <?php
-            }
-        }
-    ?>
     
     <p><span class="bold">Персонажи: </span><?= $model->pairing?></p>
     <p><span class="bold">Рейтинг: </span><?= $model->raiting?></p>

@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Поля, отмеченные <span class="required">*</span> являются обязательными.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -31,15 +31,10 @@
 		<?php echo $form->error($model,'dateWrite'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'datePublish'); ?>
-		<?php echo $form->textField($model,'datePublish'); ?>
-		<?php echo $form->error($model,'datePublish'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'raiting'); ?>
-		<?php echo $form->textField($model,'raiting',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->radioButtonList($model,'raiting',array('G','PG', 'PG-13', 'R', 'NC-17')); ?>
 		<?php echo $form->error($model,'raiting'); ?>
 	</div>
 
@@ -51,26 +46,20 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'summary'); ?>
-		<?php echo $form->textField($model,'summary',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->textArea($model,'summary',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'summary'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'note'); ?>
-		<?php echo $form->textField($model,'note',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'note'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'dedication'); ?>
-		<?php echo $form->textField($model,'dedication',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->textArea($model,'dedication',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'dedication'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'size'); ?>
-		<?php echo $form->textField($model,'size'); ?>
-		<?php echo $form->error($model,'size'); ?>
 	</div>
 
 	<div class="row">
@@ -87,7 +76,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'category'); ?>
-		<?php echo $form->textField($model,'category',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->radioButtonList($model,'category',array('Джен', 'Гет', 'Слэш', 'Фемслэш')); ?>
 		<?php echo $form->error($model,'category'); ?>
 	</div>
 
@@ -98,7 +87,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Обновить'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

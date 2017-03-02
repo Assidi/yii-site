@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Все фанфики', 'url'=>array('index')),
 	array('label'=>'Создать фанфик', 'url'=>array('create')),
+    array('label'=>'Просмотр', 'url'=>array('view', 'id'=>$model->ficId)),
 	array('label'=>'Обновить фанфик', 'url'=>array('update', 'id'=>$model->ficId)),
 	array('label'=>'Удалить фанфик', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ficId),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Управление фанфиками', 'url'=>array('admin')),
@@ -19,30 +20,12 @@ $this->menu=array(
 <h1><?php echo $model->title; ?></h1>
 
 
-<div class="full-text-head">
+<div class="full-text-head">        
     
-    <p><span class="bold">Фандом: </span>
-        <?php
-        
-        
-        foreach($model->getFandoms() as $fandom) {
-            ?>
-              <?= '<a href="/fandom/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
-            <?php
-        }
-    ?>
-    </p>
-    
-    <?php
-        if($model->getCharacters()) {
-			?><span class="bold">Персонажи:</span><?php
-            foreach ($model->getCharacters() as $character) {
-                ?>                 
-                <?= $character->characterName.", "; ?>
-                <?php
-            }
-        }
-    ?>
+    <h3>Удаление фандомов</h3>
+    <? foreach ($model->getFandoms() as $fanfanId => $fandom): ?>        
+        <a href="/fanf/deletefandom/<?= $fanfanId; ?>"><?= $fandom->fandomName; ?></a><br>
+    <? endforeach; ?>
     
     <? if($model->getCharacters()): ?>
     <h3>Удаление персонажей</h3>
@@ -50,57 +33,31 @@ $this->menu=array(
         <a href="/fanf/deletecharacter/<?= $charfanfId; ?>"><?= $character->characterName; ?></a><br>
     <? endforeach; ?>
 <? endif; ?>
-    
-    <p><span class="bold">Персонажи: </span><?= $model->pairing?></p>
-    <p><span class="bold">Рейтинг: </span><?= $model->raiting?></p>
-    <p><span class="bold">Категория: </span><?= $model->category?></p>
-    <p><span class="bold">Жанр: </span>
-        <?php        
-        foreach($model->getGenres() as $genre) {
-            ?>
-              <?= '<a href="/genre/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
-            <?php
-        }
-    ?>
-    </p>
-    
-    <?php 
-        if ($model->note !="") {
-            ?>  
-                <p><span class="bold">Примечание: </span><?= $model->note?></p>
-            <?php 
-        }
-    ?>
-    <?php 
-        if ($model->dedication !="") {
-            ?>  
-                <p><span class="bold">Посвящение: </span><?= $model->dedication?></p>
-            <?php 
-        }
-    ?>
-    <?php 
-        if ($model->beta>0) {
-            ?>
-                <p><span class="bold">Бета: </span><?= $model->getBeta()->betaName?></p>
-            <?php  
-        } 
-    ?>
-    
-    <?php 
-        if ($model->coauthor>0) {
-            ?>
-                <p><span class="bold">Соавтор: </span><?= $model->getCoauthor()->coauthorName?></p>
-            <?php  
-        } 
-    ?>    
-    <p><span class="bold">Написано: </span><?= $model->dateWrite?></p>    
+        
+    <h3>Удаление жанров</h3>   
+   
+    <? foreach ($model->getGenres() as $genreFanficId => $genre): ?>        
+        <a href="/fanf/deletegenre/<?= $genreFanficId; ?>"><?= $genre->genreName; ?></a><br>
+    <? endforeach; ?>
     
 </div>
 
 <form action="" method="post">
+    <p>Добавить персонажа</p>
     <?= CHtml::dropDownList('characterId', '', Characters::getList()); ?>
     <input type="submit" value="Добавить"/>
 </form>
-
+<p></p>
+<form action="" method="post">
+    <p>Добавить фандом</p>
+    <?= CHtml::dropDownList('fandomId', '', Fandoms::getList()); ?>
+    <input type="submit" value="Добавить"/>
+</form>
+<p></p>
+<form action="" method="post">
+    <p>Добавить жанр</p>
+    <?= CHtml::dropDownList('genreId', '', Genre::getList()); ?>
+    <input type="submit" value="Добавить"/>
+</form>
 
 
