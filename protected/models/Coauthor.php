@@ -95,4 +95,21 @@ class Coauthor extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+	 * Получение соавторов для показа в выпадающем списке
+	 * @return $arlist
+	 */
+	public static function getList()
+	{
+		$models = self::model()->findAll();
+		if (!$models) {
+			return array();
+		}
+		$arList = array('');
+		foreach ($models as $model) {
+			$arList[$model->coauthorId] = $model->coauthorName;
+		}
+		return $arList;
+	}
 }

@@ -76,7 +76,8 @@ $this->menu=array(
             <?php  
         } 
     ?>    
-    <p><span class="bold">Написано: </span><?= $model->dateWrite?></p>    
+    <p><span class="bold">Написано: </span><?= $model->dateWrite?></p>
+    <p><?= $model->summary ?></p>    
     
 </div>
 

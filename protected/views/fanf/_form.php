@@ -34,7 +34,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'raiting'); ?>
-		<?php echo $form->radioButtonList($model,'raiting',array('G','PG', 'PG-13', 'R', 'NC-17')); ?>
+		<?php echo $form->radioButtonList($model,'raiting',array('G'=>'G','PG'=>'PG', 'PG-13'=>'PG-13', 'R'=>'R', 'NC-17'=>'NC-17')); ?>
 		<?php echo $form->error($model,'raiting'); ?>
 	</div>
 
@@ -63,20 +63,20 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'beta'); ?>
-		<?php echo $form->textField($model,'beta'); ?>
+		<?php echo $form->labelEx($model,'beta'); ?>		
+        <?php echo $form->dropDownList($model, 'beta', Beta::getList()); ?>
 		<?php echo $form->error($model,'beta'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'coauthor'); ?>
-		<?php echo $form->textField($model,'coauthor'); ?>
+		<?php echo $form->dropDownList($model, 'coauthor', Coauthor::getList()); ?>
 		<?php echo $form->error($model,'coauthor'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'category'); ?>
-		<?php echo $form->radioButtonList($model,'category',array('Джен', 'Гет', 'Слэш', 'Фемслэш')); ?>
+		<?php echo $form->radioButtonList($model,'category',array('Джен'=>'Джен', 'Гет'=>'Гет', 'Слэш'=>'Слэш', 'Фемслэш'=>'Фемслэш')); ?>
 		<?php echo $form->error($model,'category'); ?>
 	</div>
 

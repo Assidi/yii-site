@@ -241,11 +241,15 @@ class Fanf extends CActiveRecord
      * Перед сохранением фанфика добавляем в него дату создания и размер     * 
      * 
      */
-    //protected function beforeSave() {
-//         if($this->isNewRecord) {
-//            $this->$datePublish = time();            
-//            $this->size = iconv_strlen(strip_tags($this->text), 'UTF-8');
-//         }
-//         
-//    }
+    protected function beforeSave() {
+        if(parent::beforeSave()) {
+            if($this->isNewRecord) {
+                $this->datePublish = time();            
+                $this->size = iconv_strlen(strip_tags($this->text), 'UTF-8');
+         }  
+         return true;
+        }
+        else 
+            return false;                
+    }
 }

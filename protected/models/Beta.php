@@ -95,4 +95,21 @@ class Beta extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+	 * Получение бет для показа в выпадающем списке
+	 * @return $arlist
+	 */
+	public static function getList()
+	{
+		$models = self::model()->findAll();
+		if (!$models) {
+			return array();
+		}
+		$arList = array('');
+		foreach ($models as $model) {
+			$arList[$model->betaId] = $model->betaName;
+		}
+		return $arList;
+	}
 }

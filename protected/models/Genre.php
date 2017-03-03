@@ -98,7 +98,7 @@ class Genre extends CActiveRecord
 	
 	/**
 	 * Получение жанров для показа в выпадающем списке
-	 * @return type
+	 * @return $arlist
 	 */
 	public static function getList()
 	{
