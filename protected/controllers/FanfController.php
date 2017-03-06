@@ -50,11 +50,32 @@ class FanfController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
-	{
+	{  
+	   $fanfic = $this->loadModel($id);
+        $comment=$this->newComment($fanfic);
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$fanfic,
+            'comment'=>$comment,
 		));
 	}
+    /**
+     * функция для добавления комментария к фанфику
+     * @param $fanfic - модель для фанфика
+     */
+    protected function newComment($fanfic) {
+        echo 'Привет, я функция new Comment!<br />';
+        $comment=new Comments;
+        if(isset($_POST['Comment']))
+        {
+            $comment->attributes=$_POST['Comment'];
+            if($fanfic->addComment($comment))
+            {
+                Yii::app()->user->setFlash('commentSubmitted','Комментарий добавлен');
+                 $this->refresh();            
+            }
+        }
+        return $comment;
+    }
     
     /**
      * Добавление к фанфику персонажей, фандомов и жанров 

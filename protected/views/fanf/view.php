@@ -86,6 +86,8 @@ $this->menu=array(
 <?php if ($model->getComments()):?>
     
      <div class="comment-main">
+        <h2>Оставить комментарий</h2>
+         <?php $this->renderPartial('/comments/_form',array('model'=>$comment,)); ?>
         <h2>Комментарии</h2>             
              <?php foreach ($model->getComments() as $thisComments) : ?>
                 <article class="comment">

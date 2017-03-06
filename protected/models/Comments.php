@@ -32,7 +32,7 @@ class Comments extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fanficId, name, email, date, text', 'required'),
+			array('name, email, text', 'required'),
 			array('fanficId, date', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>50),
 			array('text', 'length', 'max'=>1000),
@@ -109,4 +109,19 @@ class Comments extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+     * Перед сохранением комментария добавляем в него дату создания  
+     * 
+     */
+    protected function beforeSave() {
+        if(parent::beforeSave()) {
+            if($this->isNewRecord) {
+                $this->$date = time();         
+          }  
+         return true;
+        }
+        else 
+            return false;                
+    }
 }

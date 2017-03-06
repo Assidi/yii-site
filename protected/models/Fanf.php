@@ -266,4 +266,14 @@ class Fanf extends CActiveRecord
         else 
             return false;                
     }
+    /**
+     * Добавление комментария к фанфику
+     */
+    public function addComment($comment) {
+        echo 'Привет, я функция addComment<br />';
+        print_r($comment);
+        echo "<br />";
+        $comment->post_id=$this->id;
+        return $comments->save();
+    }
 }
