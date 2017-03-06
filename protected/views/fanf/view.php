@@ -83,5 +83,24 @@ $this->menu=array(
 
 <?= $model->text; ?>
 
+<?php if ($model->getComments()):?>
+    
+     <div class="comment-main">
+        <h2>Комментарии</h2>             
+             <?php foreach ($model->getComments() as $thisComments) : ?>
+                <article class="comment">
+                    <div class="comment-head clearfix">
+                        <a href="mailto:<?=$thisComments->email?>" class="name"><?=$thisComments->name?></a>
+                        <div class="comment-date"><?=AssidiHelper::dateFormat($thisComments->date)?></div>
+                    </div>
+                    
+                    <div class="comment-text"><?=$thisComments->text?></div>        
+                </article>
+             <?php endforeach; ?> 
+     </div>
+<?php endif; ?>
+
+
+
 
 

@@ -106,7 +106,8 @@ class Beta extends CActiveRecord
 		if (!$models) {
 			return array();
 		}
-		$arList = array('');
+		
+        $arList = array('' => '');
 		foreach ($models as $model) {
 			$arList[$model->betaId] = $model->betaName;
 		}

@@ -212,6 +212,20 @@ class Fanf extends CActiveRecord
         return $mycoauthor;
     }
 
+/**
+ * Получает все комментарии к фанфику
+ * @return array() $сomments * 
+ */
+    public function getComments() {
+        $allComments=Array();
+        if($this->comments) {
+            foreach ($this->comments as $CommentsFanfic) {
+                $allComments[] = $CommentsFanfic;
+            }
+        }
+        return $allComments;
+    }
+
     // поиск с использованием трёх фильтров
     /**
      * @param array $genres массив id жанров

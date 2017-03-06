@@ -51,6 +51,7 @@
                 array('label'=>'Соавторы', 'url'=>array('/coauthor/index')),
                 array('label'=>'Беты', 'url'=>array('/beta/index')),
                 array('label'=>'Приколы', 'url'=>array('/jokes/index')),
+                array('label'=>'Комментарии', 'url'=>array('/comments/index')),
 			),
 		)); ?>
     </div>

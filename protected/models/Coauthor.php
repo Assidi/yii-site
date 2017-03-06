@@ -106,7 +106,7 @@ class Coauthor extends CActiveRecord
 		if (!$models) {
 			return array();
 		}
-		$arList = array('');
+		$arList = array('' => '');
 		foreach ($models as $model) {
 			$arList[$model->coauthorId] = $model->coauthorName;
 		}

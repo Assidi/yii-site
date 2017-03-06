@@ -1,3 +1,9 @@
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
 body
 {
 	/*margin: 0;
@@ -227,13 +233,56 @@ p {
     background-color: #bb5a5a;
 	text-decoration:none;
 }
-
+/* Ссылки внутри строки */
 .a-inline {
     color: #610B0B; 
 }
 
 .a-inline:hover {
-    color: #aa4b3f; 
+    color: #aa4b3f;
+}
+
+/* Комментарии */
+
+.comment-main {
+    background-color: #ffd6b6;
+    padding: 20px 15px;
+    margin-bottom: 30px;
+}
+
+.comment {
+    padding-bottom: 20px;
+    background-color: #F7F2E0;
+    margin-bottom: 30px;
+}
+
+.comment-head {
+    margin-bottom: 10px;
+    padding: 10px 30px;
+    background-color: #FA8258;
+    color: #FAFAFA;
+}
+
+.name {
+    display: block;
+    float: left;    
+    color: #FAFAFA;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.name:hover {
+    text-decoration: underline;
+}
+
+.comment-date {
+    display: block;
+    float: right;
+}
+
+.comment-text {
+    padding: 10px 30px;
+    line-height: 1.3;
 }
 
 div.flash-error, div.flash-notice, div.flash-success
