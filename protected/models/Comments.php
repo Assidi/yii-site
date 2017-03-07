@@ -117,7 +117,7 @@ class Comments extends CActiveRecord
     protected function beforeSave() {
         if(parent::beforeSave()) {
             if($this->isNewRecord) {
-                $this->$date = time();         
+                $this->date = time();         
           }  
          return true;
         }

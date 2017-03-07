@@ -270,10 +270,11 @@ class Fanf extends CActiveRecord
      * Добавление комментария к фанфику
      */
     public function addComment($comment) {
-        echo 'Привет, я функция addComment<br />';
-        print_r($comment);
-        echo "<br />";
-        $comment->post_id=$this->id;
-        return $comments->save();
+        //echo 'Привет, я функция addComment<br />';
+//        print_r($comment);
+//        echo "<br />";
+        //Yii::app()->params['debug'] = $comment;
+        $comment->fanficId=$this->ficId;
+        return $comment->save();
     }
 }

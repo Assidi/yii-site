@@ -83,11 +83,10 @@ $this->menu=array(
 
 <?= $model->text; ?>
 
-<?php if ($model->getComments()):?>
-    
-     <div class="comment-main">
-        <h2>Оставить комментарий</h2>
-         <?php $this->renderPartial('/comments/_form',array('model'=>$comment,)); ?>
+<div class="comment-main">
+    <h2>Оставить комментарий</h2>
+    <?php $this->renderPartial('/comments/_form',array('model'=>$comment,)); ?>
+    <?php if ($model->getComments()):?>
         <h2>Комментарии</h2>             
              <?php foreach ($model->getComments() as $thisComments) : ?>
                 <article class="comment">
@@ -98,9 +97,9 @@ $this->menu=array(
                     
                     <div class="comment-text"><?=$thisComments->text?></div>        
                 </article>
-             <?php endforeach; ?> 
-     </div>
-<?php endif; ?>
+             <?php endforeach; ?>     
+    <?php endif; ?>
+ </div>
 
 
 

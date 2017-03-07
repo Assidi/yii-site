@@ -56,16 +56,19 @@
 		)); ?>
     </div>
 <? endif; ?>
-	<?php if(isset($this->breadcrumbs)):?>
+	<?php if(isset($this->breadcrumbs)):?>    
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
+            'homeLink'=>CHtml::link('Главная',array('site/index')),
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 
 	<?php echo $content; ?>
-
+    
 	<div class="clear"></div>
-
+    <?php if(Yii::app()->params['debug']):?>
+        <pre><?php print_r(Yii::app()->params['debug']);?></pre>
+    <?php endif; ?>
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
 		All Rights Reserved.<br/>

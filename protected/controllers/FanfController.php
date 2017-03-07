@@ -53,6 +53,7 @@ class FanfController extends Controller
 	{  
 	   $fanfic = $this->loadModel($id);
         $comment=$this->newComment($fanfic);
+        //Yii::app()->params['debug'] = $fanfic;
 		$this->render('view',array(
 			'model'=>$fanfic,
             'comment'=>$comment,
@@ -63,11 +64,11 @@ class FanfController extends Controller
      * @param $fanfic - модель для фанфика
      */
     protected function newComment($fanfic) {
-        echo 'Привет, я функция new Comment!<br />';
+        //echo 'Привет, я функция new Comment!<br />';
         $comment=new Comments;
-        if(isset($_POST['Comment']))
+        if(isset($_POST['Comments']))
         {
-            $comment->attributes=$_POST['Comment'];
+            $comment->attributes=$_POST['Comments'];
             if($fanfic->addComment($comment))
             {
                 Yii::app()->user->setFlash('commentSubmitted','Комментарий добавлен');

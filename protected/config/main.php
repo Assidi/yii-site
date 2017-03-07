@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Перекресток надежды',
+	'name'=>'Перекресток надежды',    
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -87,5 +87,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'assidi@mail.ru',
+        'debug'=>'',
 	),
 );
