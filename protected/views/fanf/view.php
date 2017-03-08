@@ -7,14 +7,26 @@ $this->breadcrumbs=array(
 	$model->title,
 );
 
-$this->menu=array(
+if (!Yii::app()->user->isGuest) {
+    // меню для администратора
+    $this->menu=array(
 	array('label'=>'Все фанфики', 'url'=>array('index')),
 	array('label'=>'Создать фанфик', 'url'=>array('create')),
 	array('label'=>'Обновить фанфик', 'url'=>array('update', 'id'=>$model->ficId)),
     array('label'=>'Добавить персонажей', 'url'=>array('viewupdate', 'id'=>$model->ficId)),
 	array('label'=>'Удалить фанфик', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ficId),'confirm'=>'Вы действительно хотите удалить этот элемент?')),
 	array('label'=>'Управление фанфиками', 'url'=>array('admin')),
+    );
+}
+else {
+    // меню для гостя
+    $this->menu=array(	
+    array('label'=>'Все фанфики', 'url'=>array('index')),
+	array('label'=>'Поиск', 'url'=>array('search')),
 );
+}
+
+
 ?>
 
 <h1><?php echo $model->title; ?></h1>
@@ -95,7 +107,7 @@ $this->menu=array(
                         <div class="comment-date"><?=AssidiHelper::dateFormat($thisComments->date)?></div>
                     </div>
                     
-                    <div class="comment-text"><?=$thisComments->text?></div>        
+                    <div class="comment-text"><?=AssidiHelper::insertBreakes($thisComments->text)?></div>        
                 </article>
              <?php endforeach; ?>     
     <?php endif; ?>

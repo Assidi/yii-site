@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/assidi.css">
+    
 	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -35,8 +36,9 @@
                 array('label'=>'Фанфики', 'url'=>array('/fanf/index')),
 				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Контакты', 'url'=>array('/site/contact')),
+                array('label'=>'Гостевая книга', 'url'=>array('/guestbook/index')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				
 			),
 		)); ?>
 	</div><!-- mainmenu -->    
@@ -52,6 +54,7 @@
                 array('label'=>'Беты', 'url'=>array('/beta/index')),
                 array('label'=>'Приколы', 'url'=>array('/jokes/index')),
                 array('label'=>'Комментарии', 'url'=>array('/comments/index')),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
     </div>

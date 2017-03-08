@@ -5,12 +5,21 @@
 $this->breadcrumbs=array(
 	'Фанфики',
 );
-
-$this->menu=array(
+if (!Yii::app()->user->isGuest) {
+    // меню для администратора
+    $this->menu=array(
 	array('label'=>'Создание', 'url'=>array('create')),
 	array('label'=>'Управление', 'url'=>array('admin')),
 	array('label'=>'Поиск', 'url'=>array('search')),
 );
+}
+else {
+    // меню для гостя
+    $this->menu=array(	
+	array('label'=>'Поиск', 'url'=>array('search')),
+);
+}
+
 ?>
 
 <h1>Фанфики</h1>

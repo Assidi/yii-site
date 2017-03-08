@@ -285,6 +285,19 @@ p {
     line-height: 1.3;
 }
 
+/* дополнение для гостевой книги */
+.comment-guestbook {
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+/* меню для страниц, открытых пользователю - фанфики в основном */
+
+.mymenu {
+    width: 200px;
+    margin-left: 50px;    
+}
+
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;
