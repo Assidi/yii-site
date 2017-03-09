@@ -122,13 +122,12 @@ class GuestbookController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $criteria=new CDbCriteria();
-        $models = Guestbook::model()->findAll($criteria);
+	   
+        
         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
 		$dataProvider=new CActiveDataProvider('Guestbook');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-            'models'=>$models,
 		));
 	}
 
