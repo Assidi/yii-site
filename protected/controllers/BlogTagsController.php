@@ -1,12 +1,12 @@
 <?php
 
-class GuestbookController extends Controller
+class BlogTagsController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';    
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -28,11 +28,11 @@ class GuestbookController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','create'),
-				'users'=>array('*'),
+				'actions'=>array('index','view'),
+				'users'=>array('admin'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update','view'),
+				'actions'=>array('create','update'),
 				'users'=>array('admin'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,16 +62,16 @@ class GuestbookController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Guestbook;
+		$model=new BlogTags;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Guestbook']))
+		if(isset($_POST['BlogTags']))
 		{
-			$model->attributes=$_POST['Guestbook'];
+			$model->attributes=$_POST['BlogTags'];
 			if($model->save())
-				$this->redirect(array('index'));
+				$this->redirect(array('view','id'=>$model->tagId));
 		}
 
 		$this->render('create',array(
@@ -91,11 +91,11 @@ class GuestbookController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Guestbook']))
+		if(isset($_POST['BlogTags']))
 		{
-			$model->attributes=$_POST['Guestbook'];
+			$model->attributes=$_POST['BlogTags'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('view','id'=>$model->tagId));
 		}
 
 		$this->render('update',array(
@@ -121,10 +121,8 @@ class GuestbookController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{	   
-        
-        if(Yii::app()->user->isGuest) $this->layout ='//layouts/mylayout';
-		$dataProvider=new CActiveDataProvider('Guestbook');
+	{
+		$dataProvider=new CActiveDataProvider('BlogTags');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -135,10 +133,10 @@ class GuestbookController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Guestbook('search');
+		$model=new BlogTags('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Guestbook']))
-			$model->attributes=$_GET['Guestbook'];
+		if(isset($_GET['BlogTags']))
+			$model->attributes=$_GET['BlogTags'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -149,12 +147,12 @@ class GuestbookController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Guestbook the loaded model
+	 * @return BlogTags the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Guestbook::model()->findByPk($id);
+		$model=BlogTags::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -162,11 +160,11 @@ class GuestbookController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Guestbook $model the model to be validated
+	 * @param BlogTags $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='guestbook-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='blog-tags-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

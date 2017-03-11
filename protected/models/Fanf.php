@@ -177,18 +177,14 @@ class Fanf extends CActiveRecord
     /** 
     * @return array список моделей фандомов текущего фанфика 
     */ 
-    public function getFandoms()    
-    {   
-        //echo "Привет, я функция getFandoms!<br />";
+    public function getFandoms()   
+    {           
         $arFandoms = array(); 
         if ($this->fandomsFanfics) { 
             foreach($this->fandomsFanfics as $fandomsFanficModel) {                
-                $arFandoms[$fandomsFanficModel->fanfanId] = $fandomsFanficModel->fandom;
-                //print_r($fandomsFanficModel);
-                //echo "<p>Одна итерация цикла есть</p>"; 
+                $arFandoms[$fandomsFanficModel->fanfanId] = $fandomsFanficModel->fandom;               
             } 
-        }
-        //echo "Пока, я завершила работу!<br />";
+        }        
         return $arFandoms; 
     }
     
@@ -270,9 +266,6 @@ class Fanf extends CActiveRecord
      * Добавление комментария к фанфику
      */
     public function addComment($comment) {
-        //echo 'Привет, я функция addComment<br />';
-//        print_r($comment);
-//        echo "<br />";
         //Yii::app()->params['debug'] = $comment;
         $comment->fanficId=$this->ficId;
         return $comment->save();

@@ -6,14 +6,24 @@ $this->breadcrumbs=array(
 	'Гостевая книга',
 );
 
-$this->menu=array(
+if (!Yii::app()->user->isGuest) {
+    // меню для администратора
+    $this->menu=array(
 	array('label'=>'Новая запись', 'url'=>array('create')),
 	array('label'=>'Управление', 'url'=>array('admin')),
 );
+}
+else {
+    // меню для гостя
+    $this->menu=array(	
+	array('label'=>'Новая запись', 'url'=>array('create')),
+);
+}
+
+
 ?>
 
 <h1>Гостевая книга</h1>
-<h2>Сделать запись</h2>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

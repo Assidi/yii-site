@@ -34,10 +34,12 @@
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),                
                 array('label'=>'Фанфики', 'url'=>array('/fanf/index')),
+                array('label'=>'Блог', 'url'=>array('/blog/index')),
 				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Контакты', 'url'=>array('/site/contact')),
                 array('label'=>'Гостевая книга', 'url'=>array('/guestbook/index')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				
 			),
 		)); ?>
@@ -53,8 +55,9 @@
                 array('label'=>'Соавторы', 'url'=>array('/coauthor/index')),
                 array('label'=>'Беты', 'url'=>array('/beta/index')),
                 array('label'=>'Приколы', 'url'=>array('/jokes/index')),
-                array('label'=>'Комментарии', 'url'=>array('/comments/index')),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                array('label'=>'Комменты', 'url'=>array('/comments/index')),
+                array('label'=>'Тэги', 'url'=>array('/blogTags/index')),               
+                array('label'=>'Комменты блога', 'url'=>array('/blogComments/index')), 
 			),
 		)); ?>
     </div>

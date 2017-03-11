@@ -7,11 +7,26 @@ $this->breadcrumbs=array(
 	'Новая запись',
 );
 
-$this->menu=array(
+
+
+if (!Yii::app()->user->isGuest) {
+    // меню для администратора
+    $this->menu=array(
 	array('label'=>'Список', 'url'=>array('index')),
 	array('label'=>'Управление', 'url'=>array('admin')),
 );
+}
+else {
+    // меню для гостя
+    $this->menu=array(	
+	array('label'=>'Список', 'url'=>array('index')),
+);
+}
+
 ?>
+
+
+
 
 <h1>Новая запись</h1>
 

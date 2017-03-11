@@ -63,8 +63,7 @@ class FanfController extends Controller
      * функция для добавления комментария к фанфику
      * @param $fanfic - модель для фанфика
      */
-    protected function newComment($fanfic) {
-        //echo 'Привет, я функция new Comment!<br />';
+    protected function newComment($fanfic) {        
         $comment=new Comments;
         if(isset($_POST['Comments']))
         {
