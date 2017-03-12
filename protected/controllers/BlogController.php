@@ -127,9 +127,9 @@ class BlogController extends Controller
 	 */
 	public function actionIndex()
 	{
-	    if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
-         
-		$dataProvider=new CActiveDataProvider('Blog');
+	    if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';         
+		
+        $dataProvider=new CActiveDataProvider('Blog', array('criteria'=>array('order'=>'date DESC')));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

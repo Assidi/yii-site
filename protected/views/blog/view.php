@@ -16,15 +16,11 @@ $this->menu=array(
 );
 ?>
 
-<h1>Пост №<?php echo $model->postId; ?></h1>
+<h1><?=$model->title; ?></h1>
+<p><i>Опубликовано: <?=AssidiHelper::dateFormat($model->date) ?></i></p>
+<p>
+<?=AssidiHelper::insertBreakes($model->text)?>
+</p>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'postId',
-		'title',
-		'date',
-		'text',
-	),
-    'cssFile'=>'main.css',
-)); ?>
+
+
