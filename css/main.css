@@ -21,6 +21,15 @@ body
     font-size: 1em;
 }
 
+/* Ссылки внутри строки */
+.breadcrumps a {
+    color: #610B0B; 
+}
+
+.breadcrumps a:hover {
+    color: #aa4b3f;
+}
+
 h1 {
     text-transform: uppercase;
     font-size: 2.5em;
@@ -300,9 +309,20 @@ p {
 }
 /* меню для страниц, открытых пользователю - фанфики в основном */
 
-.mymenu {
-    width: 200px;
-    margin-left: 50px;    
+.mymenu {    
+    margin-left: 50px;
+    margin-top: 10px;    
+}
+
+.mymenu li {
+    display: inline-block;
+    width: 150px;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.mymenu li a {
+    font-size: 1em;
 }
 
 div.flash-error, div.flash-notice, div.flash-success
@@ -436,7 +456,7 @@ div.search-form
 
 .operations li
 {
-	padding-bottom: 2px;
+	padding: 2px;
 }
 
 .operations li a
@@ -445,7 +465,7 @@ div.search-form
 	/*color: #0066A4;*/
     color: #b74242;
 	display: block;
-	padding: 2px 0 2px 8px;
+	padding: 5px 10px 5px 10px;
 	line-height: 15px;
 	text-decoration: none;
 }

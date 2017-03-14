@@ -122,11 +122,23 @@ class GuestbookController extends Controller
 	 */
 	public function actionIndex()
 	{	   
+        $model=new Guestbook;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Guestbook']))
+		{
+			$model->attributes=$_POST['Guestbook'];
+			if($model->save())
+				$this->redirect(array('index'));
+		}
         
-        if(Yii::app()->user->isGuest) $this->layout ='//layouts/mylayout';
+        if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
 		$dataProvider=new CActiveDataProvider('Guestbook');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+            'model'=>$model,
 		));
 	}
 

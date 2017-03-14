@@ -3,14 +3,14 @@
 
 <div class="mymenu">
     <?php
-		$this->beginWidget('zii.widgets.CPortlet', array(
-			'title'=>'Действия',
-		));
+		//$this->beginWidget('zii.widgets.CPortlet', array(
+//			'title'=>'Действия',
+//		));
 		$this->widget('zii.widgets.CMenu', array(
 			'items'=>$this->menu,
 			'htmlOptions'=>array('class'=>'operations'),
 		));
-		$this->endWidget();
+		//$this->endWidget();
 	?>
 </div>
 

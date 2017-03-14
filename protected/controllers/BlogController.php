@@ -54,7 +54,7 @@ class BlogController extends Controller
 	   if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
        $post=$this->loadModel($id);
        //$post->tags = $post->getTags();
-       Yii::app()->params['debug'] = $this->loadModel($id);
+      // Yii::app()->params['debug'] = $this->loadModel($id);
 		$this->render('view',array(
 			'model'=>$post,
 		));
@@ -74,9 +74,19 @@ class BlogController extends Controller
 		if(isset($_POST['Blog']))
 		{
 			$model->attributes=$_POST['Blog'];
-            Yii::app()->params['debug'] = $model;
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->postId));
+            //Yii::app()->params['debug'] = $_POST['Blog'];
+			if($model->save()) {
+			     if($_POST['Blog']['tags']) {
+			         foreach($_POST['Blog']['tags'] as $tagId) {
+			             $tagsPostsModel = new TagsPosts;
+                         $tagsPostsModel->tagId = $tagId;
+                         $tagsPostsModel->postId = $model->postId;
+                         $tagsPostsModel->save();
+			         }
+			     }
+			     $this->redirect(array('view','id'=>$model->postId)); 
+			}
+				
 		}
 
 		$this->render('create',array(
@@ -99,8 +109,21 @@ class BlogController extends Controller
 		if(isset($_POST['Blog']))
 		{
 			$model->attributes=$_POST['Blog'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->postId));
+			if($model->save()) {
+			     foreach ($model->tagsPosts as $tagsPostsModel) {
+			         $tagsPostsModel->delete();
+			     }
+			     if($_POST['Blog']['tags']) {
+			         foreach($_POST['Blog']['tags'] as $tagId) {
+			             $tagsPostsModel = new TagsPosts;
+                         $tagsPostsModel->tagId = $tagId;
+                         $tagsPostsModel->postId = $model->postId;
+                         $tagsPostsModel->save();
+			         }
+			     }
+			     $this->redirect(array('view','id'=>$model->postId)); 
+			}
+				
 		}
 
 		$this->render('update',array(

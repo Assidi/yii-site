@@ -16,7 +16,7 @@
 class Blog extends CActiveRecord
 {
     // тэги для поста
-    public $tags = array();
+   // public $tags = array();
     
 	/**
 	 * @return string the associated database table name
@@ -121,15 +121,7 @@ class Blog extends CActiveRecord
           }  
           Yii::app()->params['debug'] = $model;
           
-          // теперь запишем тэги в соответствующую таблицу
-          //if (count($this->tags > 0)) {            
-//            foreach ($this->tags as $tag => $id) {
-//                $tagsPostsModel = new TagsPosts;
-//                $tagsPostsModel->tagId = $id;
-//                $tagsPostsModel->postId = $this->postId;
-//                $tagsPostsModel->save();                 
-//            }
-//          }
+          
          return true;
         }
         else 
@@ -145,9 +137,28 @@ class Blog extends CActiveRecord
         $arTags = array();
         if($this->tagsPosts) {
             foreach ($this->tagsPosts as $tagsPostsModel) {
-                $arTags[$tagsPostsModel->$id] = $tagsPostsModel->$tagName;
+                $arTags[$tagsPostsModel->id] = $tagsPostsModel->tag->tagName;
             }            
         }
         return $arTags;
     }
+    
+    public function getTagIds() {
+        $arTags = array();
+        if($this->tagsPosts) {
+            foreach ($this->tagsPosts as $tagsPostsModel) {
+                $arTags[$tagsPostsModel->id] = $tagsPostsModel->tagId;
+            }            
+        }
+        return $arTags;
+    }
+    
+    function __get($name) {
+        //echo $name.'<br />';
+        if($name=='tags') {
+            return $this->getTagIds();
+        }
+        return parent::__get($name);
+    }
+    
 }

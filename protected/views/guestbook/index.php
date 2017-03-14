@@ -19,11 +19,13 @@ else {
 	array('label'=>'Новая запись', 'url'=>array('create')),
 );
 }
-
-
 ?>
 
 <h1>Гостевая книга</h1>
+
+<h2>Новая запись</h2>
+
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

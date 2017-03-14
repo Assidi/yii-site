@@ -18,6 +18,16 @@ class FanfController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
+    
+    protected function beforeRender($view) {
+        if(parent::beforeRender($view)) {
+         if(!Yii::app()->user->isGuest) $this->layout ='//layouts/column2';
+         return true;
+        }
+        else 
+            return false;                
+    }
+
 
 	/**
 	 * Specifies the access control rules.

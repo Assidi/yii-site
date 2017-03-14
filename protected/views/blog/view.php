@@ -21,6 +21,7 @@ $this->menu=array(
 <p>
 <?=AssidiHelper::insertBreakes($model->text)?>
 </p>
+<? print_r($model->tags);?>
 
 
 
