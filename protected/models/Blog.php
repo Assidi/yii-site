@@ -137,7 +137,7 @@ class Blog extends CActiveRecord
         $arTags = array();
         if($this->tagsPosts) {
             foreach ($this->tagsPosts as $tagsPostsModel) {
-                $arTags[$tagsPostsModel->id] = $tagsPostsModel->tag->tagName;
+                $arTags[$tagsPostsModel->tagId] = $tagsPostsModel->tag->tagName;
             }            
         }
         return $arTags;
@@ -159,6 +159,21 @@ class Blog extends CActiveRecord
             return $this->getTagIds();
         }
         return parent::__get($name);
+    }
+    
+    /**
+     * Получает все записи с определенным тэгом  
+     * @param integer $id - идентификатор тэга
+     * @return записи
+     * 
+     */
+    public static function findPosts($id) {
+        $criteria = new CDbCriteria();
+        //$ids = array();
+        //$ids[0] = $id;
+        //$criteria->addInCondition('tagsPosts.tagId', $ids);
+        $modelTags = TagsPosts::model()->findAllByAttributes(); 
+        return Blog::model()->findAll($criteria);
     }
     
 }

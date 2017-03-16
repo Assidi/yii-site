@@ -27,11 +27,11 @@ class FandomsController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',  // сортировку по фандомам разрешаем всем 
 				'actions'=>array('sort'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+			array('allow', // а вот все остальное - только админу
 				'actions'=>array('index','view','create','update'),
 				'users'=>array('admin'),
 			),

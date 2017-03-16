@@ -18,6 +18,15 @@ class BlogController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
+    
+    protected function beforeRender($view) {
+        if(parent::beforeRender($view)) {
+         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
+         return true;
+        }
+        else 
+            return false;                
+    }
 
 	/**
 	 * Specifies the access control rules.
@@ -49,9 +58,8 @@ class BlogController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
-	{  
-	   if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
+	public function actionView($id)	{  
+	   
        $post=$this->loadModel($id);
        //$post->tags = $post->getTags();
       // Yii::app()->params['debug'] = $this->loadModel($id);
@@ -150,9 +158,7 @@ class BlogController extends Controller
 	 */
 	public function actionIndex()
 	{
-	    if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';         
-		
-        $dataProvider=new CActiveDataProvider('Blog', array('criteria'=>array('order'=>'date DESC')));
+	    $dataProvider=new CActiveDataProvider('Blog', array('criteria'=>array('order'=>'date DESC')));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

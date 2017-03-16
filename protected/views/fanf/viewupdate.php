@@ -3,7 +3,7 @@
 /* @var $model Fanf */
 
 $this->breadcrumbs=array(
-	'Фанфики'=>array('index'),
+	'Тексты'=>array('index'),
 	$model->title,
 );
 

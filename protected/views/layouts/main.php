@@ -33,7 +33,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),                
-                array('label'=>'Фанфики', 'url'=>array('/fanf/index')),
+                array('label'=>'Тексты', 'url'=>array('/fanf/index')),
                 array('label'=>'Блог', 'url'=>array('/blog/index')),
 				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Контакты', 'url'=>array('/site/contact')),

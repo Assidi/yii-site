@@ -57,7 +57,23 @@ class AssidiHelper {
 		}
 		return $requestParam;
 	}
+    
+    /**
+	 * Возвращает первое предложение текста (для блога)
+	 * @param string $text
+	 * @return string
+	 */
+     static function beginText($text) {
+        $l = strlen($text);
+        if($l<200) {
+            return $text;
+        }
+        $n = strpos($text, '. ');
+        $str = substr($text, 0, $n+1);
+        return $str;
+     }
  }
+    
     
     
 ?>

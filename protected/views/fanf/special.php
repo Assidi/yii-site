@@ -19,7 +19,7 @@
 	</div>
 	
 	<div class="row">
-		<label for="characters">Герои</label>
+		<label for="characters">Персонажи</label>
 		<?= CHtml::dropDownList('characters[]', $character, $characters); ?>
 	</div>
 	

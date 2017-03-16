@@ -3,7 +3,7 @@
 /* @var $model Fanf */
 
 $this->breadcrumbs=array(
-	'Фанфики'=>array('index'),
+	'Тексты'=>array('index'),
 	$model->title,
 );
 
@@ -20,8 +20,7 @@ if (!Yii::app()->user->isGuest) {
 }
 else {
     // меню для гостя
-    $this->menu=array(	
-    array('label'=>'Все фанфики', 'url'=>array('index')),
+    $this->menu=array(
 	array('label'=>'Поиск', 'url'=>array('search')),
 );
 }
@@ -103,11 +102,11 @@ else {
              <?php foreach ($model->getComments() as $thisComments) : ?>
                 <article class="comment">
                     <div class="comment-head clearfix">
-                        <a href="mailto:<?=$thisComments->email?>" class="name"><?=$thisComments->name?></a>
+                        <a href="mailto:<?=$thisComments->email?>" class="name"><?=CHtml::encode($thisComments->name)?></a>
                         <div class="comment-date"><?=AssidiHelper::dateFormat($thisComments->date)?></div>
                     </div>
                     
-                    <div class="comment-text"><?=AssidiHelper::insertBreakes($thisComments->text)?></div>        
+                    <div class="comment-text"><?=AssidiHelper::insertBreakes(CHtml::encode($thisComments->text))?></div>        
                 </article>
              <?php endforeach; ?>     
     <?php endif; ?>

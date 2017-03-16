@@ -3,7 +3,7 @@
 /* @var $model Fanf */
 
 $this->breadcrumbs=array(
-	'Фанфики'=>array('index'),
+	'Тексты'=>array('index'),
 	'Управление',
 );
 
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Управление фанфиками</h1>
+<h1>Управление текстами</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

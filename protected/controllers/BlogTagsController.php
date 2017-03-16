@@ -27,7 +27,11 @@ class BlogTagsController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+            array('allow',  // сортировку по тэгам разрешаем всем 
+				'actions'=>array('sort'),
+				'users'=>array('*'),
+			),
+			array('allow',  // а вот все остальное - только админу
 				'actions'=>array('index','view'),
 				'users'=>array('admin'),
 			),
@@ -143,6 +147,18 @@ class BlogTagsController extends Controller
 		));
 	}
 
+    /**
+     * выводит записи блога по определенному тэгу
+     * @param integer $id идендификатор тэга
+     */
+    public function actionSort($id)
+    {
+        $this->render('sort',array(
+            'tag'=>BlogTags::model()->findByPk($id),
+            'blog'=>Blog::findPosts($id),
+        ));
+    }
+    
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

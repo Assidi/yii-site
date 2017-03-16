@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Фанфики',
+	'Тексты',
 );
 if (!Yii::app()->user->isGuest) {
     // меню для администратора
@@ -22,7 +22,7 @@ else {
 
 ?>
 
-<h1>Фанфики</h1>
+<h1>Тексты</h1>
 <?php
     //print_r($models);
 ?>

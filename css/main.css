@@ -311,12 +311,14 @@ p {
 
 .mymenu {    
     margin-left: 50px;
-    margin-top: 10px;    
+    margin-top: 10px;  
+    width: 170px;
+    background-color: #ffd6b6;  
 }
 
 .mymenu li {
     display: inline-block;
-    width: 150px;
+    width: 100%;
     padding: 10px 5px;
     text-align: center;
 }

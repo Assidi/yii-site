@@ -3,7 +3,7 @@
 /* @var $model Fanf */
 
 $this->breadcrumbs=array(
-	'Фанфики'=>array('index'),
+	'Тексты'=>array('index'),
 	'Создание',
 );
 
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Новый фанфик</h1>
+<h1>Новый текст</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

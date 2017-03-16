@@ -21,7 +21,10 @@ $this->menu=array(
 <p>
 <?=AssidiHelper::insertBreakes($model->text)?>
 </p>
-<? print_r($model->tags);?>
-
+<p>
+<? foreach($model->getTags() as $id=>$name):?>
+    <?= '<a href="/blogTags/sort/'. $id . '">'. $name.'</a>'; ?>
+<? endforeach?>
+</p>
 
 
