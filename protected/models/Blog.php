@@ -169,10 +169,11 @@ class Blog extends CActiveRecord
      */
     public static function findPosts($id) {
         $criteria = new CDbCriteria();
-        //$ids = array();
-        //$ids[0] = $id;
-        //$criteria->addInCondition('tagsPosts.tagId', $ids);
-        $modelTags = TagsPosts::model()->findAllByAttributes(); 
+        $criteria->with = array('tagsPosts');
+        $ids = array();
+        $ids[0] = $id;
+        $criteria->addInCondition('tagsPosts.tagId', $ids);
+        // $modelTags = TagsPosts::model()->findAllByAttributes(); 
         return Blog::model()->findAll($criteria);
     }
     
