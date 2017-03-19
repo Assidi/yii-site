@@ -177,4 +177,33 @@ class Blog extends CActiveRecord
         return Blog::model()->findAll($criteria);
     }
     
+    /**
+     * формирует текст для вывода списке всех постов 
+     * если пост коротий - оставляет без измепнения
+     * если длинный - сокращает и прибавляет ссылку "читать дальше"     
+     */
+    
+    public function cutText() {
+        $post = $this->text;
+        $l = strlen($post);
+        $lmax = 300;
+        if ($l<$lmax) {
+            return $post;
+        }
+        else {
+            // будет скрывать часть строки с точки, запятой или скобки, за которыми идет пробел
+            $reg = "/[\.,)]\s/";
+            $arrstr = preg_split($reg, $post,-1, PREG_SPLIT_OFFSET_CAPTURE);
+            $n = count($arrstr);
+    
+            for ($i=0; $i<$n; $i++) {
+                $pos = $arrstr[$i][1];                
+                if ($pos>$lmax) break;        
+            }
+            $str = substr($post, 0, $pos);                      
+            $str = $str." <a href=".$this->postId.">Читать дальше</a>";            
+            return $str;   
+        }
+    }
+    
 }

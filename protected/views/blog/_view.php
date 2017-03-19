@@ -14,9 +14,15 @@
     <div class="blog-date">
         Опубликовано: <?php echo CHtml::encode(AssidiHelper::dateFormat($data->date)); ?>
     </div>   
+	<p>
+    <?php echo $data->cutText(); ?>
+    </p>
 	
-	<?php echo CHtml::encode($data->text); ?>
-	<br />
-
+	<p>
+<? foreach($data->getTags() as $tagid=>$tagname):?>
+    <?= '<a href="/blogTags/sort/'. $tagid . '">'. $tagname.'</a>'; ?>
+<? endforeach?>
+</p>
+    
 
 </div>
