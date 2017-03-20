@@ -5,10 +5,9 @@
 ?>
 
 <div class="view">
-    <?php// print_r($thistags);?>
     
     <div class="fanf-title">
-        <?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->postId)); ?>        
+        <?php echo CHtml::link(CHtml::encode($data->title), array('blog/view', 'id'=>$data->postId)); ?>        
     </div>
     
     <div class="blog-date">
