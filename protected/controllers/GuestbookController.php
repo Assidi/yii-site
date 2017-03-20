@@ -28,7 +28,7 @@ class GuestbookController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','create'),
+				'actions'=>array('index','create','captcha'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -184,4 +184,13 @@ class GuestbookController extends Controller
 			Yii::app()->end();
 		}
 	}
+    
+    public function actions(){
+        return array(
+            'captcha'=>array(
+                'class'=>'CCaptchaAction',
+                
+            ),
+        );
+    }
 }

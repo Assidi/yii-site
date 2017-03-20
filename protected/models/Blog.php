@@ -172,8 +172,18 @@ class Blog extends CActiveRecord
         $criteria->with = array('tagsPosts');
         $ids = array();
         $ids[0] = $id;
-        $criteria->addInCondition('tagsPosts.tagId', $ids);
-        // $modelTags = TagsPosts::model()->findAllByAttributes(); 
+        $criteria->addInCondition('tagsPosts.tagId', $ids);         
+        $blogs = Blog::model()->findAll($criteria);
+        if(!$blogs) return array();
+        
+        $postIds = array();
+        foreach ($blogs as $blog) {
+            $postIds[] = $blog->postId;
+        }
+        
+        $criteria = new CDbCriteria();
+        $criteria->with = array('tagsPosts');        
+        $criteria->addInCondition('t.postId', $postIds);         
         return Blog::model()->findAll($criteria);
     }
     

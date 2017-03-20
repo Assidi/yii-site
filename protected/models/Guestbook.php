@@ -12,6 +12,8 @@
  */
 class Guestbook extends CActiveRecord
 {
+     public $verifyCode;
+     
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,6 +36,12 @@ class Guestbook extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, email, text, date', 'safe', 'on'=>'search'),
+            array(
+                'verifyCode',
+                'captcha',
+                // авторизованным пользователям код можно не вводить
+                'allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
+            ),
 		);
 	}
 
@@ -59,6 +67,7 @@ class Guestbook extends CActiveRecord
 			'email' => 'Электронный адрес',
 			'text' => 'Сообщение',
 			'date' => 'Дата',
+            'verifyCode' => 'Код проверки',
 		);
 	}
 
