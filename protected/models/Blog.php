@@ -194,7 +194,7 @@ class Blog extends CActiveRecord
      */
     
     public function cutText() {
-        $post = $this->text;
+        $post = strip_tags($this->text);
         $l = strlen($post);
         $lmax = 300;
         if ($l<$lmax) {
@@ -237,7 +237,7 @@ class Blog extends CActiveRecord
      */
     public function addComment($comment) {
         Yii::app()->params['debug'] = $comment;
-        $comment->$postId = $this->$postId;
+        $comment->postId = $this->postId;
         return $comment->save();
     }
 }
