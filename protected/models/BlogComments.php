@@ -32,7 +32,7 @@ class BlogComments extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('postId, name, email, date, text', 'required'),
+			array('name, email, text', 'required'),
 			array('postId, date', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>50),
 			// The following rule is used by search().
@@ -59,12 +59,12 @@ class BlogComments extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'commentId' => 'Comment',
-			'postId' => 'Post',
-			'name' => 'Name',
-			'email' => 'Email',
-			'date' => 'Date',
-			'text' => 'Text',
+			'commentId' => 'Номер комментария',
+			'postId' => 'Номер поста',
+			'name' => 'Имя',
+			'email' => 'Электронный адрес',
+			'date' => 'Дата',
+			'text' => 'Текст комментария',
 		);
 	}
 
@@ -108,4 +108,19 @@ class BlogComments extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+     * Перед сохранением комментария добавляем в него дату создания  
+     * 
+     */
+    protected function beforeSave() {
+        if(parent::beforeSave()) {
+            if($this->isNewRecord) {
+                $this->date = time();         
+          }  
+         return true;
+        }
+        else 
+            return false;                
+    }
 }

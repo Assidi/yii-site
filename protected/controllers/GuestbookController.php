@@ -134,8 +134,8 @@ class GuestbookController extends Controller
 				$this->redirect(array('index'));
 		}
         
-        if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
-		$dataProvider=new CActiveDataProvider('Guestbook');
+        if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';		
+        $dataProvider=new CActiveDataProvider('Guestbook', array('criteria'=>array('order'=>'date DESC')));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
             'model'=>$model,

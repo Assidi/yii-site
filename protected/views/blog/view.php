@@ -27,4 +27,21 @@ $this->menu=array(
 <? endforeach?>
 </p>
 
+<div class="comment-main">
+    <h2>Оставить комментарий</h2>
+    <?php $this->renderPartial('/blogComments/_form',array('model'=>$comment,)); ?>
+    <?php if ($model->getComments()):?>
+        <h2>Комментарии</h2>             
+             <?php foreach ($model->getComments() as $thisComments) : ?>
+                <article class="comment">
+                    <div class="comment-head clearfix">
+                        <a href="mailto:<?=$thisComments->email?>" class="name"><?=CHtml::encode($thisComments->name)?></a>
+                        <div class="comment-date"><?=AssidiHelper::dateFormat($thisComments->date)?></div>
+                    </div>
+                    
+                    <div class="comment-text"><?=AssidiHelper::insertBreakes(CHtml::encode($thisComments->text))?></div>        
+                </article>
+             <?php endforeach; ?>     
+    <?php endif; ?>
+ </div>
 

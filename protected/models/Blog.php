@@ -217,4 +217,27 @@ class Blog extends CActiveRecord
         }
     }
     
+    /**
+ * Получает все комментарии к записи блога
+ * @return array() $сomments * 
+ */
+    public function getComments() {
+        $allComments=Array();
+        //Yii::app()->params['debug'] = $this;
+        if($this->blogComments) {
+            foreach ($this->blogComments as $CommentsBlog) {
+                $allComments[] = $CommentsBlog;
+            }
+        }
+        return $allComments;
+    }
+    
+    /**
+     * Добавление комментария к записи
+     */
+    public function addComment($comment) {
+        Yii::app()->params['debug'] = $comment;
+        $comment->$postId = $this->$postId;
+        return $comment->save();
+    }
 }

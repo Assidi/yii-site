@@ -58,16 +58,34 @@ class BlogController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)	{  
-	   
+	public function actionView($id)	{  	   
        $post=$this->loadModel($id);
-       //$post->tags = $post->getTags();
-      // Yii::app()->params['debug'] = $this->loadModel($id);
+       $comment=$this->newComment($post);
 		$this->render('view',array(
 			'model'=>$post,
+            'comment'=>$comment,
 		));
 	}
 
+
+    /**
+     * функция для добавления комментария к посту блога
+     * @param $post - модель для поста
+     */
+    protected function newComment($post) {        
+        $comment=new BlogComments;
+        if(isset($_POST['BlogComments']))
+        {
+            $comment->attributes=$_POST['BlogComments'];
+            if($post->addComment($comment))
+            {
+                Yii::app()->user->setFlash('commentSubmitted','Комментарий добавлен');
+                 $this->refresh();            
+            }
+        }
+        return $comment;
+    }
+    
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
