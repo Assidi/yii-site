@@ -16,6 +16,8 @@
  */
 class BlogComments extends CActiveRecord
 {
+    public $verifyCode;
+    
 	/**
 	 * @return string the associated database table name
 	 */
@@ -38,6 +40,12 @@ class BlogComments extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('commentId, postId, name, email, date, text', 'safe', 'on'=>'search'),
+            array(
+                'verifyCode',
+                'captcha',
+                // авторизованным пользователям код можно не вводить
+                'allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
+            ),
 		);
 	}
 
@@ -65,6 +73,7 @@ class BlogComments extends CActiveRecord
 			'email' => 'Электронный адрес',
 			'date' => 'Дата',
 			'text' => 'Текст комментария',
+            'verifyCode' => 'Код проверки',
 		);
 	}
 

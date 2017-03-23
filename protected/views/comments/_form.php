@@ -36,7 +36,12 @@
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
-   
+    
+    <?if(CCaptcha::checkRequirements() && Yii::app()->user->isGuest):?>
+        <?=CHtml::activeLabelEx($model, 'verifyCode')?>
+        <?$this->widget('CCaptcha',array('buttonLabel'=>'Обновить картинку'))?><br />
+        <?=CHtml::activeTextField($model, 'verifyCode')?>
+    <?endif?>   
     
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Отправить' : 'Сохранить'); ?>

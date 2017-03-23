@@ -236,8 +236,10 @@ class Blog extends CActiveRecord
      * Добавление комментария к записи
      */
     public function addComment($comment) {
-        Yii::app()->params['debug'] = $comment;
+        //Yii::app()->params['debug'] = $comment;
         $comment->postId = $this->postId;
         return $comment->save();
     }
+    
+    
 }

@@ -27,6 +27,10 @@ class BlogCommentsController extends Controller
 	public function accessRules()
 	{
 		return array(
+            array('allow',
+                'actions'=>array('captcha'),
+                'users'=>array('*'),
+            ),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('admin'),
@@ -170,4 +174,13 @@ class BlogCommentsController extends Controller
 			Yii::app()->end();
 		}
 	}
+    
+    public function actions(){
+        return array(
+            'captcha'=>array(
+                'class'=>'CCaptchaAction',
+                
+            ),
+        );
+    }
 }

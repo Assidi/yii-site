@@ -38,7 +38,7 @@ class FanfController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'search'),
+				'actions'=>array('index','view', 'search','captcha'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -297,4 +297,11 @@ class FanfController extends Controller
 			Yii::app()->end();
 		}
 	}
+    public function actions(){
+        return array(
+            'captcha'=>array(
+                'class'=>'CCaptchaAction',
+            ),
+        );
+    }
 }
