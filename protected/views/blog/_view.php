@@ -22,6 +22,10 @@
     <?= '<a href="/blogTags/sort/'. $tagid . '">'. $tagname.'</a>'; ?>
 <? endforeach?>
 </p>
+<p>
+<?php echo 'Комментарии: '.CHtml::link($data->commentsCount(), array('blog/view', 'id'=>$data->postId)); ?>
+</p>
+
     
 
 </div>

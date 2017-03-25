@@ -233,6 +233,20 @@ class Blog extends CActiveRecord
     }
     
     /**
+ * Считает количество комментариев к записи
+ * @return integer
+ */
+    public function commentsCount() {
+        $n = 0;
+        if($this->blogComments) {
+            foreach ($this->blogComments as $CommentsBlog) {
+                $n++;
+            }
+        }
+        return $n;
+    }
+    
+    /**
      * Добавление комментария к записи
      */
     public function addComment($comment) {
