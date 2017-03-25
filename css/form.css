@@ -131,6 +131,10 @@ div.form span.error
     display: inline-block;
 }
 
+#Blog_tags label {
+    display: inline-block;
+}
+
 div.form div.error input,
 div.form div.error textarea,
 div.form div.error select,
