@@ -71,10 +71,11 @@ class PicturesController extends Controller
 		{
 			$model->attributes=$_POST['Pictures'];
             $model->image=CUploadedFile::getInstance($model,'image');
-			if($model->save())
+			if($model->save()) {
                 $path=Yii::getPathOfAlias('webroot').'/images/'.$model->image->getName();
                 $model->image->saveAs($path);
 				//$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
