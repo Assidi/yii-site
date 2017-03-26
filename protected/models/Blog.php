@@ -238,10 +238,8 @@ class Blog extends CActiveRecord
  */
     public function commentsCount() {
         $n = 0;
-        if($this->blogComments) {
-            foreach ($this->blogComments as $CommentsBlog) {
-                $n++;
-            }
+        if($this->blogComments) {            
+            $n = count($this->blogComments);
         }
         return $n;
     }
@@ -249,8 +247,7 @@ class Blog extends CActiveRecord
     /**
      * Добавление комментария к записи
      */
-    public function addComment($comment) {
-        //Yii::app()->params['debug'] = $comment;
+    public function addComment($comment) {        
         $comment->postId = $this->postId;
         return $comment->save();
     }
