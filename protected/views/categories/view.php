@@ -24,4 +24,5 @@ $this->menu=array(
 		'id',
 		'name',
 	),
+    'cssFile'=>'main.css',
 )); ?>

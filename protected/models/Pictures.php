@@ -106,4 +106,18 @@ class Pictures extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+     * Получает все картинки из определенного раздела  
+     * @param integer $id - идентификатор раздела
+     * @return картинки
+     * 
+     */
+    public static function findPictures($id) {
+        $criteria = new CDbCriteria();
+        $ids=array();
+        $ids[0]= $id;
+        $criteria->addInCondition('categoryId', $ids); 
+        return Pictures::model()->findAll($criteria);
+    }
 }

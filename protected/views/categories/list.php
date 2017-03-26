@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Разделы рисунков',
+	'Рисунки',
 );
 
 $this->menu=array(
@@ -12,12 +12,13 @@ $this->menu=array(
 );
 ?>
 
-<h1>Разделы рисунков</h1>
-<!-- Выводим просто список, их немного, поэтому нам виджет не нужен -->
+<h1>Рисунки</h1>
+<!-- Здесь мы выводим список разделов рисунков, по ссылке открываются рисунки этого раздела -->
 
 <? foreach ($models as $modelCat): ?>
     <p>
-        <a href="<?= $modelCat->id; ?>" class="a-inline"><?= $modelCat->name; ?></a>
+        
+        <?= '<a href="/categories/sort/'. $modelCat->id . '">'. $modelCat->name.'</a>'; ?>
     </p>                            
 <? endforeach; ?>
 

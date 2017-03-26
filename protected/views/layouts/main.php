@@ -34,7 +34,7 @@
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),                
                 array('label'=>'Тексты', 'url'=>array('/fanf/index')),
-                array('label'=>'Рисунки', 'url'=>array('/pictures/index')),
+                array('label'=>'Рисунки', 'url'=>array('/categories/list')),
                 array('label'=>'Блог', 'url'=>array('/blog/index')),
 				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),				
                 array('label'=>'Гостевая книга', 'url'=>array('/guestbook/index')),
@@ -65,6 +65,7 @@
                 array('label'=>'Тэги', 'url'=>array('/blogTags/index')),               
                 array('label'=>'Комменты блога', 'url'=>array('/blogComments/index')), 
                 array('label'=>'Разделы картинок', 'url'=>array('/categories/index')),
+                array('label'=>'Рисунки', 'url'=>array('/pictures/index')),
 			),
 		)); ?>
     </div>

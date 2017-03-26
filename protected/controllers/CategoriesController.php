@@ -18,6 +18,15 @@ class CategoriesController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
+    
+    protected function beforeRender($view) {
+        if(parent::beforeRender($view)) {
+         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
+         return true;
+        }
+        else 
+            return false;                
+    }
 
 	/**
 	 * Specifies the access control rules.
@@ -28,12 +37,12 @@ class CategoriesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('list','sort'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('index','view','create','update'),
+				'users'=>array('admin'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -55,6 +64,17 @@ class CategoriesController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+    
+    /**
+     * выводит картинки из определенной категории
+     * @param integer $id идендификатор категории
+     */
+    public function actionSort($id) {
+        $this->render('sort',array(
+            'category'=>Categories::model()->findByPk($id),
+            'pictures'=>Pictures::findPictures($id),
+        ));
+    }
 
 	/**
 	 * Creates a new model.
@@ -118,13 +138,33 @@ class CategoriesController extends Controller
 	}
 
 	/**
-	 * Lists all models.
+	 * Список категорий для админа
 	 */
 	public function actionIndex()
 	{
+	    $criteria=new CDbCriteria();
+        $models = Categories::model()->findAll($criteria);
+        
 		$dataProvider=new CActiveDataProvider('Categories');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+            'models'=>$models,
+		));
+	}
+    
+    /**
+	 * Список категорий для пользователя со ссылками на рисунки
+	 */
+	public function actionList()
+	{
+	    
+	    $criteria=new CDbCriteria();
+        $models = Categories::model()->findAll($criteria);
+        
+		$dataProvider=new CActiveDataProvider('Categories');
+		$this->render('list',array(
+			'dataProvider'=>$dataProvider,
+            'models'=>$models,
 		));
 	}
 
