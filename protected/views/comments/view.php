@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Comments #<?php echo $model->commentId; ?></h1>
+<h1>Комментарий №<?php echo $model->commentId; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

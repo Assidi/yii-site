@@ -54,8 +54,8 @@ class Categories extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
+			'id' => 'Номер',
+			'name' => 'Имя',
 		);
 	}
 

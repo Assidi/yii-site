@@ -3,16 +3,16 @@
 /* @var $model Pictures */
 
 $this->breadcrumbs=array(
-	'Pictures'=>array('index'),
-	'Create',
+	'Рисунки'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	array('label'=>'List Pictures', 'url'=>array('index')),
-	array('label'=>'Manage Pictures', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Pictures</h1>
+<h1>Новый рисунок</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

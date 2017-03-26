@@ -3,13 +3,13 @@
 /* @var $model Categories */
 
 $this->breadcrumbs=array(
-	'Categories'=>array('index'),
-	'Manage',
+	'Разделы рисунков'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(
-	array('label'=>'List Categories', 'url'=>array('index')),
-	array('label'=>'Create Categories', 'url'=>array('create')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Создать', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Categories</h1>
+<h1>Управление разделами</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

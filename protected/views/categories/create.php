@@ -3,16 +3,16 @@
 /* @var $model Categories */
 
 $this->breadcrumbs=array(
-	'Categories'=>array('index'),
-	'Create',
+	'Разделы рисунков'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	array('label'=>'List Categories', 'url'=>array('index')),
-	array('label'=>'Manage Categories', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Categories</h1>
+<h1>Новый раздел</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

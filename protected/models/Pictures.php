@@ -61,10 +61,10 @@ class Pictures extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'categoryId' => 'Category',
-			'description' => 'Description',
-			'image' => 'Image',
+			'id' => 'Номер',
+			'categoryId' => 'Раздел',
+			'description' => 'Описание',
+			'image' => 'Изображение',
 		);
 	}
 
