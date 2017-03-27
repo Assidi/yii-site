@@ -30,5 +30,12 @@ else {
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
+    'pager' => array(
+     'nextPageLabel' => 'Следующая',
+     'prevPageLabel' => 'Предыдущая',
+     'firstPageLabel' => 'Первая',
+     'lastPageLabel' => 'Последняя',
+     'header' => 'Страница: '
+     ),
 	'pagerCssClass' => 'assidi-pagination',
 )); ?>

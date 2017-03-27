@@ -3,23 +3,12 @@
 /* @var $data Pictures */
 ?>
 
-<div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('/pictures/view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('categoryId')); ?>:</b>
-	<?php echo CHtml::encode($data->categoryId); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
+<div class="view-picture">
+    <a href="/images/<?=$data->image; ?>" data-fancybox="group" data-caption="<?= CHtml::encode($data->description); ?>">
+	<img src="/images/preview/<?=$data->image; ?>" alt="" />
+    </a>
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
-	<?php echo CHtml::encode($data->image); ?>
-	<br />
-
-
+	
+	
 </div>

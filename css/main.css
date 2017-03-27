@@ -378,8 +378,16 @@ div.form .rememberMe label
 div.view
 {
 	padding: 10px;
-	margin: 10px 0;
-	/*border: 1px solid #C9E0ED;*/
+	margin: 10px 0;	
+    border: 1px solid #fa8258;
+    background-color: #ffffff;
+}
+
+.view-picture {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+	margin-right: 10px;	
     border: 1px solid #fa8258;
     background-color: #ffffff;
 }
