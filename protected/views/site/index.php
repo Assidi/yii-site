@@ -24,7 +24,7 @@ $this->pageTitle=Yii::app()->name;
 <h2>Последние тексты</h2>
 <div class="view">
         <?php 
-            FanfController->renderPartial('_view',array(
+            $this->renderPartial('/fanf/_view',array(
             'fanf'=>Fanf::lastFanf(),            
         )); ?>
 </div>

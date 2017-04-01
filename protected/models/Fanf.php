@@ -277,7 +277,7 @@ class Fanf extends CActiveRecord
      */
     
     public static function lastFanf() {
-        $criteria=new CDbCriteria(array('order'=>'$datePublish DESC'));
+        $criteria=new CDbCriteria(array('order'=>'datePublish DESC'));
         $fanfNew = self::model()->find($criteria);
         return $fanfNew;
     }
