@@ -22,12 +22,11 @@ $this->pageTitle=Yii::app()->name;
 </div>
 
 <h2>Последние тексты</h2>
-<div class="view">
         <?php 
             $this->renderPartial('/fanf/_view',array(
-            'fanf'=>Fanf::lastFanf(),            
-        )); ?>
-</div>
+            'data'=>Fanf::lastFanf(),            
+        )); ?>       
+
 
 <h2>Улыбнитесь!</h2>
 <div class="view">
