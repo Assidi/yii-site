@@ -270,4 +270,15 @@ class Fanf extends CActiveRecord
         $comment->fanficId=$this->ficId;
         return $comment->save();
     }
+    
+    /**
+     * Возвращает последний добавленный фанфик
+     * @return fanf 
+     */
+    
+    public static function lastFanf() {
+        $criteria=new CDbCriteria(array('order'=>'$datePublish DESC'));
+        $fanfNew = self::model()->find($criteria);
+        return $fanfNew;
+    }
 }

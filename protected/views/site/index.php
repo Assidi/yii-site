@@ -6,23 +6,31 @@ $this->pageTitle=Yii::app()->name;
 
 <h1>Добро пожаловать на <?php echo CHtml::encode(Yii::app()->name); ?></h1>
 
-<p>Мои поздравления! Мы успешно установили Yii, правда, пока не знаем, что делать дальше :) </p>
-
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<p>Приветствую вас на моей домашней страничке! Меня зовут Ассиди, я ролевик, толкинист, фанфикер 
+и на этом сайте я собрала все свое творчество за время моего пребывания в фэндоме. В 
+отличие от предыдущей версии моего сайта, здесь можно оставлять комментарии не только в гостевой книге 
+(которая, кстати, теперь находится не на стороннем ресуре, а здесь же и никуда не исчезнет),
+но и под каждым текстом, а так же можно комментировать записи блога. </p>
+<p>Помните, что неконструктивные комментарии будут удаляться без объяснения причин!</p>
 
 
-<?php    
-    $myJoke = new Jokes;
-    $joke = $myJoke->randJoke();    
-?>
+<h2>Новости сайта</h2>
+<div class="view">
+    <? $new = News::lastNews();?>
+    <p><i><?=AssidiHelper::dateFormat($new->date) ?></i></p>
+    <p><?=AssidiHelper::insertBreakes($new->text);?></p>
+</div>
 
-<p><?=$joke;?></p>
+<h2>Последние тексты</h2>
+<div class="view">
+        <?php 
+            FanfController->renderPartial('_view',array(
+            'fanf'=>Fanf::lastFanf(),            
+        )); ?>
+</div>
+
+<h2>Улыбнитесь!</h2>
+<div class="view">
+    <p><?=Jokes::getRandJoke();?></p>
+</div>
+

@@ -91,12 +91,14 @@ class Jokes extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+       
     
     /**
      * @return случайную шутку из базы Jokes
      */
-    public function randJoke() {        
-        $jokesAll = $this->findAll();
+    public static function getRandJoke() {
+        $criteria=new CDbCriteria();
+        $jokesAll = self::model()->findAll($criteria);	
         $n = count($jokesAll);
         
         $i = mt_rand(0, $n-1);

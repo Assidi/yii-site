@@ -1,9 +1,9 @@
 <?php
-/* @var $this PicturesController */
-/* @var $model Pictures */
+/* @var $this NewsController */
+/* @var $model News */
 
 $this->breadcrumbs=array(
-	'Рисунки'=>array('index'),
+	'Новости'=>array('index'),
 	'Управление',
 );
 
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#pictures-grid').yiiGridView('update', {
+	$('#news-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Управление рисунками</h1>
+<h1>Управление новостями</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,14 +41,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'pictures-grid',
+	'id'=>'news-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'categoryId',
-		'description',
-		'image',
+		'date',
+		'text',
 		array(
 			'class'=>'CButtonColumn',
 		),

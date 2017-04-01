@@ -58,19 +58,20 @@
                 array('label'=>'Жанры', 'url'=>array('/genre/index')),
                 array('label'=>'Фандомы', 'url'=>array('/fandoms/index')),
                 array('label'=>'Соавторы', 'url'=>array('/coauthor/index')),
-                array('label'=>'Беты', 'url'=>array('/beta/index')),                
+                array('label'=>'Беты', 'url'=>array('/beta/index')), 
+                array('label'=>'Приколы', 'url'=>array('/jokes/index')),               
 			),
 		)); ?>
     </div>
     <div id="adminmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-                array('label'=>'Приколы', 'url'=>array('/jokes/index')),
+			'items'=>array(                
                 array('label'=>'Комменты', 'url'=>array('/comments/index')),
                 array('label'=>'Тэги', 'url'=>array('/blogTags/index')),               
                 array('label'=>'Комменты блога', 'url'=>array('/blogComments/index')), 
                 array('label'=>'Разделы картинок', 'url'=>array('/categories/index')),
                 array('label'=>'Рисунки', 'url'=>array('/pictures/index')),
+                array('label'=>'Новости', 'url'=>array('/news/index')),
 			),
 		)); ?>
     </div>
