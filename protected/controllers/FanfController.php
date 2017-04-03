@@ -257,7 +257,11 @@ class FanfController extends Controller
 		$characters = AssidiHelper::getArrayFromRequest('characters');
 		$fandoms = AssidiHelper::getArrayFromRequest('fandoms');
 		$genres = AssidiHelper::getArrayFromRequest('genres');
-		$models = Fanf::speacialSearch($characters, $fandoms, $genres);
+		$models = Fanf::speacialSearch($characters, $fandoms, $genres);        
+        $model=new Fanf('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Fanf']))
+			$model->attributes=$_GET['Fanf'];
 
 		$this->render('special',array(
 			'models' => $models,
@@ -267,6 +271,7 @@ class FanfController extends Controller
 			'fandoms' => Fandoms::getList(),
 			'genre' =>  isset($genres[0]) ? $genres[0] : '',
 			'genres' => Genre::getList(),
+            'model' => $model,
 		));
 	}
 

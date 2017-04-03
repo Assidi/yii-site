@@ -252,5 +252,15 @@ class Blog extends CActiveRecord
         return $comment->save();
     }
     
+    /**
+     * Возвращает последнюю запись в блоге
+     * @return blog 
+     */
+    
+    public static function lastPost() {
+        $criteria=new CDbCriteria(array('order'=>'date DESC'));
+        $postNew = self::model()->find($criteria);
+        return $postNew;
+    }
     
 }

@@ -134,6 +134,47 @@ class Fanf extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+    
+    public function customSearch()
+	{
+		// функция для поиска текстов пользователем
+
+		$criteria=new CDbCriteria;
+		
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('dateWrite',$this->dateWrite,true);		
+		$criteria->compare('raiting',$this->raiting,true);			
+        $criteria->compare('summary',$this->summary,true);	
+		$criteria->compare('size',$this->size);		
+		$criteria->compare('category',$this->category,true);
+		$criteria->compare('text',$this->text,true);
+        $characters = AssidiHelper::getArrayFromRequest('characters');
+		$fandoms = AssidiHelper::getArrayFromRequest('fandoms');
+		$genres = AssidiHelper::getArrayFromRequest('genres');
+        
+        $withCriteria = array();
+		if ($characters) {
+			$withCriteria['custom_character'] = 'charactersFanfics.character';
+            $criteria->addInCondition('custom_character.characterId', $characters);
+        }
+		if ($fandoms) {
+			$withCriteria['custom_fandom'] = 'fandomsFanfics.fandom';
+            $criteria->addInCondition('custom_fandom.fandomId', $fandoms);
+        }
+		if ($genres) {
+			$withCriteria['custom_genre'] = 'genreFanfics.genre';
+            $criteria->addInCondition('custom_genre.genreId', $genres);
+        }
+		if ($withCriteria) {
+			$criteria->with = $withCriteria;
+		}
+        
+        
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
 
 	/**
 	 * Returns the static model of the specified AR class.
