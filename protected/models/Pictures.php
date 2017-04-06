@@ -130,7 +130,8 @@ class Pictures extends CActiveRecord
         //начинаем запись превьюшки        
         $source = Yii::getPathOfAlias('webroot') ."/images/".$this->image;
         $dest = Yii::getPathOfAlias('webroot') ."/images/preview/".$this->image;
-        $nh = 250;    // Высота миниатюр
+        //$nh = 250;    // Высота миниатюр
+        $nw = 200;    // Ширина миниатюр
         
         //определяем тип изображения
     $stype = explode(".", $source);
@@ -142,7 +143,7 @@ class Pictures extends CActiveRecord
     $h = $size[1];    // Высота изображения
 
     // высоту миниатюры сейчас сосчитаем пропорционально ширине
-    $nw = round($nh*$w/$h);
+    $nh = round($nw*$h/$w);
     
     
     
