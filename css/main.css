@@ -4,6 +4,10 @@
     display: table;
 }
 
+html {
+    font-size: 1em;
+}
+
 body
 {
 	/*margin: 0;
@@ -22,6 +26,16 @@ body
 }
 
 /* Ссылки внутри строки */
+
+a {
+    color: #610B0B; 
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #aa4b3f;
+}
+
 .breadcrumps a {
     color: #610B0B; 
 }
@@ -174,6 +188,12 @@ p {
 	font-size: 200%;
 }
 /*  Главное меню */
+
+.navbar-default {
+    background-color: #FA8258;
+    border-color: #FA8258;
+}
+
 #mainmenu
 {
 	/*background:white url(bg.gif) repeat-x left top;*/
@@ -392,11 +412,15 @@ div.view
 
 .view-picture {
     display: inline-block;
-    width: 200px;
+    /*width: 200px;*/
     padding: 10px;
 	margin-right: 10px;	
     border: 1px solid #fa8258;
     background-color: #ffffff;
+}
+
+.view-picture img {
+    display: block;
 }
 
 div.breadcrumbs

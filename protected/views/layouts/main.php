@@ -3,7 +3,9 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="language" content="en">
+	<meta name="language" content="ru">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">
@@ -13,6 +15,7 @@
 	<![endif]-->
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Sans+Narrow:400,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/assidi.css">
@@ -34,7 +37,8 @@
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 <!-- Общее меню для сайта -->
-	<div id="mainmenu">
+
+	<div id="mainmenu" >
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),                
@@ -51,7 +55,7 @@
 	</div><!-- mainmenu -->    
     <? if(!Yii::app()->user->isGuest): ?>
     <!-- Меню для администратора -->
-    <div id="adminmenu">
+    <div id="adminmenu" >
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(              
                 array('label'=>'Персонажи', 'url'=>array('/characters/index')),
@@ -63,7 +67,7 @@
 			),
 		)); ?>
     </div>
-    <div id="adminmenu">
+    <div id="adminmenu" >
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(                
                 array('label'=>'Комменты', 'url'=>array('/comments/index')),
