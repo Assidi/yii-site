@@ -125,8 +125,7 @@ class Pictures extends CActiveRecord
      * 
      */
     
-    protected function afterSave() {
-        parent::afterSave();
+    public function createThumb() {        
         //начинаем запись превьюшки        
         $source = Yii::getPathOfAlias('webroot') ."/images/".$this->image;
         $dest = Yii::getPathOfAlias('webroot') ."/images/preview/".$this->image;

@@ -74,6 +74,7 @@ class PicturesController extends Controller
 			if($model->save()) {
                 $path=Yii::getPathOfAlias('webroot').'/images/'.$model->image->getName();
                 $model->image->saveAs($path);
+                $model->createThumb();
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
