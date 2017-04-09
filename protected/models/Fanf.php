@@ -154,16 +154,19 @@ class Fanf extends CActiveRecord
         
         $withCriteria = array();
 		if ($characters) {
-			$withCriteria['custom_character'] = 'charactersFanfics.character';
-            $criteria->addInCondition('custom_character.characterId', $characters);
+            $withCriteria['charactersFanfics'] = array('together' => true);
+            $withCriteria['charactersFanfics.character'] = array('together' => true);
+            $criteria->addInCondition('character.characterId', $characters);
         }
 		if ($fandoms) {
-			$withCriteria['custom_fandom'] = 'fandomsFanfics.fandom';
-            $criteria->addInCondition('custom_fandom.fandomId', $fandoms);
+            $withCriteria['fandomsFanfics'] = array('together' => true);
+            $withCriteria['fandomsFanfics.fandom'] = array('together' => true);
+            $criteria->addInCondition('fandom.fandomId', $fandoms);
         }
 		if ($genres) {
-			$withCriteria['custom_genre'] = 'genreFanfics.genre';
-            $criteria->addInCondition('custom_genre.genreId', $genres);
+            $withCriteria['genreFanfics'] = array('together' => true);
+            $withCriteria['genreFanfics.genre'] = array('together' => true);
+            $criteria->addInCondition('genre.genreId', $genres);
         }
 		if ($withCriteria) {
 			$criteria->with = $withCriteria;
