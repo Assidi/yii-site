@@ -33,6 +33,13 @@ return array(
 
 	// application components
 	'components'=>array(
+		'clientScript'=>array(
+			'scriptMap'=>array(
+				'jquery.js'=>false,
+				'jquery.min.js'=>false,
+			),
+		),
+		
 
 		'user'=>array(
 			// enable cookie-based authentication

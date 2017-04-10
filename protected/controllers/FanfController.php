@@ -257,21 +257,23 @@ class FanfController extends Controller
 		$characters = AssidiHelper::getArrayFromRequest('characters');
 		$fandoms = AssidiHelper::getArrayFromRequest('fandoms');
 		$genres = AssidiHelper::getArrayFromRequest('genres');
-		$models = Fanf::speacialSearch($characters, $fandoms, $genres);        
         $model=new Fanf('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Fanf']))
 			$model->attributes=$_GET['Fanf'];
 
+        $requestFanf = Yii::app()->request->getParam('Fanf');
+
 		$this->render('special',array(
-			'models' => $models,
+            'model' => $model,
 			'character' => isset($characters[0]) ? $characters[0] : '',
 			'characters' => Characters::getList(),
 			'fandom' =>  isset($fandoms[0]) ? $fandoms[0] : '',
 			'fandoms' => Fandoms::getList(),
 			'genre' =>  isset($genres[0]) ? $genres[0] : '',
 			'genres' => Genre::getList(),
-            'model' => $model,
+            'minSize' => $requestFanf['minSize'],
+            'maxSize' => $requestFanf['maxSize'],
 		));
 	}
 

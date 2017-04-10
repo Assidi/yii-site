@@ -31,6 +31,7 @@ class Fanf extends CActiveRecord
 {
     const MIN_SIZE = 0;
     const MAX_SIZE = 200;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -147,7 +148,18 @@ class Fanf extends CActiveRecord
 		$criteria->compare('dateWrite',$this->dateWrite,true);		
 		$criteria->compare('raiting',$this->raiting);			
         $criteria->compare('summary',$this->summary,true);	
-		$criteria->compare('size',$this->size);		
+
+        $fanf = Yii::app()->request->getParam('Fanf');
+        $minSize = $fanf['minSize'];
+        if ($minSize) {
+            $criteria->addCondition('size > :min_size');
+            $criteria->params[':min_size'] = (int)$minSize * 1000;
+        }
+        $maxSize = $fanf['maxSize'];
+        if ($maxSize && $maxSize <= self::MAX_SIZE) {
+            $criteria->addCondition('size < :max_size');
+            $criteria->params[':max_size'] = (int)$maxSize * 1000;
+        }
 		$criteria->compare('category',$this->category);
 		$criteria->compare('text',$this->text,true);
         $characters = AssidiHelper::getArrayFromRequest('characters');
@@ -174,8 +186,6 @@ class Fanf extends CActiveRecord
 			$criteria->with = $withCriteria;
 		}
         
-        
-
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

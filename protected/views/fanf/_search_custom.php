@@ -33,11 +33,16 @@
 	</div>	
 
 	<div class="row">
-		<input type="text" id="size" style="border: 0; color: #f6931f; font-weight: bold;" />
-        <div id="slider-range"></div><br />
+        <label>Размер</label>
+		<input type="text" id="size" style="border: 0; color: #f6931f; font-weight: bold; width:300px;" />
+        <div id="slider-range" style="width:300px; margin-left: 110px;"></div>
         <input type="hidden" name="Fanf[minSize]" id="min-size">
         <input type="hidden" name="Fanf[maxSize]" id="max-size">
-        <div class="hidden" id="variables" data-min-size="<?= Fanf::MIN_SIZE; ?>" data-max-size="<?= Fanf::MAX_SIZE; ?>"></div>
+        <div class="hidden" id="variables"
+        data-min-size="<?= Fanf::MIN_SIZE; ?>"
+        data-max-size="<?= Fanf::MAX_SIZE; ?>"
+        data-current-min-size="<?= $minSize; ?>"
+        data-current-max-size="<?= $maxSize; ?>"></div>
 	</div>	
 
 	<div class="row">
@@ -75,15 +80,18 @@
 
 <script>
 $(document).ready(function() {
-  $(function() {
+    var currentMin = parseInt($('#variables').attr('data-current-min-size'));
+    var currentMax = parseInt($('#variables').attr('data-current-max-size'));
+    currentMin = currentMin ? currentMin : 5;
+    currentMax = currentMax ? currentMax : 50;
     $( "#slider-range" ).slider({
       range: true,
-      min: $('#variables').attr('data-min-size'),
-      max: $('#variables').attr('data-max-size'),
-      values: [ 5, 50 ],
+      min: parseInt($('#variables').attr('data-min-size')),
+      max: parseInt($('#variables').attr('data-max-size')),
+      values: [ currentMin, currentMax ],
       slide: function( event, ui ) {
-      	if ( (ui.values[0] + 15) >= ui.values[1] ) {
-                return false;
+      	if ( (ui.values[0] + 12) >= ui.values[1] ) {
+            return false;
         }
         $( "#size" ).val( ui.values[ 0 ]  + "K - " + ui.values[ 1 ] +"K");
         $('#min-size').val(ui.values[ 0 ]);
@@ -92,6 +100,5 @@ $(document).ready(function() {
     });
     $( "#size" ).val($( "#slider-range" ).slider( "values", 0 ) +
       "К - " + $( "#slider-range" ).slider( "values", 1 ) +"К" );
-  });
 });
 </script>

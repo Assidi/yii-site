@@ -9,20 +9,19 @@
 /* @var genres */
 ?>
 <?php
-    $this->renderPartial('_search_custom',array(
-        'model'=>$model,
-        'fandom'=>$fandom,
-        'fandoms'=>$fandoms,
-        'character'=>$character,
-        'characters'=>$characters,
-        'genre'=>$genre,
-        'genres'=>$genres,
-    ));
-?>
+$this->renderPartial('_search_custom',array(
+    'model'=>$model,
+    'fandom'=>$fandom,
+    'fandoms'=>$fandoms,
+    'character'=>$character,
+    'characters'=>$characters,
+    'genre'=>$genre,
+    'genres'=>$genres,
+    'maxSize'=>$maxSize,
+    'minSize'=>$minSize,
+));
 
-
-
-<?php $this->widget('zii.widgets.CListView', array(
+$this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$model->customSearch(),
 	'itemView'=>'_view',
     'pager' => array(
@@ -33,17 +32,5 @@
      'header' => 'Страница: '
      ),
 	'pagerCssClass' => 'assidi-pagination',
-)); ?>
-
-<?php /*
-<? if($models): ?>
-	<? foreach($models as $model): ?>
-		<? $this->renderPartial('/fanf/_view',array(
-			'data' => $model,
-		)); ?>
-	<? endforeach; ?>
-<? else: ?>
-	<p>Данные для отображения отсутствуют</p>
-<? endif; ?>
-*/
+));
 ?>
