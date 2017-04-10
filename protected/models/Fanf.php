@@ -29,6 +29,8 @@
  */
 class Fanf extends CActiveRecord
 {
+    const MIN_SIZE = 0;
+    const MAX_SIZE = 200;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -143,10 +145,10 @@ class Fanf extends CActiveRecord
 		
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('dateWrite',$this->dateWrite,true);		
-		$criteria->compare('raiting',$this->raiting,true);			
+		$criteria->compare('raiting',$this->raiting);			
         $criteria->compare('summary',$this->summary,true);	
 		$criteria->compare('size',$this->size);		
-		$criteria->compare('category',$this->category,true);
+		$criteria->compare('category',$this->category);
 		$criteria->compare('text',$this->text,true);
         $characters = AssidiHelper::getArrayFromRequest('characters');
 		$fandoms = AssidiHelper::getArrayFromRequest('fandoms');
@@ -155,18 +157,18 @@ class Fanf extends CActiveRecord
         $withCriteria = array();
 		if ($characters) {
             $withCriteria['charactersFanfics'] = array('together' => true);
-            $withCriteria['charactersFanfics.character'] = array('together' => true);
-            $criteria->addInCondition('character.characterId', $characters);
+            //$withCriteria['charactersFanfics.character'] = array('together' => true);
+            $criteria->addInCondition('charactersFanfics.characterId', $characters);
         }
 		if ($fandoms) {
             $withCriteria['fandomsFanfics'] = array('together' => true);
-            $withCriteria['fandomsFanfics.fandom'] = array('together' => true);
-            $criteria->addInCondition('fandom.fandomId', $fandoms);
+            //$withCriteria['fandomsFanfics.fandom'] = array('together' => true);
+            $criteria->addInCondition('fandomsFanfics.fandomId', $fandoms);
         }
 		if ($genres) {
             $withCriteria['genreFanfics'] = array('together' => true);
-            $withCriteria['genreFanfics.genre'] = array('together' => true);
-            $criteria->addInCondition('genre.genreId', $genres);
+           // $withCriteria['genreFanfics.genre'] = array('together' => true);
+            $criteria->addInCondition('genreFanfics.genreId', $genres);
         }
 		if ($withCriteria) {
 			$criteria->with = $withCriteria;

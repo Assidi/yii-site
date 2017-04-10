@@ -13,35 +13,14 @@
         'model'=>$model,
         'fandom'=>$fandom,
         'fandoms'=>$fandoms,
+        'character'=>$character,
+        'characters'=>$characters,
+        'genre'=>$genre,
+        'genres'=>$genres,
     ));
 ?>
 
-<div class="wide form">
 
-<form action ="<?= Yii::app()->createUrl($this->route); ?>" method="get">
-
-	<div class="row">
-		<label for="fandoms">Фандомы</label>
-		<?= CHtml::dropDownList('fandoms[]', $fandom, $fandoms); ?>
-	</div>
-	
-	<div class="row">
-		<label for="characters">Персонажи</label>
-		<?= CHtml::dropDownList('characters[]', $character, $characters); ?>
-	</div>
-	
-	<div class="row">
-		<label for="genres">Жанры</label>
-		<?= CHtml::dropDownList('genres[]', $genre, $genres); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Поиск'); ?>
-	</div>
-
-</form>
-
-</div>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$model->customSearch(),
