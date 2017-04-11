@@ -412,9 +412,11 @@ div.view
 
 .view-picture {
     display: inline-block;
-    width: 200px;    
+    width: 222px;    
+    height: 350px;
     padding: 10px;
 	margin-right: 10px;	
+    margin-bottom: 10px;
     border: 1px solid #fa8258;
     background-color: #ffffff;
 }

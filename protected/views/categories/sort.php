@@ -15,9 +15,12 @@ $this->breadcrumbs=array(
 
 <? if($pictures): ?>
     <? foreach($pictures as $picture): ?>
-        <? $this->renderPartial('/pictures/_view', array(
-            'data' => $picture
-        )); ?>
+        <div class="col-md-3">
+            <? $this->renderPartial('/pictures/_view', array(
+                'data' => $picture
+            )); ?>
+        </div>
+        
     <? endforeach; ?>
 <? else: ?>
     <p>В этом разделе рисунков не найдено</p>
