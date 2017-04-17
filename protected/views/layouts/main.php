@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">
+	
+	
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection">
 	<![endif]-->
@@ -38,24 +38,9 @@
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
-<!-- Общее меню для сайта -->
 
-	<div id="mainmenu" >
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Главная', 'url'=>array('/site/index')),                
-                array('label'=>'Тексты', 'url'=>array('/fanf/index')),
-                array('label'=>'Рисунки', 'url'=>array('/categories/list')),
-                array('label'=>'Блог', 'url'=>array('/blog/index')),
-				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),				
-                array('label'=>'Гостевая книга', 'url'=>array('/guestbook/index')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-				
-			),
-		)); ?>
-	</div><!-- mainmenu -->    
-    <? if(!Yii::app()->user->isGuest): ?>
+	
+    <? if(!Yii::app()->user->isGuest && $this->adminmenu): ?>
     <!-- Меню для администратора -->
     <div id="adminmenu" >
 		<?php $this->widget('zii.widgets.CMenu',array(
@@ -81,6 +66,40 @@
 			),
 		)); ?>
     </div>
+    <? else: ?>
+    
+    <!-- Общее меню для сайта -->
+    <nav class="navbar navbar-default">      
+            <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>          
+        </div>
+        <div class="collapse navbar-collapse">
+            <div id="mainmenu" >
+        		<?php $this->widget('zii.widgets.CMenu',array(
+        			'items'=>array(
+        				array('label'=>'Главная', 'url'=>array('/site/index')),                
+                        array('label'=>'Тексты', 'url'=>array('/fanf/index')),
+                        array('label'=>'Рисунки', 'url'=>array('/categories/list')),
+                        array('label'=>'Блог', 'url'=>array('/blog/index')),
+        				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),				
+                        array('label'=>'Гостевая книга', 'url'=>array('/guestbook/index')),
+                        array('label'=>'Админка', 'url'=>array('/news/index'), 'visible'=>!Yii::app()->user->isGuest),				
+                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),        				
+        			),
+                    'htmlOptions' => array(
+                  'class' => 'nav navbar-nav',
+                  'id'=> 'bs-example-navbar-collapse-1')
+        		)); ?>
+	       </div><!-- mainmenu -->    
+      </div>
+      
+    </nav>
+    
 <? endif; ?>
 	<?php if(isset($this->breadcrumbs)):?>    
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(

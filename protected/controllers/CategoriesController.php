@@ -7,6 +7,7 @@ class CategoriesController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/mylayout';
+    public $adminmenu = false;
 
 	/**
 	 * @return array action filters

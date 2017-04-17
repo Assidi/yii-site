@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+    public $adminmenu = false;
 	/**
 	 * Declares class-based actions.
 	 */
