@@ -4,6 +4,7 @@
     display: table;
 }
 
+
 html {
     font-size: 1em;
 }
@@ -173,13 +174,28 @@ p {
 	padding: 20px 20px 20px 0;
 }
 
-#footer
+footer
 {
-	padding: 10px;
+	padding: 20px;
 	margin: 10px 20px;
 	font-size: 0.8em;
 	text-align: center;
 	border-top: 1px solid #b74242;
+    background-color: #ffd6b6;
+}
+
+.copyright {
+    float: left;
+}
+
+.social {
+    float: right;
+}
+
+.social li {
+    display: inline-block;
+    margin-right: 10px;
+    list-style: none;
 }
 
 #logo

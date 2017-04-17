@@ -95,11 +95,25 @@
     <?php if(Yii::app()->params['debug']):?>
         <pre><?php print_r(Yii::app()->params['debug']);?></pre>
     <?php endif; ?>
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
+	<footer class="clearfix">
+        <div class="copyright">
+            &copy; <?php echo date('Y'); ?> Ассиди Эльконнэри<br/>
+    		Все права зарезервированы<br/>
+    		<?php echo Yii::powered(); ?>
+        </div>
+        <div class="social">
+            <ul>
+                <li><a href="https://vk.com/id1149997" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/vk.png"/></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100007680033589" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/facebook.png"/></a></li>
+                <li><a href="http://assidi.livejournal.com/" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/livej.png"/></a></li>
+                <li><a href="https://www.instagram.com/assidi_elkonnery/" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/inst.png"/></a></li>
+                <li><a href="https://fotki.yandex.ru/users/assidi" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/yandex.png"/></a></li>
+                <li><a href="https://www.youtube.com/channel/UCSURocoFKliGscU56OMMzYw" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/youtube.png"/></a></li>
+            </ul>
+        </div>
+		
+        
+	</footer><!-- footer -->
 
 </div><!-- page -->
 
