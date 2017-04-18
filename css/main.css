@@ -184,13 +184,6 @@ footer
     background-color: #ffd6b6;
 }
 
-.copyright {
-    float: left;
-}
-
-.social {
-    float: right;
-}
 
 .social li {
     display: inline-block;
@@ -200,9 +193,16 @@ footer
 
 #logo
 {
-	padding: 10px 20px;
+	padding: 10px 0;
 	font-size: 200%;
 }
+
+.image-logo {
+    display: inline-block;
+    margin-right: 10px;
+    width: 250px;    
+}
+
 /*  Главное меню */
 
 .navbar-default {
@@ -215,13 +215,6 @@ footer
 	/*background:white url(bg.gif) repeat-x left top;*/
     background-color: #FA8258;
     
-}
-
-#mainmenu ul
-{
-	/*padding:6px 20px 5px 20px;*/
-	margin:0px;
-    padding: 15px 0;
 }
 
 #mainmenu ul li
@@ -576,6 +569,12 @@ table.detail-view td
 	padding: 0.3em 0.6em;
 	vertical-align: top;
 }
+
+.radio-item {
+    display: inline-block;
+    
+}
+
 
 @media (max-width: 991px) {
     .navbar-header {

@@ -23,7 +23,26 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'raiting'); ?>
-		<?php echo $form->radioButtonList($model,'raiting',array('G'=>'G','PG'=>'PG', 'PG-13'=>'PG-13', 'R'=>'R', 'NC-17'=>'NC-17')); ?>
+		  <div class="radio-item">
+            <input id="Fanf_raiting_0" value="G" name="Fanf[raiting]" type="radio">
+            <label for="Fanf_raiting_0">G</label>             
+          </div>
+          <div class="radio-item">
+            <input id="Fanf_raiting_1" value="PG" name="Fanf[raiting]" type="radio">
+            <label for="Fanf_raiting_1">PG</label>                       
+          </div>
+          <div class="radio-item">
+            <input id="Fanf_raiting_2" value="PG-13" name="Fanf[raiting]" type="radio">
+            <label for="Fanf_raiting_2">PG-13</label>            
+          </div>
+          <div class="radio-item">
+            <input id="Fanf_raiting_3" value="R" name="Fanf[raiting]" type="radio">
+            <label for="Fanf_raiting_3">R</label>            
+          </div>
+          <div class="radio-item">
+            <input id="Fanf_raiting_4" value="NC-17" name="Fanf[raiting]" type="radio">
+            <label for="Fanf_raiting_4">NC-17</label>
+          </div>
 	</div>    
     
 
@@ -47,7 +66,23 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'category'); ?>
-		<?php echo $form->radioButtonList($model,'category',array('Джен'=>'Джен', 'Гет'=>'Гет', 'Слэш'=>'Слэш', 'Фемслэш'=>'Фемслэш')); ?>
+        <div class="radio-item">
+            <input id="Fanf_category_0" value="Джен" name="Fanf[category]" type="radio">
+            <label for="Fanf_category_0">Джен</label>
+        </div>
+        <div class="radio-item">
+            <input id="Fanf_category_1" value="Гет" name="Fanf[category]" type="radio">
+            <label for="Fanf_category_1">Гет</label>
+        </div>
+        <div class="radio-item">
+            <input id="Fanf_category_2" value="Слэш" name="Fanf[category]" type="radio">
+            <label for="Fanf_category_2">Слэш</label>
+        </div>
+        <div class="radio-item">
+            <input id="Fanf_category_3" value="Фемслэш" name="Fanf[category]" type="radio">
+            <label for="Fanf_category_3">Фемслэш</label>
+        </div>        
+		
 	</div>
 
 	<div class="row">
