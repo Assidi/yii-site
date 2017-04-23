@@ -3,16 +3,16 @@
 /* @var $model Blog */
 
 $this->breadcrumbs=array(
-	'Blogs'=>array('index'),
+	'Блог'=>array('index'),
 	$model->title=>array('view','id'=>$model->postId),
-	'Update',
+	'Обновить',
 );
 
 $this->menu=array(
-	array('label'=>'List Blog', 'url'=>array('index')),
-	array('label'=>'Create Blog', 'url'=>array('create')),
-	array('label'=>'View Blog', 'url'=>array('view', 'id'=>$model->postId)),
-	array('label'=>'Manage Blog', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Просмотр', 'url'=>array('view', 'id'=>$model->postId)),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 

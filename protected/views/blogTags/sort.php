@@ -1,3 +1,9 @@
+<?php
+$this->breadcrumbs=array(
+	'Блог'=>array('blog/index'),
+	$tag->tagName,
+);
+?>
 <h1>Блог</h1>
 
 <? if($tag): ?>

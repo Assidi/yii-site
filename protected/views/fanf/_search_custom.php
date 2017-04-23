@@ -2,6 +2,11 @@
 /* @var $this FanfController */
 /* @var $model Fanf */
 /* @var $form CActiveForm */
+
+$this->breadcrumbs=array(
+	'Тексты'=>array('index'),
+	'Поиск',
+);
 ?>
 
 <div class="wide form">

@@ -212,7 +212,7 @@ class Blog extends CActiveRecord
             }
             $str = substr($post, 0, $pos);                      
             //$str = $str." <a href=".$this->postId.">Читать дальше</a>";            
-            $str = $str.CHtml::link("Читать дальше", array('blog/view', 'id'=>$this->postId)); 
+            $str = $str.CHtml::link("читать дальше", array('blog/view', 'id'=>$this->postId)); 
             return $str;   
         }
     }

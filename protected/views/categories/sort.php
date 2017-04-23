@@ -26,3 +26,4 @@ $this->breadcrumbs=array(
     <p>В этом разделе рисунков не найдено</p>
 <? endif; ?>
 
+<div class="clear"></div>

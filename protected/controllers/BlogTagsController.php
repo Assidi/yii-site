@@ -7,6 +7,15 @@ class BlogTagsController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+    
+    protected function beforeRender($view) {
+        if(parent::beforeRender($view)) {
+         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
+         return true;
+        }
+        else 
+            return false;                
+    }
 
 	/**
 	 * @return array action filters

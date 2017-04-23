@@ -65,6 +65,7 @@ class FanfController extends Controller
 	   $fanfic = $this->loadModel($id);
         $comment=$this->newComment($fanfic);
         //Yii::app()->params['debug'] = $fanfic;
+        if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';        
 		$this->render('view',array(
 			'model'=>$fanfic,
             'comment'=>$comment,
