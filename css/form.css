@@ -208,3 +208,14 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 	clear: left;
 	padding-left: 110px;
 }
+
+@media (max-width: 710px) {
+    input[type="text"] {
+        width: 90%;        
+    }
+
+    div.form textarea {
+        width: 90%;        
+    }
+
+}

@@ -185,14 +185,16 @@ footer
 
 .social li {
     display: inline-block;
-    margin-right: 10px;
+    margin: 10px;
     list-style: none;
 }
+/* Логотип */
 
 #logo
 {
 	padding: 10px 0;
 	font-size: 200%;
+    font-family: 'Marck Script', cursive;
 }
 
 .image-logo {
@@ -233,8 +235,6 @@ footer
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
-	/*color: #6399cd;
-	background-color:#EFF4FA;*/
     background-color: #DF3A01;
 	text-decoration:none;
 }
@@ -250,7 +250,6 @@ footer
 
 #adminmenu ul
 {
-
 	margin:0px;
     padding: 15px 20px;
 }

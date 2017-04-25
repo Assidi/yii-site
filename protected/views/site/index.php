@@ -38,3 +38,5 @@ $this->pageTitle=Yii::app()->name;
     <p><?=Jokes::getRandJoke();?></p>
 </div>
 
+
+

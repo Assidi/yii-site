@@ -15,6 +15,7 @@
 	<![endif]-->
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Sans+Narrow:400,700&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Marck+Script&amp;subset=cyrillic" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/vendor/bootstrap/bootstrap.min.css">	
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/assidi.css">
@@ -73,17 +74,18 @@
     <? else: ?>
     
     <!-- Общее меню для сайта -->
-    <nav class="navbar navbar-default">      
-            <div class="navbar-header">
+    <nav class="navbar navbar-default top-menu">  
+        <div class="container-fluid">    
+          <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>          
-        </div>
-        <div class="collapse navbar-collapse">
-            <div id="mainmenu" >
+          </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div id="mainmenu">
         		<?php $this->widget('zii.widgets.CMenu',array(
         			'items'=>array(
         				array('label'=>'Главная', 'url'=>array('/site/index')),                
@@ -96,12 +98,12 @@
                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),        				
         			),
                     'htmlOptions' => array(
-                  'class' => 'nav navbar-nav',
-                  'id'=> 'bs-example-navbar-collapse-1')
+                  'class' => 'nav navbar-nav')
         		)); ?>
-	       </div><!-- mainmenu -->    
+	       </div><!-- mainmenu -->   
+            
       </div>
-      
+      </div><!-- /.container-fluid -->
     </nav>
     
 <? endif; ?>
@@ -117,7 +119,7 @@
 	<div class="clear"></div>
     <?php if(Yii::app()->params['debug']):?>
         <pre><?php print_r(Yii::app()->params['debug']);?></pre>
-    <?php endif; ?>
+    <?php endif; ?>    
 	<footer>
         <div class="row">
             <div class="copyright col-sm-4">

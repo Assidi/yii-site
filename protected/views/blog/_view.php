@@ -19,11 +19,11 @@
 	
 	<p>
 <? foreach($data->getTags() as $tagid=>$tagname):?>
-    <?= '<a href="/blogTags/sort/'. $tagid . '">'. $tagname.'</a>'; ?>
+    <?= '<b>Темы:</b> <a href="/blogTags/sort/'. $tagid . '">'. $tagname.'</a>'; ?>
 <? endforeach?>
 </p>
 <p>
-<?php echo 'Комментарии: '.CHtml::link($data->commentsCount(), array('blog/view', 'id'=>$data->postId)); ?>
+<?php echo '<b>Комментарии:</b> '.CHtml::link($data->commentsCount(), array('blog/view', 'id'=>$data->postId)); ?>
 </p>
 
     
