@@ -28,7 +28,7 @@ class CharactersController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','ajaxlist'),
 				'users'=>array('admin'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -157,6 +157,16 @@ class CharactersController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * @param int $id Fandom ID
+	 */
+	public function actionAjaxlist($id)
+	{
+		header('Content-type: application/json');
+		$data = Characters::getList($id);
+    	echo CJSON::encode($data);
 	}
 
 	/**

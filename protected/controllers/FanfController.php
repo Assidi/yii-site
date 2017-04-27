@@ -266,11 +266,12 @@ class FanfController extends Controller
 
         $requestFanf = Yii::app()->request->getParam('Fanf');
 
+        $fandom = isset($fandoms[0]) ? $fandoms[0] : '';
 		$this->render('special',array(
             'model' => $model,
 			'character' => isset($characters[0]) ? $characters[0] : '',
-			'characters' => Characters::getList(),
-			'fandom' =>  isset($fandoms[0]) ? $fandoms[0] : '',
+			'characters' => Characters::getList($fandom),
+			'fandom' =>  $fandom,
 			'fandoms' => Fandoms::getList(),
 			'genre' =>  isset($genres[0]) ? $genres[0] : '',
 			'genres' => Genre::getList(),

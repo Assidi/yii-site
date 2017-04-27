@@ -105,11 +105,17 @@ class Characters extends CActiveRecord
 	/**
 	 * Получение героев для показа в выпадающем списке
      * персонажи сортируются по фандомам
+     * @param $fandomId фильтрация по id фандома (не обязательный параметр)
 	 * @return list array() 
 	 */
-	public static function getList()
+	public static function getList($fandomId = null)
 	{
-	    $criteria=new CDbCriteria(array('order'=>'fandomID'));	
+	    $criteria=new CDbCriteria(array('order'=>'fandomID'));
+
+	    if ($fandomId) {
+	    	$criteria->addCondition('fandomId=:fandom_id');
+	    	$criteria->params = array(':fandom_id' => $fandomId);
+	    }
 		$models = self::model()->findAll($criteria);
 		if (!$models) {
 			return array();

@@ -140,5 +140,19 @@ $(document).ready(function() {
     });
     $( "#size" ).val($( "#slider-range" ).slider( "values", 0 ) +
       "К - " + $( "#slider-range" ).slider( "values", 1 ) +"К" );
+
+    $('#fandoms').on('change',function(){
+      var fandomId = $("#fandoms option:selected").val();
+      $.ajax({
+        url: "/characters/ajaxlist/"+fandomId,
+        dataType: "json"
+      }).done(function(data) {
+        var str = '';
+        $.each(data, function( index, value ) {
+          str += '<option value="'+index+'">'+value+'</option>';
+        });
+        $('#characters').html(str);
+      });
+    });
 });
 </script>
