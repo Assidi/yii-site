@@ -74,6 +74,11 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 				),
+                array(
+                     'class'=>'CFileLogRoute',
+                     'levels'=>'comment_level',
+                     'logFile' => 'comments',
+                ),
 				// uncomment the following to show log messages on web pages
 				
 				/**

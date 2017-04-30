@@ -74,8 +74,11 @@ class CommentsController extends Controller
 		if(isset($_POST['Comments']))
 		{
 			$model->attributes=$_POST['Comments'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->commentId));
+			if($model->save()) {
+			     Yii::log('Проверка. Комментарий номер'.$model->commentId.'оставлен с IP-адреса '.$_SERVER['REMOTE_ADDR'],'comment_level');
+			     $this->redirect(array('view','id'=>$model->commentId)); 
+			}
+				
 		}
 
 		$this->render('create',array(
