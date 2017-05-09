@@ -77,7 +77,7 @@ return array(
                 array(
                      'class'=>'CFileLogRoute',
                      'levels'=>'comment_level',
-                     'logFile' => 'comments',
+                     'logFile' => 'comments.log',
                 ),
 				// uncomment the following to show log messages on web pages
 				
