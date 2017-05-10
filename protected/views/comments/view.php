@@ -3,16 +3,15 @@
 /* @var $model Comments */
 
 $this->breadcrumbs=array(
-	'Comments'=>array('index'),
+	'Комментарии'=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index')),
-	array('label'=>'Create Comments', 'url'=>array('create')),
-	array('label'=>'Update Comments', 'url'=>array('update', 'id'=>$model->commentId)),
-	array('label'=>'Delete Comments', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->commentId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Comments', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),	
+	array('label'=>'Обновить', 'url'=>array('update', 'id'=>$model->commentId)),
+	array('label'=>'Удалить', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->commentId),'confirm'=>'Вы действительно хотите удалить этот элемент?')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
@@ -28,4 +27,5 @@ $this->menu=array(
 		'date',
 		'text',
 	),
+    'cssFile'=>'main.css',
 )); ?>

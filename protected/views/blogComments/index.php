@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Blog Comments',
+	'Комментарии блога',
 );
 
 $this->menu=array(
-	array('label'=>'Create BlogComments', 'url'=>array('create')),
-	array('label'=>'Manage BlogComments', 'url'=>array('admin')),
+	
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Blog Comments</h1>
+<h1>Комментарии блога</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

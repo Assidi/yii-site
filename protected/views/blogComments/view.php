@@ -3,20 +3,19 @@
 /* @var $model BlogComments */
 
 $this->breadcrumbs=array(
-	'Blog Comments'=>array('index'),
+	'Комментарии блога'=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-	array('label'=>'List BlogComments', 'url'=>array('index')),
-	array('label'=>'Create BlogComments', 'url'=>array('create')),
-	array('label'=>'Update BlogComments', 'url'=>array('update', 'id'=>$model->commentId)),
-	array('label'=>'Delete BlogComments', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->commentId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage BlogComments', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),	
+	array('label'=>'Обновить', 'url'=>array('update', 'id'=>$model->commentId)),
+	array('label'=>'Удалить', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->commentId),'confirm'=>'Вы действительно хотите удалить этот элемент?')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View BlogComments #<?php echo $model->commentId; ?></h1>
+<h1>Комментарий №<?php echo $model->commentId; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -28,4 +27,5 @@ $this->menu=array(
 		'date',
 		'text',
 	),
+    'cssFile'=>'main.css',
 )); ?>

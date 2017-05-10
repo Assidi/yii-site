@@ -81,8 +81,8 @@ class BlogController extends Controller
             if($post->addComment($comment))
             {
                 Yii::app()->user->setFlash('commentSubmitted','Комментарий добавлен');
-                Yii::log('Проверка. Комментарий номер'.$comment->commentId.'оставлен с IP-адреса '.$_SERVER['REMOTE_ADDR'],'comment_level');
-                 $this->refresh();            
+                Yii::log('Комментарии к блогу. Комментарий номер '.$comment->commentId.' оставлен с IP-адреса '.$_SERVER['REMOTE_ADDR'],'comment_level');
+                $this->refresh();            
             }
         }
         return $comment;

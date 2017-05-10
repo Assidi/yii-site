@@ -3,13 +3,13 @@
 /* @var $model BlogComments */
 
 $this->breadcrumbs=array(
-	'Blog Comments'=>array('index'),
-	'Manage',
+	'Комментарии блога'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(
-	array('label'=>'List BlogComments', 'url'=>array('index')),
-	array('label'=>'Create BlogComments', 'url'=>array('create')),
+	array('label'=>'Список', 'url'=>array('index')),
+	
 );
 
 Yii::app()->clientScript->registerScript('search', "

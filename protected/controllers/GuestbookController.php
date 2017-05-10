@@ -72,6 +72,7 @@ class GuestbookController extends Controller
 		{
 			$model->attributes=$_POST['Guestbook'];
 			if($model->save())
+                Yii::log('Запись в гостевой книге номер '.$model->id.' оставлен с IP-адреса '.$_SERVER['REMOTE_ADDR'],'comment_level');
 				$this->redirect(array('index'));
 		}
 

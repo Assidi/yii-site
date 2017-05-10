@@ -83,7 +83,8 @@ class FanfController extends Controller
             if($fanfic->addComment($comment))
             {
                 Yii::app()->user->setFlash('commentSubmitted','Комментарий добавлен');
-                 $this->refresh();            
+                Yii::log('Комментарии к фанфикам. Комментарий номер '.$comment->commentId.' оставлен с IP-адреса '.$_SERVER['REMOTE_ADDR'],'comment_level');
+                $this->refresh();            
             }
         }
         return $comment;

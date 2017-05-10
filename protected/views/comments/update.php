@@ -3,19 +3,18 @@
 /* @var $model Comments */
 
 $this->breadcrumbs=array(
-	'Comments'=>array('index'),
+	'Комментарии'=>array('index'),
 	$model->name=>array('view','id'=>$model->commentId),
-	'Update',
+	'Обновить',
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index')),
-	array('label'=>'Create Comments', 'url'=>array('create')),
-	array('label'=>'View Comments', 'url'=>array('view', 'id'=>$model->commentId)),
-	array('label'=>'Manage Comments', 'url'=>array('admin')),
+	array('label'=>'Список', 'url'=>array('index')),	
+	array('label'=>'Просмотр', 'url'=>array('view', 'id'=>$model->commentId)),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Comments <?php echo $model->commentId; ?></h1>
+<h1>Обновить комментарий <?php echo $model->commentId; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
