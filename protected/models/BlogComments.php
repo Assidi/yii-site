@@ -35,6 +35,7 @@ class BlogComments extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, email, text', 'required'),
+            array('email', 'email'),
 			array('postId, date', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>50),
 			// The following rule is used by search().

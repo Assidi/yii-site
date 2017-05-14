@@ -35,6 +35,7 @@ class Comments extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, email, text', 'required'),
+            array('email', 'email'),
 			array('fanficId, date', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>50),
 			array('text', 'length', 'max'=>1000),

@@ -91,12 +91,12 @@ class PicturesController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-        Yii::app()->params['debug'] = $model;
+        //Yii::app()->params['debug'] = $model;
 		if(isset($_POST['Pictures']))
 		{
 			$model->categoryId = $_POST['Pictures']['categoryId'];
             $model->description = $_POST['Pictures']['description'];
-            Yii::app()->params['debug'] = $model;
+            //Yii::app()->params['debug'] = $model;
 			if($model->update())
 				$this->redirect(array('view','id'=>$model->id));
 		}
