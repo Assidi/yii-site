@@ -138,6 +138,7 @@ class GuestbookController extends Controller
         
         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';		
         $dataProvider=new CActiveDataProvider('Guestbook', array('criteria'=>array('order'=>'date DESC')));
+        $this->pageTitle = Yii::app()->name.' - Гостевая книга'; 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
             'model'=>$model,

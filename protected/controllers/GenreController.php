@@ -58,6 +58,8 @@ class GenreController extends Controller
     
     public function actionSort($id)
     {
+        $this->pageTitle = Yii::app()->name.' - Поиск текстов'; 
+        if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
         $this->render('sort',array(
             'genre'=>Genre::model()->findByPk($id),
             'fanfs'=>Fanf::speacialSearch(array(), array(), array($id)),

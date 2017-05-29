@@ -126,6 +126,36 @@ class Characters extends CActiveRecord
 		}
 		return $arList;
 	}
+    /**
+	 * Получение персонажей для показа в выпадающем списке для фанфика     * 
+     * персонажи показываются только для заданных фандомов
+     * @param $fandoms массив с фандомами 
+	 * @return list array() 
+	 */
+    public static function getCustomList($fandoms) {
+        $criteria=new CDbCriteria(array('order'=>'characterName'));
+        // если фандомов нет (еще не выбрали), то и персонажей не возвращаем 
+        //if (empty($fandoms)) return array();        
+        $n = count($fandoms);        
+        if ($n ==0) return array();
+        
+        // теперь перебираем массив с фандомами
+        $arList = array(''); 
+        for ($i = 0; $i<$n; $i++) {
+            $criteria->addCondition('fandomId=:fandom_id');
+	    	$criteria->params = array(':fandom_id' => $fandoms[$i]);
+            $models = self::model()->findAll($criteria);            
+    		if (!$models) {
+    			break;
+    		}
+    		foreach ($models as $model) {                
+    			$arList[$model->characterId] = $model->characterName;
+    		}
+        }
+        print_r($arlist);
+        echo '<br />';
+        return $arList;
+    }
     
     
      

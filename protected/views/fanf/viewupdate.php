@@ -44,7 +44,13 @@ $this->menu=array(
 
 <form action="" method="post">
     <p>Добавить персонажа</p>
-    <?= CHtml::dropDownList('characterId', '', Characters::getList()); ?>
+    <?php
+        $fandomIds = array();
+        foreach($model->getFandoms() as $fandom) {
+            $fandomIds[] = $fandom->fandomId;
+        }    
+    ?>
+    <?= CHtml::dropDownList('characterId', '', Characters::getCustomList($fandomIds)); ?>
     <input type="submit" value="Добавить"/>
 </form>
 <p></p>

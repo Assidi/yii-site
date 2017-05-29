@@ -18,8 +18,9 @@
     </p>
 	
 	<p>
+    <b>Темы: </b>
 <? foreach($data->getTags() as $tagid=>$tagname):?>
-    <?= '<b>Темы:</b> <a href="/blogTags/sort/'. $tagid . '">'. $tagname.'</a>'; ?>
+    <?= '<a href="/blogTags/sort/'. $tagid . '">'. $tagname.'</a>'; ?>
 <? endforeach?>
 </p>
 <p>

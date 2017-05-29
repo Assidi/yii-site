@@ -1,3 +1,10 @@
+<?php
+$this->breadcrumbs=array(
+	'Тексты'=>array('/fanf/index'),
+	$genre->genreName,
+);
+?>
+
 <? if($genre): ?>
     <h1>Жанр: <?= $genre->genreName; ?></h1>
 <? else: ?>

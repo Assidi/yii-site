@@ -64,6 +64,7 @@ class FanfController extends Controller
 	{  
 	   $fanfic = $this->loadModel($id);
         $comment=$this->newComment($fanfic);
+        $this->pageTitle = Yii::app()->name.' - '.$fanfic->title; 
         //Yii::app()->params['debug'] = $fanfic;
         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';        
 		$this->render('view',array(
@@ -234,6 +235,7 @@ class FanfController extends Controller
         $criteria=new CDbCriteria(array('order'=>'dateWrite DESC'));	   
 		$models = Fanf::model()->findAll($criteria);
 		$dataProvider=new CActiveDataProvider('Fanf', array('criteria'=>array('order'=>'dateWrite DESC')));
+        $this->pageTitle = Yii::app()->name.' - Тексты'; 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'models'=>$models,
@@ -268,6 +270,8 @@ class FanfController extends Controller
         $requestFanf = Yii::app()->request->getParam('Fanf');
 
         $fandom = isset($fandoms[0]) ? $fandoms[0] : '';
+        
+        $this->pageTitle =Yii::app()->name.' - Поиск текстов'; 
 		$this->render('special',array(
             'model' => $model,
 			'character' => isset($characters[0]) ? $characters[0] : '',

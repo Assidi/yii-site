@@ -62,6 +62,7 @@ class BlogController extends Controller
 	public function actionView($id)	{  	   
        $post=$this->loadModel($id);
        $comment=$this->newComment($post);
+       $this->pageTitle = Yii::app()->name.' - Блог - '.$post->title;
 		$this->render('view',array(
 			'model'=>$post,
             'comment'=>$comment,
@@ -179,6 +180,7 @@ class BlogController extends Controller
 	public function actionIndex()
 	{
 	    $dataProvider=new CActiveDataProvider('Blog', array('criteria'=>array('order'=>'date DESC')));
+        $this->pageTitle = Yii::app()->name.' - Блог'; 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

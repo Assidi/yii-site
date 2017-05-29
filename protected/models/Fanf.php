@@ -30,7 +30,7 @@
 class Fanf extends CActiveRecord
 {
     const MIN_SIZE = 0;
-    const MAX_SIZE = 200;
+    const MAX_SIZE = 200;    
 
 	/**
 	 * @return string the associated database table name
@@ -243,6 +243,21 @@ class Fanf extends CActiveRecord
         }        
         return $arFandoms; 
     }
+        
+    /** 
+    * @return array список идентификаторов фандомов текущего фанфика 
+    */
+     public function getFandomsId() {
+         $arFandomsId = array();
+         Yii::app()->params['debug'] = $this->fandomsFanfics; 
+         if ($this->fandomsFanfics) {
+            foreach($this->fandomsFanfics as $fandomsFanficModel) {
+                
+                $arFandoms[] = $fandomsFanficModel->fandom->fandomId;               
+            } 
+         }         
+         return $arFandomsId;
+     }
     
     /** 
     * @return имя беты текущего фанфика 

@@ -1,3 +1,9 @@
+<?php
+$this->breadcrumbs=array(
+	'Тексты'=>array('/fanf/index'),
+	$fandom->fandomName,
+);
+?>
 <? if($fandom): ?>
     <h1>Фандом: <?= $fandom->fandomName; ?></h1>
 <? else: ?>

@@ -71,8 +71,10 @@ class CategoriesController extends Controller
      * @param integer $id идендификатор категории
      */
     public function actionSort($id) {
+        $category = Categories::model()->findByPk($id);
+        $this->pageTitle = Yii::app()->name.' - Рисунки - '.$category->name;
         $this->render('sort',array(
-            'category'=>Categories::model()->findByPk($id),
+            'category'=>$category,
             'pictures'=>Pictures::findPictures($id),
         ));
     }
@@ -163,6 +165,7 @@ class CategoriesController extends Controller
         $models = Categories::model()->findAll($criteria);
         
 		$dataProvider=new CActiveDataProvider('Categories');
+        $this->pageTitle = Yii::app()->name.' - Рисунки';
 		$this->render('list',array(
 			'dataProvider'=>$dataProvider,
             'models'=>$models,
