@@ -146,7 +146,7 @@ class Characters extends CActiveRecord
 	    	$criteria->params = array(':fandom_id' => $fandoms[$i]);
             $models = self::model()->findAll($criteria);            
     		if (!$models) {
-    			break;
+    			continue;
     		}
     		foreach ($models as $model) {                
     			$arList[$model->characterId] = $model->characterName;
