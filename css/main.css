@@ -71,6 +71,16 @@ h3 {
     color: #610B0B;   
 }
 
+h4 {    
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;    
+    font-family: 'Open Sans', sans-serif;
+    color: #610B0B;   
+}
+
 p {
     margin-bottom: 10px;
     line-height: 1.3;
@@ -290,6 +300,7 @@ footer
     background-color: #ffd6b6;
     padding: 20px 15px;
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .comment {

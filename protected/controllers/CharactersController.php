@@ -134,7 +134,7 @@ class CharactersController extends Controller
 	 */
 	public function actionIndex()
 	{
-	    $criteria=new CDbCriteria(array('order'=>'fandomId'));
+	    $criteria=new CDbCriteria(array('order'=>'fandomId, characterName'));
         $models = Characters::model()->findAll($criteria);        
 		$dataProvider=new CActiveDataProvider('Characters');
         
