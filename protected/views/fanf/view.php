@@ -18,7 +18,7 @@ if (!Yii::app()->user->isGuest) {
 	array('label'=>'Управление фанфиками', 'url'=>array('admin')),
     );
 }
-// а гостю меню в просмотри фанфиков не положено, пусть обратно по хлебным крошкам идет
+// а гостю меню в просмотре фанфиков не положено, пусть обратно по хлебным крошкам идет
 
 
 ?>
@@ -34,7 +34,7 @@ if (!Yii::app()->user->isGuest) {
         
         foreach($model->getFandoms() as $fandom) {
             ?>
-              <?= '<a href="/fandoms/sort/'. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
+              <?= '<a href="/fanf/search?fandoms[]='. $fandom->fandomId . '">'. $fandom->fandomName.'</a>'; ?>  
             <?php
         }
     ?>
@@ -47,7 +47,7 @@ if (!Yii::app()->user->isGuest) {
         <?php        
         foreach($model->getGenres() as $genre) {
             ?>
-              <?= '<a href="/genre/sort/'. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
+              <?= '<a href="/fanf/search?genres[]='. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  
             <?php
         }
     ?>

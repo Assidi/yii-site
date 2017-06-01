@@ -64,8 +64,7 @@ class FanfController extends Controller
 	{  
 	   $fanfic = $this->loadModel($id);
         $comment=$this->newComment($fanfic);
-        $this->pageTitle = Yii::app()->name.' - '.$fanfic->title; 
-        //Yii::app()->params['debug'] = $fanfic;
+        $this->pageTitle = Yii::app()->name.' - '.$fanfic->title;
         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';        
 		$this->render('view',array(
 			'model'=>$fanfic,
@@ -117,7 +116,8 @@ class FanfController extends Controller
                $genreFanficModel->genreId = $_POST['genreId'];
                $genreFanficModel->save();
 	       }
-           
+        
+        $this->pageTitle = Yii::app()->name.' - Добавление персонажей';   
 		$this->render('viewupdate',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -140,7 +140,7 @@ class FanfController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->ficId));
 		}
-
+        $this->pageTitle = Yii::app()->name.' - Новый текст';
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -251,7 +251,8 @@ class FanfController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Fanf']))
 			$model->attributes=$_GET['Fanf'];
-
+        
+        $this->pageTitle = Yii::app()->name.' - Управление текстами';
 		$this->render('admin',array(
 			'model'=>$model,
 		));
@@ -268,7 +269,8 @@ class FanfController extends Controller
 			$model->attributes=$_GET['Fanf'];
 
         $requestFanf = Yii::app()->request->getParam('Fanf');
-
+        if ($requestFanf['maxSize'] == 200) $requestFanf['maxSize'] = 2000;
+        Yii::app()->params['debug'] =   $requestFanf;
         $fandom = isset($fandoms[0]) ? $fandoms[0] : '';
         
         $this->pageTitle =Yii::app()->name.' - Поиск текстов'; 
