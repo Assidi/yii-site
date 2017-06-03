@@ -257,7 +257,9 @@ class FanfController extends Controller
 			'model'=>$model,
 		));
 	}
-    
+    /**
+     * Поиск текстов по различным параметрам
+     */
     public function actionSearch()
 	{
 		$characters = AssidiHelper::getArrayFromRequest('characters');
@@ -270,10 +272,11 @@ class FanfController extends Controller
 
         $requestFanf = Yii::app()->request->getParam('Fanf');
         if ($requestFanf['maxSize'] == 200) $requestFanf['maxSize'] = 2000;
-        Yii::app()->params['debug'] =   $requestFanf;
+        //Yii::app()->params['debug'] =   $requestFanf;
         $fandom = isset($fandoms[0]) ? $fandoms[0] : '';
         
         $this->pageTitle =Yii::app()->name.' - Поиск текстов'; 
+        //Yii::app()->params['debug'] = $model;
 		$this->render('special',array(
             'model' => $model,
 			'character' => isset($characters[0]) ? $characters[0] : '',
