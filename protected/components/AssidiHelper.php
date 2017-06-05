@@ -57,7 +57,26 @@ class AssidiHelper {
 		}
 		return $requestParam;
 	}
-    
+    /**
+	 * Форматирует дату написания текста
+     * принимает строку типа 2000-09-15
+     * возвращает 15 сентября 2000 года
+	 * @param string $date
+	 * @return string
+	 */
+    static function myDate($date) {
+        $year = substr($date, 0, 4);
+        $month = substr($date, 5, 2);
+        $day = substr($date, 8, 2);
+        if ($day<10) {
+            $day = substr($day, 1, 1);
+        }
+        $array = array("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря");
+        $n = $month - 1;    
+		$monthResult = $array[$n];
+        $result = $day.' '.$monthResult.' '.$year.' года';
+        return $result;
+    }
     
  }
     

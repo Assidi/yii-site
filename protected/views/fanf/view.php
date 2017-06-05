@@ -82,7 +82,7 @@ if (!Yii::app()->user->isGuest) {
             <?php  
         } 
     ?>    
-    <p><span class="bold">Написано: </span><?= $model->dateWrite?></p>
+    <p><span class="bold">Написано: </span><?= AssidiHelper::myDate($model->dateWrite)?></p>
     <p><?= $model->summary ?></p>    
     
 </div>
