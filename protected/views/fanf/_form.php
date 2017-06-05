@@ -26,8 +26,16 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'dateWrite')." гггг-мм-дд"; ?>        
-		<?php echo $form->textField($model,'dateWrite'); ?>
+		<?php echo $form->labelEx($model,'dateWrite')." гггг-мм-дд"; ?> 
+        <?php
+		$this->widget('CMaskedTextField', array(
+			'model' => $model,
+			'attribute' => 'dateWrite',
+			'mask' => '0000-00-00',
+			'placeholder' => '*',
+			'completed' => 'function(){console.log("ok");}',
+		));
+		?>
 		<?php echo $form->error($model,'dateWrite'); ?>
 	</div>
 

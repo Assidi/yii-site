@@ -57,6 +57,12 @@ class Fanf extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('ficId, title, dateWrite, datePublish, raiting, pairing, summary, note, dedication, size, beta, coauthor, category, text', 'safe', 'on'=>'search'),
+            array(
+            	'dateWrite',
+            	'match',
+            	'pattern' => '/[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])/',
+            	'message' => 'Некорректный формат даты'
+            ),
 		);
 	}
 
