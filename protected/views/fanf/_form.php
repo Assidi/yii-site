@@ -28,10 +28,10 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'dateWrite')." гггг-мм-дд"; ?> 
         <?php
-		$this->widget('CMaskedTextField', array(
+		  $this->widget('CMaskedTextField', array(
 			'model' => $model,
 			'attribute' => 'dateWrite',
-			'mask' => '0000-00-00',
+			'mask' => '9999-99-99',
 			'placeholder' => '*',
 			'completed' => 'function(){console.log("ok");}',
 		));
