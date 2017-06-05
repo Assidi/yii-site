@@ -183,7 +183,8 @@ class Blog extends CActiveRecord
         
         $criteria = new CDbCriteria();
         $criteria->with = array('tagsPosts');        
-        $criteria->addInCondition('t.postId', $postIds);         
+        $criteria->addInCondition('t.postId', $postIds);
+        $criteria->order = 'date DESC';         
         return Blog::model()->findAll($criteria);
     }
     
