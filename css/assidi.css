@@ -1,7 +1,7 @@
 .assidi-pagination ul.yiiPager li a {
     display: inline-block;
     margin-right: 5px;
-    padding: 5px 10px;
+    padding: 5px 7px;
     background-color: #FA8258;
     color: #FAFAFA;
     text-decoration: none;
@@ -16,3 +16,4 @@
     background-color: #FAFAFA;
     color: #FA8258;
 }
+

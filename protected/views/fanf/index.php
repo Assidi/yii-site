@@ -35,7 +35,8 @@ else {
      'prevPageLabel' => 'Предыдущая',
      'firstPageLabel' => 'Первая',
      'lastPageLabel' => 'Последняя',
-     'header' => 'Страница: '
+     'header' => 'Страница: ',
+     
      ),
 	'pagerCssClass' => 'assidi-pagination',
 )); ?>
