@@ -340,6 +340,10 @@ footer
 
 /* пагинация */
 
+.pager {
+    font-size: 0.9em;
+}
+
 .pager li a {
     display: inline-block;
     margin-right: 5px;
@@ -349,6 +353,7 @@ footer
     color: #FAFAFA;
     text-decoration: none;
     border: none;
+    font-size: 0.9em;
 }
 
 .pager li a:hover {
