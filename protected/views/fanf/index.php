@@ -36,7 +36,7 @@ else {
      'prevPageLabel' => 'Пред.',
      'firstPageLabel' => 'Первая',
      'lastPageLabel' => 'Последняя',
-     'header' => 'Страница: ',
+     'header' => '',
      'maxButtonCount'=>5,
      ),
 	

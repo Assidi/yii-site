@@ -30,6 +30,14 @@ else {
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-	'pagerCssClass' => 'assidi-pagination',
+	'pager' => array(
+    'cssFile'=>'main.css',    
+     'nextPageLabel' => 'След.',
+     'prevPageLabel' => 'Пред.',
+     'firstPageLabel' => 'Первая',
+     'lastPageLabel' => 'Последняя',
+     'header' => '',
+     'maxButtonCount'=>5,
+     ),
 )); ?>
 
