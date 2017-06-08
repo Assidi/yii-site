@@ -1,0 +1,19 @@
+.pager li a {
+    display: inline-block;
+    margin-right: 5px;    
+    padding: 5px 7px;
+    background-color: #FA8258;
+    color: #FAFAFA;
+    text-decoration: none;
+    border: none;
+}
+
+.pager li a:hover {
+    background-color: #DF3A01;
+}
+
+.pager li a.selected {
+    background-color: #FAFAFA;
+    color: #FA8258;
+}
+

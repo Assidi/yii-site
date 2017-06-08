@@ -31,12 +31,13 @@ else {
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
     'pager' => array(
-     'nextPageLabel' => 'Следующая',
-     'prevPageLabel' => 'Предыдущая',
+    'cssFile'=>'main.css',    
+     'nextPageLabel' => 'След.',
+     'prevPageLabel' => 'Пред.',
      'firstPageLabel' => 'Первая',
      'lastPageLabel' => 'Последняя',
      'header' => 'Страница: ',
-     
+     'maxButtonCount'=>5,
      ),
-	'pagerCssClass' => 'assidi-pagination',
+	
 )); ?>
