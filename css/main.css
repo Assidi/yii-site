@@ -18,7 +18,7 @@ body
     background-color: #DE6401;
     background-image: url(/images/sunrise.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: 100% 100%;
     background-attachment: fixed;
     color: #610B0B;    
     font-size: 1em;
