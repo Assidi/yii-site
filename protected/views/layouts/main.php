@@ -125,7 +125,8 @@
             <div class="copyright col-sm-4">
                 &copy; <?php echo date('Y'); ?> Ассиди Эльконнэри<br/>
         		Все права зарезервированы<br/>
-        		<?php echo Yii::powered(); ?>
+        		<?php echo Yii::powered(); ?><br />
+                При поддержке <a href="http://screencast.ru/school/">Screencast School</a>
             </div>
             <div class="social col-sm-8">
                 <ul>

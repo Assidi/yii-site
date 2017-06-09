@@ -97,7 +97,7 @@ if (!Yii::app()->user->isGuest) {
              <?php foreach ($model->getComments() as $thisComments) : ?>
                 <article class="comment">
                     <div class="comment-head clearfix">
-                        <a href="mailto:<?=$thisComments->email?>" class="name"><?=CHtml::encode($thisComments->name)?></a>
+                        <span class="name"><?=CHtml::encode($thisComments->name)?></span> 
                         <div class="comment-date"><?=AssidiHelper::dateFormat($thisComments->date)?></div>
                     </div>
                     

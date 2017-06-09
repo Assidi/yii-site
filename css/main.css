@@ -324,10 +324,6 @@ footer
     text-decoration: none;
 }
 
-.name:hover {
-    text-decoration: underline;
-}
-
 .comment-date {
     display: block;
     float: right;
