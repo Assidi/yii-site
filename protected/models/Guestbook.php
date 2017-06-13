@@ -9,6 +9,7 @@
  * @property string $email
  * @property string $text
  * @property integer $date
+ * @property boolean $admin
  */
 class Guestbook extends CActiveRecord
 {
@@ -69,6 +70,7 @@ class Guestbook extends CActiveRecord
 			'text' => 'Сообщение',
 			'date' => 'Дата',
             'verifyCode' => 'Код проверки',
+            'admin' => 'Знак администратора',
 		);
 	}
 
@@ -114,10 +116,13 @@ class Guestbook extends CActiveRecord
     
     /**
      * Перед сохранением сообщения добавляем в него дату создания  
-     * 
+     * а также делаем пометку в базе, если коммент оставлен админом
      */
     protected function beforeSave() {
         if(parent::beforeSave()) {
+            if(!(Yii::app()->user->isGuest)) {
+                $this->admin = true;
+            }
             if($this->isNewRecord) {
                 $this->date = time();         
           }  

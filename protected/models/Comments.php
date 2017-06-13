@@ -10,6 +10,7 @@
  * @property string $email
  * @property integer $date
  * @property string $text
+ * @property boolean $admin
  *
  * The followings are the available model relations:
  * @property Fanf $fanfic
@@ -76,6 +77,7 @@ class Comments extends CActiveRecord
 			'date' => 'Дата',
 			'text' => 'Текст комментария',
             'verifyCode' => 'Код проверки',
+            'admin' => 'Знак администратора',
 		);
 	}
 
@@ -122,10 +124,13 @@ class Comments extends CActiveRecord
     
     /**
      * Перед сохранением комментария добавляем в него дату создания  
-     * 
+     * а также делаем пометку в базе, если коммент оставлен админом
      */
     protected function beforeSave() {
         if(parent::beforeSave()) {
+            if(!(Yii::app()->user->isGuest)) {
+                $this->admin = true;
+            }
             if($this->isNewRecord) {
                 $this->date = time();         
           }  

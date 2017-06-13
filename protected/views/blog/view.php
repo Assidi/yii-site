@@ -34,7 +34,10 @@ $this->menu=array(
         <h2>Комментарии</h2>             
              <?php foreach ($model->getComments() as $thisComments) : ?>
                 <article class="comment">
-                    <div class="comment-head clearfix">                        
+                    <div class="comment-head clearfix"> 
+                        <?php if($thisComments->admin): ?>
+                            <img class="avatar" src="/images/avatar.png"/>
+                        <?php endif; ?>                      
                         <span class="name"><?=CHtml::encode($thisComments->name)?></span>
                         <div class="comment-date"><?=AssidiHelper::dateFormat($thisComments->date)?></div>
                     </div>
