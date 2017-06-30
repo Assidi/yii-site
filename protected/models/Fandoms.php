@@ -103,8 +103,9 @@ class Fandoms extends CActiveRecord
 	 * @return type
 	 */
 	public static function getList()
-	{
-		$models = self::model()->findAll();
+	{  
+	    $criteria=new CDbCriteria(array('order'=>'fandomName'));
+		$models = self::model()->findAll($criteria);
 		if (!$models) {
 			return array();
 		}

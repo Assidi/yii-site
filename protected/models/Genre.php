@@ -102,7 +102,9 @@ class Genre extends CActiveRecord
 	 */
 	public static function getList()
 	{
-		$models = self::model()->findAll();
+		
+        $criteria=new CDbCriteria(array('order'=>'genreName'));
+		$models = self::model()->findAll($criteria);
 		if (!$models) {
 			return array();
 		}
