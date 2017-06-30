@@ -201,7 +201,8 @@ class Fanf extends CActiveRecord
         //Yii::app()->params['debug'] = $fanfIds;
         
         $criteria = new CDbCriteria();
-        $criteria->addInCondition('ficId', $fanfIds);  
+        $criteria->addInCondition('ficId', $fanfIds); 
+        $criteria->order = 'dateWrite DESC'; 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
