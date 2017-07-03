@@ -110,7 +110,7 @@ class Characters extends CActiveRecord
 	 */
 	public static function getList($fandomId = null)
 	{
-	    $criteria=new CDbCriteria(array('order'=>'fandomID'));
+	    $criteria=new CDbCriteria(array('order'=>'fandomId, characterName'));       
 
 	    if ($fandomId) {
 	    	$criteria->addCondition('fandomId=:fandom_id');
@@ -152,8 +152,8 @@ class Characters extends CActiveRecord
     			$arList[$model->characterId] = $model->characterName;
     		}
         }
-        print_r($arlist);
-        echo '<br />';
+        //print_r($arlist);
+        //echo '<br />';
         return $arList;
     }
     
