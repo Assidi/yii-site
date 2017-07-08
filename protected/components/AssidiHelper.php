@@ -20,7 +20,7 @@ class AssidiHelper {
 	static function insertBreakes($text) {
 		$newtext = preg_replace('/[\r\n]+/', "<br />", $text);
 		return $newtext;
-	} 
+	}
         
 	/**
 	 * форматирует дату из системной 

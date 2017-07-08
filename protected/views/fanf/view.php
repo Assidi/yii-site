@@ -45,6 +45,7 @@ if (!Yii::app()->user->isGuest) {
     <p><span class="bold">Категория: </span><?= $model->category?></p>
     <p><span class="bold">Жанр: </span>
         <?php        
+        
         foreach($model->getGenres() as $genre) {
             ?>
               <?= '<a href="/fanf/search?genres[]='. $genre->genreId . '">'. $genre->genreName.'</a>'; ?>  

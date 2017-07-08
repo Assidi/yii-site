@@ -190,11 +190,12 @@ class FanfController extends Controller
     public function actionDeletecharacter($id)
 	{
         $characterFanfModel = CharactersFanfics::model()->findByPk($id);
+        $idtext = $characterFanfModel->fanficId;
 		$characterFanfModel->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		// перенаправляем на страницу с текстом
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','id'=>$idtext));
 	}
     
     /**
@@ -205,11 +206,12 @@ class FanfController extends Controller
      public function actionDeleteFandom($id) 
      {
         $fandomFanfModel = FandomsFanfics::model()->findByPk($id);
+        $idtext = $fandomFanfModel->fanficId;
 		$fandomFanfModel->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		// перенаправляем на страницу с текстом 
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','id'=>$idtext));
      }
      
      /**
@@ -219,12 +221,13 @@ class FanfController extends Controller
 
     public function actionDeleteGenre($id) 
      {
-        $fandomFanfModel = GenreFanfic::model()->findByPk($id);
-		$fandomFanfModel->delete();
+        $genreFanfModel = GenreFanfic::model()->findByPk($id);
+        $idtext = $genreFanfModel->fanficId;
+		$genreFanfModel->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		// перенаправляем на страницу с текстом
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view','id'=>$idtext));
      }
 
 	/**
