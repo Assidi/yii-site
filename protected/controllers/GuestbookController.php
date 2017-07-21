@@ -192,6 +192,10 @@ class GuestbookController extends Controller
         return array(
             'captcha'=>array(
                 'class'=>'CCaptchaAction',
+                'backColor'=> 0xFA8258, // фон
+                 'foreColor'=> 0xF7F2E0, // буквы
+                 'maxLength'=> 9,
+                'minLength'=> 5,
                 
             ),
         );

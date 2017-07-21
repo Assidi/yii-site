@@ -11,6 +11,6 @@
             <span class="name"><?=CHtml::encode($data->name)?></span>
             <div class="comment-date"><?=AssidiHelper::dateFormat($data->date)?></div>
         </div>                    
-        <div class="comment-text"><?=$data->text?></div>        
+        <div class="comment-text"><?=CHtml::encode($data->text)?></div>        
     </article>    
 
