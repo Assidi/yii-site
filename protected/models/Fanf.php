@@ -186,7 +186,7 @@ class Fanf extends CActiveRecord
 		if ($genres) {
             $withCriteria['genreFanfics'] = array('together' => true);
            // $withCriteria['genreFanfics.genre'] = array('together' => true);
-            $criteria->addInCondition('genreFanfics.genreId', $genres);
+            $criteria->addInCondition('genreFanfics.genreId', $genres, 'and');
         }
 		if ($withCriteria) {
 			$criteria->with = $withCriteria;

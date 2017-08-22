@@ -22,7 +22,7 @@ class FanfController extends Controller
     
     protected function beforeRender($view) {
         if(parent::beforeRender($view)) {
-         if(Yii::app()->user->isGuest) $this->layout ='//layouts/mylayout';
+         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';
          return true;
         }
         else 

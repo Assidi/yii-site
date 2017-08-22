@@ -90,12 +90,13 @@
         			'items'=>array(
         				array('label'=>'Главная', 'url'=>array('/site/index')),                
                         array('label'=>'Тексты', 'url'=>array('/fanf/index')),
+                        array('label'=>'Поиск текстов', 'url'=>array('/fanf/search')),
                         array('label'=>'Рисунки', 'url'=>array('/categories/list')),
                         array('label'=>'Блог', 'url'=>array('/blog/index')),
         				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),				
                         array('label'=>'Гостевая книга', 'url'=>array('/guestbook/index')),
                         array('label'=>'Админка', 'url'=>array('/news/index'), 'visible'=>!Yii::app()->user->isGuest),				
-                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),        				
+                        array('label'=>'Выход', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),        				
         			),
                     'htmlOptions' => array(
                   'class' => 'nav navbar-nav')

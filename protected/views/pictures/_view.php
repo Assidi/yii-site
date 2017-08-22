@@ -10,7 +10,4 @@
     <div class="caption">
 	<?php echo CHtml::encode($data->description); ?>
     </div>
-	
-	
-	
 </div>

@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 
 <? if($pictures): ?>
     <? foreach($pictures as $picture): ?>
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
             <? $this->renderPartial('/pictures/_view', array(
                 'data' => $picture
             )); ?>

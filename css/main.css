@@ -89,8 +89,7 @@ p {
 }
 
 .myphoto {
-    display: inline-block;
-    float: left;
+    width: 100%;
     margin-right: 10px;
     margin-bottom: 10px;
 }
@@ -474,8 +473,7 @@ div.view
     background-color: #ffffff;
 }
 
-.view-picture {
-    display: inline-block;
+.view-picture {    
     width: 222px;    
     height: 350px;
     padding: 10px;
@@ -668,4 +666,10 @@ table.detail-view td
     .collapsing {
         overflow: hidden!important;
     }
+}
+
+@media (max-width: 768px) {
+    .view-picture {
+    height: auto;
+}
 }
