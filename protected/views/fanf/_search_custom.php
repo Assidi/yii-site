@@ -16,18 +16,18 @@ $this->breadcrumbs=array(
 	'method'=>'get',
 )); ?>	
 
-	<div class="row">
-		<?php echo $form->label($model,'title'); ?>
+	<div class="form-group">
+		<?php echo $form->label($model,'title'); ?><br />
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'dateWrite'); ?>
+	<div class="form-group">
+		<?php echo $form->label($model,'dateWrite'); ?><br />
 		<?php echo $form->textField($model,'dateWrite'); ?>
 	</div>	
 
-	<div class="row">
-		<?php echo $form->label($model,'raiting'); ?>
+	<div class="form-group">
+		<?php echo $form->label($model,'raiting'); ?><br />
 		  <div class="radio-item">
             <input id="Fanf_raiting_0" value="G" name="Fanf[raiting]" type="radio">
             <label for="Fanf_raiting_0">G</label>             
@@ -51,26 +51,21 @@ $this->breadcrumbs=array(
 	</div>    
     
 
-	<div class="row">
-		<?php echo $form->label($model,'summary'); ?>
+	<div class="form-group">
+		<?php echo $form->label($model,'summary'); ?><br />
 		<?php echo $form->textField($model,'summary',array('size'=>60,'maxlength'=>500)); ?>
 	</div>	
 
-	<div class="row">
-        <label>Размер</label>
-		<input type="text" id="size" style="border: 0; color: #f6931f; font-weight: bold; width:300px;" />
-        <div id="slider-range" style="width:300px; margin-left: 110px;"></div>
-        <input type="hidden" name="Fanf[minSize]" id="min-size">
-        <input type="hidden" name="Fanf[maxSize]" id="max-size">
-        <div class="hidden" id="variables"
-        data-min-size="<?= Fanf::MIN_SIZE; ?>"
-        data-max-size="<?= Fanf::MAX_SIZE; ?>"
-        data-current-min-size="<?= $minSize; ?>"
-        data-current-max-size="<?= $maxSize; ?>"></div>
+	<div class="form-group">
+        <label>Размер</label><br />
+        От <input type="text" name="Fanf[minSize]" id="size" value="0"/>
+        до <input type="text" name="Fanf[maxSize]" id="size" value="<?=Fanf::maxSize();?>"/>
+        тыс. знаков
+		
 	</div>	
 
-	<div class="row">
-		<?php echo $form->label($model,'category'); ?>
+	<div class="form-group">
+		<?php echo $form->label($model,'category'); ?><br />
         <div class="radio-item">
             <input id="Fanf_category_0" value="Джен" name="Fanf[category]" type="radio">
             <label for="Fanf_category_0">Джен</label>
@@ -90,27 +85,27 @@ $this->breadcrumbs=array(
 		
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'text'); ?>
+	<div class="form-group">
+		<?php echo $form->label($model,'text'); ?><br />
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
     
-    <div class="row">
+    <div class="form-group">
 		<label for="fandoms">Фандомы</label>
 		<?= CHtml::dropDownList('fandoms[]', $fandom, $fandoms); ?>
 	</div>
     
-    <div class="row">
-		<label for="characters">Персонажи</label>
-		<?= CHtml::dropDownList('characters[]', $character, $characters); ?>
+    <div class="form-group">
+		<label for="characters">Персонажи</label><br />
+		<?= CHtml::dropDownList('characters[]', $character, $characters,array('multiple'=>true)); ?>
 	</div>
 	
-	<div class="row">
-		<label for="genres">Жанры</label>
-		<?= CHtml::dropDownList('genres[]', $genre, $genres); ?>
+	<div class="form-group">
+		<label for="genres">Жанры</label><br />
+		<?= CHtml::checkBoxList('genres[]', $genre, AssidiHelper::deletenull(Genre::getList())); ?>
 	</div>
 
-	<div class="row buttons">
+	<div class="form-group">
 		<?php echo CHtml::submitButton('Поиск'); ?>
 	</div>
 
@@ -120,26 +115,7 @@ $this->breadcrumbs=array(
 
 <script>
 $(document).ready(function() {
-    var currentMin = parseInt($('#variables').attr('data-current-min-size'));
-    var currentMax = parseInt($('#variables').attr('data-current-max-size'));
-    currentMin = currentMin ? currentMin : 5;
-    currentMax = currentMax ? currentMax : 50;
-    $( "#slider-range" ).slider({
-      range: true,
-      min: parseInt($('#variables').attr('data-min-size')),
-      max: parseInt($('#variables').attr('data-max-size')),
-      values: [ currentMin, currentMax ],
-      slide: function( event, ui ) {
-      	if ( (ui.values[0] + 12) >= ui.values[1] ) {
-            return false;
-        }
-        $( "#size" ).val( ui.values[ 0 ]  + "K - " + ui.values[ 1 ] +"K");
-        $('#min-size').val(ui.values[ 0 ]);
-        $('#max-size').val(ui.values[ 1 ]);
-      }
-    });
-    $( "#size" ).val($( "#slider-range" ).slider( "values", 0 ) +
-      "К - " + $( "#slider-range" ).slider( "values", 1 ) +"К" );
+
 
     $('#fandoms').on('change',function(){
       var fandomId = $("#fandoms option:selected").val();

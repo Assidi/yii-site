@@ -53,6 +53,13 @@ input[type="text"] {
     margin-bottom: 10px;
 }
 
+#size{
+    display: inline-block;
+    width: 150px;
+    padding: 5px;
+    margin: 10px;
+}
+
 input[type="submit"] {
     display: inline-block;
     width: 150px;
@@ -66,6 +73,13 @@ input[type="submit"] {
     text-decoration: none;
     text-align: center;
     cursor: pointer;
+}
+
+.captcha img {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 input[type="submit"]:hover {
@@ -91,7 +105,7 @@ div.form label
 {
 	font-weight: bold;
 	font-size: 0.9em;
-	display: block;
+	/*display: block;*/
 }
 
 div.form .row
@@ -191,11 +205,24 @@ div.form .errorSummary ul
 
 div.wide.form label
 {
-	float: left;
+/*	float: left;
 	margin-right: 10px;
 	position: relative;
 	text-align: right;
-	width: 100px;
+	width: 100px;*/    
+   
+    
+}
+
+.radio-item {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;    
+}
+
+.radio-item label {
+    display: inline;
+    margin-right: 10px;
 }
 
 div.wide.form .row
@@ -216,6 +243,10 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 
     div.form textarea {
         width: 90%;        
+    }
+    
+    div.form select {
+        width: 90%;
     }
 
 }

@@ -623,10 +623,7 @@ table.detail-view td
 	vertical-align: top;
 }
 
-.radio-item {
-    display: inline-block;
-    
-}
+
 
 
 @media (max-width: 991px) {

@@ -19,14 +19,14 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'title'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'title'); ?><br />
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'dateWrite')." гггг-мм-дд"; ?> 
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'dateWrite')." гггг-мм-дд"; ?> <br />
         <?php
 		  $this->widget('CMaskedTextField', array(
 			'model' => $model,
@@ -40,61 +40,61 @@
 	</div>
 
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'raiting'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'raiting'); ?><br />
 		<?php echo $form->radioButtonList($model,'raiting',array('G'=>'G','PG'=>'PG', 'PG-13'=>'PG-13', 'R'=>'R', 'NC-17'=>'NC-17')); ?>
 		<?php echo $form->error($model,'raiting'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'pairing'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'pairing'); ?><br />
 		<?php echo $form->textField($model,'pairing',array('size'=>60,'maxlength'=>200)); ?>
 		<?php echo $form->error($model,'pairing'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'summary'); ?>
-		<?php echo $form->textArea($model,'summary',array('rows'=>6, 'cols'=>50)); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'summary'); ?><br />
+		<?php echo $form->textArea($model,'summary',array('form-groups'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'summary'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'note'); ?>
-		<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'note'); ?><br />
+		<?php echo $form->textArea($model,'note',array('form-groups'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'note'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'dedication'); ?>
-		<?php echo $form->textArea($model,'dedication',array('rows'=>6, 'cols'=>50)); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'dedication'); ?><br />
+		<?php echo $form->textArea($model,'dedication',array('form-groups'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'dedication'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'beta'); ?>		
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'beta'); ?><br />		
         <?php echo $form->dropDownList($model, 'beta', Beta::getList()); ?>
 		<?php echo $form->error($model,'beta'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'coauthor'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'coauthor'); ?><br />
 		<?php echo $form->dropDownList($model, 'coauthor', Coauthor::getList()); ?>
 		<?php echo $form->error($model,'coauthor'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'category'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'category'); ?><br />
 		<?php echo $form->radioButtonList($model,'category',array('Джен'=>'Джен', 'Гет'=>'Гет', 'Слэш'=>'Слэш', 'Фемслэш'=>'Фемслэш')); ?>
 		<?php echo $form->error($model,'category'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'text'); ?>
-		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'text'); ?><br />
+		<?php echo $form->textArea($model,'text',array('form-groups'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
 
-	<div class="row buttons">
+	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Обновить'); ?>
 	</div>
 

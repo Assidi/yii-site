@@ -184,18 +184,45 @@ class Fanf extends CActiveRecord
             $criteria->addInCondition('fandomsFanfics.fandomId', $fandoms);
         }
 		if ($genres) {
+		  //Yii::app()->params['debug'] =$genres;
             $withCriteria['genreFanfics'] = array('together' => true);
            // $withCriteria['genreFanfics.genre'] = array('together' => true);
-            $criteria->addInCondition('genreFanfics.genreId', $genres, 'and');
+            $criteria->addInCondition('genreFanfics.genreId', $genres);
         }
 		if ($withCriteria) {
 			$criteria->with = $withCriteria;
 		}
         $criteria->order = 'dateWrite DESC';
+        //Yii::app()->params['debug'] =$criteria; 
         $fanfics = Fanf::model()->findAll($criteria);
+        // это мы что-то нашли, теперь собираем идентификаторы,
+        // чтобы еще раз по ним сделать поиск  и не потерять при выводе теги
+        // а дальше будет говнокод, потому что через связанные запросы я так и не продралась 
         $fanfIds = array();
         foreach ($fanfics as $fanfic) {
-            $fanfIds[] = $fanfic->ficId;
+            // переменная для проверки, тот ли это факфик. Считаем, что тот, но если 
+            // что-то не совпадет, сделаем ее false
+            $result = true;
+            $id = $fanfic->ficId;
+            // теперь смотрим, всем ли условиям удовлетворяет фанфик
+            // получаем массивы идентификаторов его персонажей и жанров
+            $currentGenres = $fanfic->getGenresArray();            
+            $currentCharacters = $fanfic->getCharactersArray();            
+            // проверяем по жанрам - все ли жанры из поиска есть у фика
+            if($genres) {
+                foreach($genres as $genre) {
+                    if (!in_array($genre, $currentGenres)) $result = false;
+                }
+            }
+            
+            // теперь по персонажам
+            if ($characters) {
+                foreach($characters as $character) {
+                    if(!in_array($character, $currentCharacters)) $result = false;
+                }
+            }
+                        
+            if($result) $fanfIds[] = $id;
         }
         
         //Yii::app()->params['debug'] = $fanfIds;
@@ -203,6 +230,7 @@ class Fanf extends CActiveRecord
         $criteria = new CDbCriteria();
         $criteria->addInCondition('ficId', $fanfIds); 
         $criteria->order = 'dateWrite DESC'; 
+        
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -234,6 +262,19 @@ class Fanf extends CActiveRecord
     }
     
     /** 
+    * @return array массив идентификаторов жанров текущего фанфика 
+    */ 
+    public function getGenresArray() {
+        $arGenres = array(); 
+        if ($this->genreFanfics) { 
+            foreach($this->genreFanfics as $genreFanficModel) {                
+                $arGenres[] = $genreFanficModel->genre->genreId; 
+            } 
+        } 
+        return $arGenres;
+    } 
+    
+    /** 
     * @return array список персонажей текущего фанфика 
     */ 
     
@@ -242,6 +283,20 @@ class Fanf extends CActiveRecord
         if ($this->charactersFanfics) {
             foreach($this->charactersFanfics as $charFanficModel) { 
                 $arCharact[$charFanficModel->charfanId] = $charFanficModel->character; 
+            } 
+        } 
+        return $arCharact;        
+    }
+    
+    /** 
+    * @return array массив идентификаторов персонажей текущего фанфика 
+    */
+    
+    public function getCharactersArray() {
+        $arCharact = array();
+        if ($this->charactersFanfics) {
+            foreach($this->charactersFanfics as $charFanficModel) { 
+                $arCharact[] = $charFanficModel->character->characterId; 
             } 
         } 
         return $arCharact;        
@@ -368,5 +423,20 @@ class Fanf extends CActiveRecord
         $criteria=new CDbCriteria(array('order'=>'datePublish DESC'));
         $fanfNew = self::model()->find($criteria);
         return $fanfNew;
+    }
+    
+    /**
+     * Возвращает максимальный размер фанфика в базе
+     * @return integer 
+     */
+    
+    public static function maxSize() {
+        $criteria=new CDbCriteria(array('order'=>'size DESC'));
+        $fanf = self::model()->find($criteria);
+        $size = $fanf->size;
+        $size1 = $size/1000;
+        $size1 = floor($size1);
+        if ($size1==0) $size1=1;
+        return $size1;
     }
 }

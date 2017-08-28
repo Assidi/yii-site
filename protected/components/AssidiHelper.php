@@ -78,6 +78,15 @@ class AssidiHelper {
         return $result;
     }
     
+    /**
+     * Удаляет нулевой элемент из массива
+     * @param array $array
+	 * @return array
+     */
+    static function deletenull($array) {
+        unset($array[0]);
+        return $array;
+    }
  }
     
     
