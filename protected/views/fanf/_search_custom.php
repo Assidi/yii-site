@@ -124,9 +124,30 @@ $(document).ready(function() {
         dataType: "json"
       }).done(function(data) {
         var str = '';
-        $.each(data, function( index, value ) {
-          str += '<option value="'+index+'">'+value+'</option>';
-        });
+        // сейчас будет самое страшное - преобразование json объекта в массив и его сортировка
+        var array=[];
+        //Это мы делаем двумерный массив 
+        for(var k in data) {
+            var v = data[k];
+            array.push([k, v]);
+        }
+        // а теперь мы его отсортируем
+        // Функция сортировки по второму элементу массива
+        function s2(a, b) {
+            if (a[1] > b[1]) return 1;
+            else if (a[1] < b[1]) return -1; else return 0;
+            }
+        // отсортировали    
+        array.sort(s2);
+        // теперь поехали составлять список 
+        var a=[];
+        for(var i=0; i<array.length; i++) {
+            a= array[i];
+            str+="<option value='" + a[0] + "'>" + a[1] + "</option>";
+        }
+        //$.each(data, function( index, value ) {
+        //  str += '<option value="'+index+'">'+value+'</option>';
+        //});
         $('#characters').html(str);
       });
     });
