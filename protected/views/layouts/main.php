@@ -55,7 +55,9 @@
                 array('label'=>'Фандомы', 'url'=>array('/fandoms/index')),
                 array('label'=>'Соавторы', 'url'=>array('/coauthor/index')),
                 array('label'=>'Беты', 'url'=>array('/beta/index')), 
-                array('label'=>'Приколы', 'url'=>array('/jokes/index')),               
+                array('label'=>'Приколы', 'url'=>array('/jokes/index')),
+                array('label'=>'Вопросы', 'url'=>array('/questions/index')),
+                               
 			),
 		)); ?>
     </div>

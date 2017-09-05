@@ -19,31 +19,43 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'name'); ?><br />
 		<?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'email'); ?><br />
 		<?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'text'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'text'); ?><br />
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
     
-    <?if(CCaptcha::checkRequirements() && Yii::app()->user->isGuest):?>
+    <!--
+<?if(CCaptcha::checkRequirements() && Yii::app()->user->isGuest):?>
         <?=CHtml::activeLabelEx($model, 'verifyCode')?>
         <?$this->widget('CCaptcha',array('buttonLabel'=>'Обновить картинку'))?><br />
         <?=CHtml::activeTextField($model, 'verifyCode')?>
-    <?endif?>	
+    <?endif?>
+-->
+    <!-- Выводим проверочный вопрос, только для гостя -->
+    <?if(Yii::app()->user->isGuest):?>
+        <div class="form-group">
+            <label>Ответьте на простой проверочный вопрос:</label><br />
+            <?php $q = Questions::randomQuestion(); ?>
+            <p><?= $q['question'];?></p>
+            <?=CHtml::activeTextField($model, 'verifyAnswer')?>
+        </div>
+    <?endif?>
+    	
 
-	<div class="row buttons">
+	<div class="form-group">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>
 
