@@ -18,6 +18,7 @@
 class BlogComments extends CActiveRecord
 {
     public $verifyCode;
+    public $verifyAnswer;
     
 	/**
 	 * @return string the associated database table name
@@ -42,12 +43,17 @@ class BlogComments extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('commentId, postId, name, email, date, text', 'safe', 'on'=>'search'),
+            //array(
+//                'verifyCode',
+//                'captcha',
+//                // авторизованным пользователям код можно не вводить
+//                'allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
+//            ),
             array(
-                'verifyCode',
-                'captcha',
-                // авторизованным пользователям код можно не вводить
-                'allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
-            ),
+                'verifyAnswer',
+                'checkAnswer',
+                'allowEmpty'=>!Yii::app()->user->isGuest,
+            )
 		);
 	}
 
@@ -138,4 +144,16 @@ class BlogComments extends CActiveRecord
         else 
             return false;                
     }
+    
+    /**
+     * Валидатор при проверки ответа на вопрос
+     */
+     public function checkAnswer($attribute,$params) {
+        $answer = $this->$attribute;
+        $answer =  mb_strtolower(trim($answer), 'UTF-8');        
+        $answerRight = $_SESSION['answer'];
+        if ($answer!=$answerRight && (Yii::app()->user->isGuest)) 
+            $this->addError($attribute, 'Дан неверный ответ');
+
+     }
 }

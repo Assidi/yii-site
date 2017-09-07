@@ -19,13 +19,13 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'text'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'text'); ?><br />
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
 
-	<div class="row buttons">
+	<div class="form-group">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>
 

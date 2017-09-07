@@ -24,10 +24,33 @@ else {
 ?>
 
 <h1>Гостевая книга</h1>
+<a id="comment-button" href="#">Создать новую запись</a>
+<div id="guest-form" style="display: none;" >
+    <h2>Новая запись</h2>
+    <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+</div>
 
-<h2>Новая запись</h2>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<script>
+$(document).ready(function () {
+    $('a#comment-button').click(function (e) {
+    	   $(this).toggleClass('active');
+           $('#guest-form').toggle();
+           $('a#comment-button').hide();
+    	   e.stopPropagation();
+	   });
+       $('#guest-form').click(function (e) {
+	            e.stopPropagation();
+       });
+       
+	   $('body').click(function () {
+	       var link = $('a#comment-button');
+	       if (link.hasClass('active')) {
+                link.click();
+                }
+	        });
+	    });
+	 
+</script>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

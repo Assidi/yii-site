@@ -397,6 +397,24 @@ footer
     background-color: #ffffff;
     margin-bottom: 30px;
 }
+
+/* кнопка для гостевой книги */
+
+#comment-button {
+    display: block;
+    width: 300px;
+    padding: 10px 15px;
+    margin: 20px auto;
+    border: none;
+    background-color: #FA8258;
+    color: #F3F0DB;
+    font-size: 1.2em;
+    border-radius: 3px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
 /* меню для страниц, открытых пользователю - фанфики в основном */
 
 .mymenu {    

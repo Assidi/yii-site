@@ -22,8 +22,4 @@ $this->menu=array(
     </div>    
 <? endforeach; ?>
 
-<?php
-    $q = Questions::randomQuestion();
-    print_r($q);
-?>
 <br />

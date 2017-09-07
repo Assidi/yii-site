@@ -28,6 +28,8 @@ else {
 
 
 
-<h1>Новая запись</h1>
+    <h1>Новая запись</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+    <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+
+

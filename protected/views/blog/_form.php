@@ -19,25 +19,25 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'title'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'title'); ?><br />
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>250)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'text'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'text'); ?><br />
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
     
-    <div class="row">
-		<?php echo $form->labelEx($model,'tags'); ?>
+    <div class="form-group">
+		<?php echo $form->labelEx($model,'tags'); ?><br />
 		<?php echo $form->checkBoxList($model, 'tags', BlogTags::getList()); ?>
 		<?php echo $form->error($model,'tags'); ?>
 	</div>
 
-	<div class="row buttons">
+	<div class="form-group">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Обновить'); ?>
 	</div>
 

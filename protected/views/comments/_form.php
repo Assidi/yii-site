@@ -37,15 +37,17 @@
 		<?php echo $form->error($model,'text'); ?>
 	</div>
     
-    <?if(CCaptcha::checkRequirements() && Yii::app()->user->isGuest):?>
-        <?=CHtml::activeLabelEx($model, 'verifyCode')?><br />
-        <div class="captcha">
-            <?$this->widget('CCaptcha',array('buttonLabel'=>'Обновить картинку'))?><br />
-        </div>        
-        <?=CHtml::activeTextField($model, 'verifyCode')?>
-    <?endif?>   
+    <!-- Выводим проверочный вопрос, только для гостя -->
+    <?if(Yii::app()->user->isGuest):?>
+        <div class="form-group">
+            <label>Ответьте на простой проверочный вопрос:</label><br />
+            <?php $q = Questions::randomQuestion(); ?>
+            <p><?= $q['question'];?></p>
+            <?=CHtml::activeTextField($model, 'verifyAnswer')?>
+        </div>
+    <?endif?>
     
-	<div class="row buttons">
+	<div class="form-group">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Отправить' : 'Сохранить'); ?>
 	</div>
 

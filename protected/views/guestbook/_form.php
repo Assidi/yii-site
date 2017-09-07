@@ -4,6 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
+
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -36,14 +37,7 @@
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
-    
-    <!--
-<?if(CCaptcha::checkRequirements() && Yii::app()->user->isGuest):?>
-        <?=CHtml::activeLabelEx($model, 'verifyCode')?>
-        <?$this->widget('CCaptcha',array('buttonLabel'=>'Обновить картинку'))?><br />
-        <?=CHtml::activeTextField($model, 'verifyCode')?>
-    <?endif?>
--->
+
     <!-- Выводим проверочный вопрос, только для гостя -->
     <?if(Yii::app()->user->isGuest):?>
         <div class="form-group">

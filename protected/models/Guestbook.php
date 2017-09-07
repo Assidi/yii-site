@@ -28,8 +28,12 @@ class Guestbook extends CActiveRecord
 	 * @return array validation rules for model attributes.
 	 */
 	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
+	{  
+		// импортируем новый валидатор проверки ответа на вопрос
+        //Yii::import('ext.MyValidators.*');
+        //require_once (Yii::getPathOfAlias('ext.MyValidators.сheckAnswer').'.php');
+
+        // NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
 			array('name, email, text', 'required'),
@@ -75,7 +79,7 @@ class Guestbook extends CActiveRecord
 			'email' => 'Электронный адрес',
 			'text' => 'Сообщение',
 			'date' => 'Дата',
-            'verifyCode' => 'Код проверки',
+            'verifyAnswer' => 'Код проверки',
             'admin' => 'Знак администратора',
 		);
 	}
