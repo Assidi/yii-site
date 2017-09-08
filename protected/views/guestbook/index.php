@@ -6,8 +6,6 @@ $this->breadcrumbs=array(
 	'Гостевая книга',
 );
 
-//Yii::app()->params['debug'] = $_SESSION;
-
 if (!Yii::app()->user->isGuest) {
     // меню для администратора
     $this->menu=array(
