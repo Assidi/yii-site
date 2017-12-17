@@ -8,6 +8,8 @@ class GuestbookController extends Controller
 	 */
 	public $layout='//layouts/column2'; 
     public $adminmenu = false;   
+    public $description = "Гостевая книга сайта фанфиков автора Ассиди";
+	public $keywords = array("Ассиди", "фанфики", "гостевая книга");
 
 	/**
 	 * @return array action filters

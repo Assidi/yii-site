@@ -8,6 +8,8 @@ class FanfController extends Controller
 	 */
 	public $layout='//layouts/column2';
     public $adminmenu = false;
+    public $description = "Сайт фанфиков автора Ассиди";
+	public $keywords = array("Ассиди", "фанфики");
 
 	/**
 	 * @return array action filters
@@ -43,7 +45,7 @@ class FanfController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'statistics'),
 				'users'=>array('admin'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -65,6 +67,7 @@ class FanfController extends Controller
 	   $fanfic = $this->loadModel($id);
         $comment=$this->newComment($fanfic);
         $this->pageTitle = Yii::app()->name.' - '.$fanfic->title;
+        $this->description = $fanfic->summary;
         if(Yii::app()->user->isGuest) $this->layout ='//layouts/column1';        
 		$this->render('view',array(
 			'model'=>$fanfic,
@@ -89,6 +92,8 @@ class FanfController extends Controller
         }
         return $comment;
     }
+    
+    
     
     /**
      * Добавление к фанфику персонажей, фандомов и жанров 
@@ -244,6 +249,19 @@ class FanfController extends Controller
 			'models'=>$models,
 		));
 	}
+    
+    /**
+     * Вывод статистики по текстам
+     */
+    
+    public function actionStatistics() {
+        $this->pageTitle = Yii::app()->name.' - Статистика по текстам';        
+        $stat = Fanf::statYear();        
+        
+        $this->render('statistics',array(
+            'statArray'=>$stat,
+        )); 
+    } 
 
 	/**
 	 * Manages all models.

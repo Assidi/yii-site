@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Все фанфики', 'url'=>array('index')),
+    array('label'=>'Статистика', 'url'=>array('statistics')),
 	array('label'=>'Создать фанфик', 'url'=>array('create')),
     array('label'=>'Просмотр', 'url'=>array('view', 'id'=>$model->ficId)),
 	array('label'=>'Обновить фанфик', 'url'=>array('update', 'id'=>$model->ficId)),

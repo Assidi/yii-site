@@ -3,9 +3,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="language" content="ru">
-    
+	<meta name="language" content="ru">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?=$this->description;?>">
+    <meta name="keywords" content="<?=AssidiHelper::arrayToString($this->keywords);?>">
+    <meta name="author" content="Ассиди">
+    <meta name="copyright" content="Все права принадлежат Ассиди Эльконнэри">
 
 	<!-- blueprint CSS framework -->
 	
@@ -92,8 +95,8 @@
         		<?php $this->widget('zii.widgets.CMenu',array(
         			'items'=>array(
         				array('label'=>'Главная', 'url'=>array('/site/index')),                
-                        array('label'=>'Тексты', 'url'=>array('/fanf/index')),
-                        array('label'=>'Поиск текстов', 'url'=>array('/fanf/search')),
+                        array('label'=>'Фанфики', 'url'=>array('/fanf/index')),
+                        array('label'=>'Поиск фиков', 'url'=>array('/fanf/search')),
                         array('label'=>'Рисунки', 'url'=>array('/categories/list')),
                         array('label'=>'Блог', 'url'=>array('/blog/index')),
         				array('label'=>'Обо мне', 'url'=>array('/site/page', 'view'=>'about')),				

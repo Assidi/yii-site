@@ -8,6 +8,9 @@
 /* @var genre */
 /* @var genres */
 ?>
+
+
+
 <?php
 $this->renderPartial('_search_custom',array(
     'model'=>$model,

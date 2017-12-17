@@ -8,6 +8,8 @@ class CategoriesController extends Controller
 	 */
 	public $layout='//layouts/mylayout';
     public $adminmenu = false;
+    public $description = "Сайт фанфиков автора Ассиди";
+	public $keywords = array("Ассиди", "фанфики");
 
 	/**
 	 * @return array action filters

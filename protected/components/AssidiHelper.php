@@ -87,6 +87,26 @@ class AssidiHelper {
         unset($array[0]);
         return $array;
     }
+    
+    /**
+     * Перечисляет элементы массива через запятую
+     * @param array $array
+	 * @return string
+     */
+     
+     static function arrayToString($array) {
+        $str = "";
+        foreach($array as $elem) {
+            $str = $str.$elem.", ";
+        }
+        // убираем последние два символа - запятую и пробел
+        $l = strlen($str);
+        if($l>2) {
+            $str = substr($str, 0, $l-2);
+        }
+        
+        return $str;
+     }
  }
     
     

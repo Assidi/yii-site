@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Список', 'url'=>array('index')),
+    array('label'=>'Статистика', 'url'=>array('statistics')),
 	array('label'=>'Создать', 'url'=>array('create')),
 	array('label'=>'Просмотр', 'url'=>array('view', 'id'=>$model->ficId)),
 	array('label'=>'Управление', 'url'=>array('admin')),

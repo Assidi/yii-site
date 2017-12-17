@@ -7,6 +7,8 @@ class BlogTagsController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+    public $description = "Сайт фанфиков автора Ассиди";
+	public $keywords = array("Ассиди", "фанфики");
     
     protected function beforeRender($view) {
         if(parent::beforeRender($view)) {

@@ -30,7 +30,8 @@
 class Fanf extends CActiveRecord
 {
     const MIN_SIZE = 0;
-    const MAX_SIZE = 200;    
+    const MAX_SIZE = 200;   
+     
 
 	/**
 	 * @return string the associated database table name
@@ -162,7 +163,7 @@ class Fanf extends CActiveRecord
             $criteria->params[':min_size'] = (int)$minSize * 1000;
         }
         $maxSize = $fanf['maxSize'];
-        if ($maxSize && $maxSize <= self::MAX_SIZE) {
+        if ($maxSize) {
             $criteria->addCondition('size < :max_size');
             $criteria->params[':max_size'] = (int)$maxSize * 1000;
         }
@@ -200,7 +201,7 @@ class Fanf extends CActiveRecord
         // а дальше будет говнокод, потому что через связанные запросы я так и не продралась 
         $fanfIds = array();
         foreach ($fanfics as $fanfic) {
-            // переменная для проверки, тот ли это факфик. Считаем, что тот, но если 
+            // переменная для проверки, тот ли это фанфик. Считаем, что тот, но если 
             // что-то не совпадет, сделаем ее false
             $result = true;
             $id = $fanfic->ficId;
@@ -438,5 +439,42 @@ class Fanf extends CActiveRecord
         $size1 = floor($size1);
         if ($size1==0) $size1=1;
         return $size1;
+    }
+    
+    /**
+     * Составляет статистику фанфиков по годам
+     * @return array
+     * 
+     */
+    
+    public static function statYear() {
+        
+        // текущий год
+        $maxYear = intval(date('Y'))+1;
+        $minYear = 1994; 
+                    
+        // заводим массив под статистику
+        $arrayStat = array();
+        
+        // цикл по годам
+        for ($year = $minYear; $year<$maxYear; $year++) {            
+            $criteria = new CDbCriteria();
+            $criteria->compare('dateWrite',$year,true);
+            $fanfics = Fanf::model()->findAll($criteria);            
+            // получили фанфики, написанные в данном году, теперь надо посчитать размер и количество
+            $size = 0;
+            $n = 0;
+            // считаем количепство и общий размер по выбранному году
+            foreach ($fanfics as $fanfic) {
+                $fanficSise = $fanfic->size;
+                $n++;
+                $size = $size + $fanficSise;
+            }   
+            // записываем в массив
+            $arrayStat[] = array('year'=>$year, 'size'=>$size, 'n'=>$n); 
+            
+        }
+        // теперь возвращаем массив
+        return $arrayStat;
     }
 }

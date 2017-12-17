@@ -7,7 +7,9 @@ class BetaController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-    
+    public $description = "Сайт фанфиков автора Ассиди";
+    public $keywords = array("Ассиди", "фанфики");    
+
 
 	/**
 	 * @return array action filters

@@ -3,14 +3,15 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Тексты',
+	'Фанфики',
 );
 if (!Yii::app()->user->isGuest) {
     // меню для администратора
     $this->menu=array(
+    array('label'=>'Статистика', 'url'=>array('statistics')),
 	array('label'=>'Создание', 'url'=>array('create')),
 	array('label'=>'Управление', 'url'=>array('admin')),
-	array('label'=>'Поиск', 'url'=>array('search')),
+	array('label'=>'Поиск', 'url'=>array('search')),    
 );
 }
 else {
@@ -19,13 +20,9 @@ else {
 	array('label'=>'Поиск', 'url'=>array('search')),
 );
 }
-
 ?>
 
-<h1>Тексты</h1>
-<?php
-    //print_r($models);
-?>
+<h1>Фанфики</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

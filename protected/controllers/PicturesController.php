@@ -7,6 +7,8 @@ class PicturesController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+    public $description = "Рисунки Ассиди";
+	public $keywords = array("Ассиди", "рисунки");
 
 	/**
 	 * @return array action filters

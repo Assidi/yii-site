@@ -3,6 +3,8 @@
 class SiteController extends Controller
 {
     public $adminmenu = false;
+    public $description = "Сайт фанфиков автора Ассиди";
+    public $keywords = array("Ассиди", "фанфики", "юмор", "Толкин", "Игра престолов", "Гарри Поттер");
 	/**
 	 * Declares class-based actions.
 	 */

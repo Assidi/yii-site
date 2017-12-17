@@ -8,6 +8,9 @@ class BlogController extends Controller
 	 */
 	public $layout='//layouts/column2';
     public $adminmenu = false;
+    public $description = "Блог Ассиди";
+    public $keywords = array("Ассиди", "блог", "фандом");    
+
 
 	/**
 	 * @return array action filters

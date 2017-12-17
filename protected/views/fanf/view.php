@@ -3,7 +3,7 @@
 /* @var $model Fanf */
 
 $this->breadcrumbs=array(
-	'Тексты'=>array('index'),
+	'Фанфики'=>array('index'),
 	$model->title,
 );
 
@@ -11,6 +11,7 @@ if (!Yii::app()->user->isGuest) {
     // меню для администратора
     $this->menu=array(
 	array('label'=>'Все фанфики', 'url'=>array('index')),
+    array('label'=>'Статистика', 'url'=>array('statistics')),
 	array('label'=>'Создать фанфик', 'url'=>array('create')),
 	array('label'=>'Обновить фанфик', 'url'=>array('update', 'id'=>$model->ficId)),
     array('label'=>'Добавить персонажей', 'url'=>array('viewupdate', 'id'=>$model->ficId)),
@@ -27,7 +28,21 @@ if (!Yii::app()->user->isGuest) {
 
 
 <div class="full-text-head">
-    
+    <p><span class="bold">Автор: </span>Ассиди</p>
+    <?php 
+        if ($model->coauthor>0) {
+            ?>
+                <p><span class="bold">Соавтор: </span><?= $model->getCoauthor()->coauthorName?></p>
+            <?php  
+        } 
+    ?>  
+    <?php 
+        if ($model->beta>0) {
+            ?>
+                <p><span class="bold">Бета: </span><?= $model->getBeta()->betaName?></p>
+            <?php  
+        } 
+    ?>
     <p><span class="bold">Фандом: </span>
         <?php
         
@@ -68,21 +83,9 @@ if (!Yii::app()->user->isGuest) {
             <?php 
         }
     ?>
-    <?php 
-        if ($model->beta>0) {
-            ?>
-                <p><span class="bold">Бета: </span><?= $model->getBeta()->betaName?></p>
-            <?php  
-        } 
-    ?>
     
-    <?php 
-        if ($model->coauthor>0) {
-            ?>
-                <p><span class="bold">Соавтор: </span><?= $model->getCoauthor()->coauthorName?></p>
-            <?php  
-        } 
-    ?>    
+    
+      
     <p><span class="bold">Написано: </span><?= AssidiHelper::myDate($model->dateWrite)?></p>
     <p><?= $model->summary ?></p>    
     

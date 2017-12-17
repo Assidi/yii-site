@@ -4,9 +4,12 @@
 /* @var $form CActiveForm */
 
 $this->breadcrumbs=array(
-	'Тексты'=>array('index'),
+	'Фанфики'=>array('index'),
 	'Поиск',
 );
+
+if (!$minSize) $minSize = 0;
+if (!$maxSize) $maxSize = Fanf::maxSize();
 ?>
 
 <div class="wide form">
@@ -58,10 +61,9 @@ $this->breadcrumbs=array(
 
 	<div class="form-group">
         <label>Размер</label><br />
-        От <input type="text" name="Fanf[minSize]" id="size" value="0"/>
-        до <input type="text" name="Fanf[maxSize]" id="size" value="<?=Fanf::maxSize();?>"/>
-        тыс. знаков
-		
+        От <input type="text" name="Fanf[minSize]" class="size" value="<?=$minSize;?>"/>
+        до <input type="text" name="Fanf[maxSize]" class="size" value="<?=$maxSize;?>"/>
+        тыс. знаков		
 	</div>	
 
 	<div class="form-group">
